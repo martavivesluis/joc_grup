@@ -5,15 +5,13 @@ import java.util.List;
 
 public class Usuario extends DAO
 {
-
-
     public String nombre;
     public String password;
     public int nivel;
     public int ataque;
     public int resistencia;
     public int defensa;
-   // List<Objeto> MisObjetos = new ArrayList<Objeto>();
+    //List<Objeto> MisObjetos = new ArrayList<Objeto>();
     public Usuario(String nombre,String c,int n,int a, int d, int r)//constructor
     {   this.nombre = nombre;
         this.password = c;

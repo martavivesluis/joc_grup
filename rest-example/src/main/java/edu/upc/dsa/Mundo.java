@@ -17,6 +17,7 @@ public class Mundo {
             return false;
         } else {
             usuarios.putIfAbsent(u.getNombre(),u);
+            u.insert();
             return true;
         }
     }

@@ -7,21 +7,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-
-
-
 @Path("/json")
 public class JSONService {
     private Mundo mundo =  SingletonMundo.getInstance().mundo;
 
-    public JSONService() {
-
-    }
+    public JSONService() { }
     @POST
-    @Path("usuario/new")
+    @Path("/usuario/new")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newTrack(Usuario user) {
-       mundo.crearUsuario(user);
+       //mundo.crearUsuario(user);
        return Response.status(201).entity("User added!").build();
     }
 
