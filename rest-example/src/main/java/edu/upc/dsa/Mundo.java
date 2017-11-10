@@ -6,6 +6,7 @@ import java.util.Map;
 
 public class Mundo {
     Map<String, Usuario> usuarios = new HashMap<String, Usuario>();//recibimos como clave el nombre del usuario,añade el usuario
+    Map<String, Jugador> jugadors = new HashMap<String, Jugador>();//jugadors
 
 
     public void añadirObjetoAUsuario(Usuario u, Objeto o) {
@@ -49,5 +50,13 @@ public class Mundo {
         destino.MisObjetos.add(o);
     }
 */
-
+    /*public Boolean crearJugador(Jugador jugador) {
+        if (jugadors.containsKey(jugador.getNombre())) {
+            return false;
+        } else {
+            jugadors.putIfAbsent(jugador.getNombre(),jugador);
+            jugador.insert();
+            return true;
+        }
+    }*/
 }
