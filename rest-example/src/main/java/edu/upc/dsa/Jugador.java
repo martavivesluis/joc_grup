@@ -1,17 +1,19 @@
 package edu.upc.dsa;
 
+import java.util.ArrayList;
+
 public class Jugador {
-    private String nom;
+    public String nom;
     private String email;
     private String contrasenya;
-    private Usuario personantge;
+    ArrayList <Usuario> personantgesJugador;
 
     public Jugador(String nom, String contrasenya, String email, Usuario personantge)
     {
         this.nom = nom;
         this.contrasenya = contrasenya;
         this.email = email;
-        this.personantge = personantge;
+        personantgesJugador= new ArrayList<Usuario>();
 
     }
     public Jugador()
@@ -19,7 +21,7 @@ public class Jugador {
         this.nom = null;
         this.contrasenya = null;
         this.email = null;
-        this.personantge = null;
+        personantgesJugador= new ArrayList<Usuario>();
     }
 
     public String getNombre() {
@@ -31,8 +33,8 @@ public class Jugador {
     public String getMail() {
         return email;
     }
-    public Usuario getPersonantge() {
-        return personantge;
+    public ArrayList<Usuario> getPersonantgesJugador() {
+        return personantgesJugador;
     }
     public void setNom(String nom)
     {
@@ -42,8 +44,5 @@ public class Jugador {
     {
         this.contrasenya = contrasenya;
     }
-    public void setUsuario (Usuario personantge)
-    {
-        this.personantge = personantge;
-    }
+
 }

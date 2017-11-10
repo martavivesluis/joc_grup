@@ -10,8 +10,12 @@ public class JugadorTest extends TestCase {
     {
         try {
             SingletonMundo instanciaunica = SingletonMundo.getInstance();
-            Usuario Prueba = new Usuario("Gnomo", "atacant", 10,20, 30,40);
-            Jugador Anna = new Jugador("Anna", "marianet", "marianet9990", Prueba);
+            Usuario personatge = new Usuario("Gnomo", "atacant", 10,20, 30,40);
+            Jugador Anna = new Jugador("Anna", "marianet", "marianet9990", personatge);
+            instanciaunica.mundo.crearJugador(Anna);
+            instanciaunica.mundo.crearUsuario(personatge);
+            instanciaunica.mundo.AfegirPersonatgeJugador(Anna, personatge);
+            assertEquals("personatge", instanciaunica.mundo.consultaPersonatgesJugador(Anna).get(0));
         }
         catch (Exception e)
         {
