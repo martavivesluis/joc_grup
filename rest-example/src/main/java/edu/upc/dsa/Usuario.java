@@ -6,7 +6,6 @@ import java.util.List;
 public class Usuario extends DAO
 {
     public String nombre;
-    public String password;
     public int nivel;
     public int ataque;
     public int resistencia;
@@ -14,11 +13,18 @@ public class Usuario extends DAO
     //List<Objeto> MisObjetos = new ArrayList<Objeto>();
     public Usuario(String nombre,String c,int n,int a, int d, int r)//constructor
     {   this.nombre = nombre;
-        this.password = c;
         this.nivel = n;
         this.ataque = a;
         this.resistencia = d;
         this.defensa = r;
+
+    }
+    public Usuario()//constructor
+    {   this.nombre = null;
+        this.nivel = 0;
+        this.ataque = 0;
+        this.resistencia = 0;
+        this.defensa = 0;
 
     }
     /*
@@ -55,13 +61,6 @@ public class Usuario extends DAO
         this.nombre = nombre;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public int getNivel() {
         return nivel;

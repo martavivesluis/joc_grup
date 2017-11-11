@@ -63,4 +63,17 @@ public class Mundo {
     {
       return jugador.personantgesJugador;
     }
+    public String consultarNomJugador(String nombre)
+    {
+        Jugador j1= mapJugadors.get(nombre);
+        String nom = j1.getNombre();
+        return nom;
+    }
+    public String consultarContraJugador(String nombre)
+    {
+        Jugador j1= mapJugadors.get(nombre);
+        String contrasenya = j1.getContrasenya();
+        return contrasenya;
+
+    }
 }
