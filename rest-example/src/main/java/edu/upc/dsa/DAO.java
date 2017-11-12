@@ -19,19 +19,31 @@ public class DAO {
         Field[] misatributos = this.getClass().getDeclaredFields();
         Field atributo;
         int j = 0;
+        int identificadortaula = 0;
         int totalAtributs = 0;
         StringBuffer values = new StringBuffer();
         try {
             for (int i = 0; i + 1 < misatributos.length; i++) {
                 atributo = misatributos[i];
                 System.out.println(atributo.getName().toString());
+                if(atributo.getName().toString().equals("id"))
+                {
+                   String identificador = (atributo.get(this)+"");
+                    Integer.parseInt(identificador);
+                }
+                System.out.println(atributo.getGenericType().toString());
                 sb.append(atributo.getName().toString() + ",");
 
                 if (atributo.getGenericType().toString().equals("int"))
                 {
                 values.append(atributo.get(this) + ",");}
-                else{
+                else if (atributo.getGenericType().toString().equals("class java.lang.String")){
                     values.append("'"+atributo.get(this) + "',");
+                }
+                else
+                {
+                    //caso del array de objetos, creeemos tabla a partir del identificador
+
                 }
                 j = i;
             }
@@ -83,13 +95,14 @@ public class DAO {
             for (int i = 0; i + 1 < misatributos.length; i++) {
                 atributo = misatributos[i];
                 System.out.println(atributo.getName().toString());
+                System.out.println(atributo.getGenericType().toString());
                 sb.append(atributo.getName().toString() + "=");
 
                 if (atributo.getGenericType().toString().equals("int"))
                 {
                     sb.append(atributo.get(this).toString() + " AND ");}
 
-                else{
+                else if(atributo.getGenericType().toString().equals("string")) {
                     sb.append("'"+atributo.get(this).toString() + "' AND ");
                 }
                 j = i;

@@ -2,15 +2,18 @@ package edu.upc.dsa;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Usuario extends DAO
 {
     public String nombre;
+    public int id;
     public int nivel;
     public int ataque;
     public int resistencia;
-    public int defensa;
     //List<Objeto> MisObjetos = new ArrayList<Objeto>();
+    public int defensa;
+    private static final AtomicInteger count = new AtomicInteger(0);
     public Usuario(String nombre,String c,int n,int a, int d, int r)//constructor
     {   this.nombre = nombre;
         this.nivel = n;
@@ -25,6 +28,7 @@ public class Usuario extends DAO
         this.ataque = 0;
         this.resistencia = 0;
         this.defensa = 0;
+        this.id = count.incrementAndGet();
 
     }
     /*
