@@ -6,9 +6,10 @@ public class Jugador {
     public String nom;
     private String email;
     private String contrasenya;
-    ArrayList <Usuario> personantgesJugador;
+    ArrayList <Usuario> personantgesJugador; //etiqueta buida
 
-    public Jugador(String nom, String contrasenya, String email, Usuario personantge)
+    //constructor d'un jugador
+    public Jugador(String nom, String contrasenya, String email)
     {
         this.nom = nom;
         this.contrasenya = contrasenya;
@@ -33,6 +34,7 @@ public class Jugador {
     public String getMail() {
         return email;
     }
+
     public ArrayList<Usuario> getPersonantgesJugador() {
         return personantgesJugador;
     }

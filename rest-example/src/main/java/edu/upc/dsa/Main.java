@@ -28,6 +28,8 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
+
+        /////////////////////////////////////Servei REST/////////////////////////////////////////////
         final HttpServer server = startServer();
 
         StaticHttpHandler staticHttpHandler = new StaticHttpHandler("./public/");//recurso estatico//
@@ -39,6 +41,7 @@ public class Main {
 
         System.in.read();
         server.stop();
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
 
 

@@ -9,7 +9,7 @@ import java.lang.reflect.AccessibleObject;
 import java.lang.TypeNotPresentException;
 import java.sql.SQLException;
 
-public class DAO {
+public class DAO {/*
 
     private String queryInsert() {
         StringBuffer sb = new StringBuffer("INSERT INTO ");
@@ -140,5 +140,5 @@ public void delete() {
         t.insert();
         //t.delete();
 
-    }
+    }*/
 }

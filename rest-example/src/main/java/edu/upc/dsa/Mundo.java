@@ -1,5 +1,6 @@
 package edu.upc.dsa;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +19,7 @@ public class Mundo {
             return false;
         } else {
             usuarios.putIfAbsent(u.getNombre(),u);
-            u.insert();
+
             return true;
         }
     }
@@ -76,4 +77,17 @@ public class Mundo {
         return contrasenya;
 
     }
+    public Jugador getJugador(String nom) {
+        return mapJugadors.get(nom);
+    }
+    public String consultarPersonatgeJugador(Jugador u)
+    {
+
+        Usuario aux= u.getPersonantgesJugador().get(0);
+        return aux.getNombre();
+    }
+
+
+
+
 }

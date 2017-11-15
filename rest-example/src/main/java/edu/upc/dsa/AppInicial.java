@@ -71,7 +71,7 @@ public class AppInicial {
                                     System.out.println("Solament pots escollir entre 1 i 3");
                             }
                                 instanciaunica.mundo.crearUsuario(personantge);
-                                Jugador nouJugador = new Jugador("Anna", "marianet", "marianet9990", personantge);
+                                Jugador nouJugador = new Jugador("Anna", "marianet", "marianet9990");
                                 instanciaunica.mundo.crearJugador(nouJugador);
                         break;
                     case 3:
