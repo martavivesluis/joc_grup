@@ -1,6 +1,5 @@
 package edu.upc.dsa;
 
-import javax.ws.rs.*;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -16,10 +15,12 @@ public class JSONService {
         Jugador j1 = new Jugador();
         j1.setNom("anna");
         j1.setContrasenya("anna");
+        instanciaUnica.mundo.crearJugador(j1);
         //creacio d'un personatge
-        Usuario p1 = new Usuario();
+        Personatge p1 = new Personatge();
         p1.setNombre("Gnomo");
         p1.setAtaque(20);
+        instanciaUnica.mundo.AfegirPersonatgeJugador(j1,p1);
 
     }
     @GET
@@ -27,7 +28,6 @@ public class JSONService {
     @Produces(MediaType.APPLICATION_JSON)
         public Jugador getJugador(@PathParam("nomJugador") String nomJugador)
         {
-
             return instanciaUnica.mundo.getJugador(nomJugador);
         }
 

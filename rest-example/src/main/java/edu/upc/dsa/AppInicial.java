@@ -1,7 +1,6 @@
 package edu.upc.dsa;
 
 
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -54,7 +53,7 @@ public class AppInicial {
                             System.out.println("Has triat: 2");
                             System.out.println("Primer has de escollir un personatge inicial");
                             System.out.println("1.Bruixa, 2.Gnomo, 3.Fantasma ");
-                            Usuario personantge = new Usuario();
+                            Personatge personantge = new Personatge();
                             aux = sn.nextInt();
                             switch (aux)
                             {

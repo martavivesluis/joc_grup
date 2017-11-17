@@ -1,20 +1,17 @@
 package edu.upc.dsa;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Mundo {
-    Map<String, Usuario> usuarios = new HashMap<String, Usuario>();//recibimos como clave el nombre del usuario,añade el usuario
+    Map<String, Personatge> usuarios = new HashMap<String, Personatge>();//recibimos como clave el nombre del usuario,añade el usuario
     Map<String, Jugador> mapJugadors = new HashMap<String, Jugador>();//jugadors
 
 
-    public void añadirObjetoAUsuario(Usuario u, Objeto o) {
+    public void añadirObjetoAUsuario(Personatge u, Objeto o) {
         //u.MisObjetos.add(o);
     }
 
-    public Boolean crearUsuario(Usuario u) {
+    public Boolean crearUsuario(Personatge u) {
         if (usuarios.containsKey(u.getNombre())) {
             return false;
         } else {
@@ -23,29 +20,29 @@ public class Mundo {
             return true;
         }
     }
-    public Usuario consultarUsuario(String nombre)
+    public Personatge consultarUsuario(String nombre)
     {
         return usuarios.get(nombre);//si no esta devuelve un null
     }
 
     public boolean eliminarUsuario(String Nombre)
     {
-        Usuario v = usuarios.remove(Nombre);
+        Personatge v = usuarios.remove(Nombre);
         if(v == null)
             return false;
         else
             return true;
 
     }/*
-    public List<Objeto> consultarObjetosDeUsuario(Usuario u)
+    public List<Objeto> consultarObjetosDeUsuario(Personatge u)
     {
         return u.MisObjetos;
     }
-    public Objeto consultarObjetoDeUsuario(Usuario u, String nombreObjeto)
+    public Objeto consultarObjetoDeUsuario(Personatge u, String nombreObjeto)
     {
         return u.getPrimerObjetoLlamado(nombreObjeto);
     }
-    public void transferirObjetoEntreUsuarios(Usuario origen,Usuario destino, Objeto o)
+    public void transferirObjetoEntreUsuarios(Personatge origen,Personatge destino, Objeto o)
     {
         origen.MisObjetos.remove(o);
         destino.MisObjetos.add(o);
@@ -56,14 +53,11 @@ public class Mundo {
        return true;
     }
 
-    public void AfegirPersonatgeJugador(Jugador jugador, Usuario personatge)
+    public void AfegirPersonatgeJugador(Jugador jugador, Personatge personatge)
     {
-        jugador.personantgesJugador.add(personatge);
+        jugador.personatges.add(personatge);
     }
-    public List<Usuario> consultaPersonatgesJugador(Jugador jugador)
-    {
-      return jugador.personantgesJugador;
-    }
+
     public String consultarNomJugador(String nombre)
     {
         Jugador j1= mapJugadors.get(nombre);
@@ -80,11 +74,16 @@ public class Mundo {
     public Jugador getJugador(String nom) {
         return mapJugadors.get(nom);
     }
-    public String consultarPersonatgeJugador(Jugador u)
+    public ArrayList<String> consultarPersonatgesJugador(Jugador u)
     {
 
-        Usuario aux= u.getPersonantgesJugador().get(0);
-        return aux.getNombre();
+        ArrayList<Personatge> totselsdaquestjugador = u.getPersonatges();
+        ArrayList<String> totselsNomsdelspersonatgesdeljugador = new ArrayList<String>();
+        for(Personatge p : totselsdaquestjugador){
+            String nombre = p.getNombre();
+            totselsNomsdelspersonatgesdeljugador.add(nombre);
+        }
+        return totselsNomsdelspersonatgesdeljugador;
     }
 
 

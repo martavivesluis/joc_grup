@@ -6,7 +6,12 @@ public class Jugador {
     public String nom;
     private String email;
     private String contrasenya;
-    ArrayList <Usuario> personantgesJugador; //etiqueta buida
+
+    public void setPersonatges(ArrayList<Personatge> personatges) {
+        this.personatges = personatges;
+    }
+
+    ArrayList <Personatge> personatges; //etiqueta buida
 
     //constructor d'un jugador
     public Jugador(String nom, String contrasenya, String email)
@@ -14,7 +19,7 @@ public class Jugador {
         this.nom = nom;
         this.contrasenya = contrasenya;
         this.email = email;
-        personantgesJugador= new ArrayList<Usuario>();
+        personatges = new ArrayList<Personatge>();
 
     }
     public Jugador()
@@ -22,7 +27,7 @@ public class Jugador {
         this.nom = null;
         this.contrasenya = null;
         this.email = null;
-        personantgesJugador= new ArrayList<Usuario>();
+        personatges = new ArrayList<Personatge>();
     }
 
     public String getNombre() {
@@ -35,8 +40,8 @@ public class Jugador {
         return email;
     }
 
-    public ArrayList<Usuario> getPersonantgesJugador() {
-        return personantgesJugador;
+    public ArrayList<Personatge> getPersonatges() {
+        return personatges;
     }
     public void setNom(String nom)
     {

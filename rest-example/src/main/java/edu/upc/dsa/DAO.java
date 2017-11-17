@@ -136,7 +136,7 @@ public void delete() {
     }
 }
     public static void main(String[] args) {
-        Usuario t = new Usuario("Anna", "1234", 1, 2, 3, 40);
+        Personatge t = new Personatge("Anna", "1234", 1, 2, 3, 40);
         t.insert();
         //t.delete();
 

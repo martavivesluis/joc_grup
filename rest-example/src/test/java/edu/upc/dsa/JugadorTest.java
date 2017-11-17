@@ -1,9 +1,6 @@
 package edu.upc.dsa;
 import junit.framework.TestCase;
 
-import java.util.Collections;
-import java.util.List;
-
 import static junit.framework.Assert.assertEquals;
 
 public class JugadorTest extends TestCase {
@@ -12,7 +9,7 @@ public class JugadorTest extends TestCase {
     {
         try {
             SingletonMundo instanciaunica = SingletonMundo.getInstance();
-            Usuario personatge = new Usuario("Gnomo", "atacant", 10,20, 30,40);
+            Personatge personatge = new Personatge("Gnomo", "atacant", 10,20, 30,40);
             instanciaunica.mundo.crearUsuario(personatge);
             Jugador Anna = new Jugador("Anna", "marianet", "marianet9990");
             instanciaunica.mundo.crearJugador(Anna);
@@ -20,7 +17,7 @@ public class JugadorTest extends TestCase {
             //comprovació nom jugador
             assertEquals( "Anna", instanciaunica.mundo.getJugador("Anna").nom );
 
-            assertEquals( 1, instanciaunica.mundo.consultaPersonatgesJugador(Anna).size() );
+            assertEquals( "Gnomo", instanciaunica.mundo.consultarPersonatgesJugador(Anna).get(0) );
             //comprovacio personatge afegit a jugador
 
           // assertEquals( "Gnomo", instanciaunica.mundo.consultarPersonatgeJugador(Anna) );

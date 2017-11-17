@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Usuario extends DAO
+public class Personatge extends DAO
 {
     public String nombre;
     public int id;
@@ -14,7 +14,7 @@ public class Usuario extends DAO
     //List<Objeto> MisObjetos = new ArrayList<Objeto>();
     public int defensa;
     private static final AtomicInteger count = new AtomicInteger(0);
-    public Usuario(String nombre,String c,int n,int a, int d, int r)//constructor
+    public Personatge(String nombre, String c, int n, int a, int d, int r)//constructor
     {   this.nombre = nombre;
         this.nivel = n;
         this.ataque = a;
@@ -22,7 +22,7 @@ public class Usuario extends DAO
         this.defensa = r;
 
     }
-    public Usuario()//constructor
+    public Personatge()//constructor
     {   this.nombre = null;
         this.nivel = 0;
         this.ataque = 0;
