@@ -1,9 +1,15 @@
 package edu.upc.dsa;
 
+import edu.upc.dsa.control.Teclat;
+import edu.upc.dsa.grafics.Pantalla;
 import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBuffer;
+import java.awt.image.DataBufferInt;
 
 public class Joc extends Canvas implements Runnable{
 
@@ -18,13 +24,33 @@ public class Joc extends Canvas implements Runnable{
     private static final String NOMBRE = "Joc";
     private static int aps = 0;
     private static int fps = 0;
-    private static volatile boolean funcionant = false;
 
+    //
+    private static int x=0;
+    private static int y=0;
+
+    private static volatile boolean funcionant = false;
+    private static Teclat teclat;
+    private static Pantalla pantalla;
+
+    //objectes per manipular pixels joc, aqui estem fent una imatge en blanc
+    private static BufferedImage imatge = new BufferedImage(AMPLADA, ALÇADA,
+                   BufferedImage.TYPE_INT_RGB);
+    //estem accedint a la imatge en forma de un array de pixels
+    //retorna un array de int que representa els pixels de la imatge
+    //getRaster retorna sequencia de pixels
+    private static int[] pixels =((DataBufferInt) imatge.getRaster().getDataBuffer()).getData();
+
+
+
+    //CONSTRUCTOR
     private Joc()//la faig privada perquè només aquesta classe pugui crear instancies
     {
-        //CONSTRUCTOR
+        //iniciliatzacions
         setPreferredSize(new Dimension(AMPLADA, ALÇADA));
-        //iniciliatzació
+        pantalla = new Pantalla(AMPLADA, ALÇADA);
+        teclat = new Teclat();
+        addKeyListener(teclat); //aqui li diem a java que detecti les tecles picades en la classe
         finestra = new JFrame(NOMBRE);
         //botó tancar aplicació quan tanquem finestra
         finestra.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,6 +63,7 @@ public class Joc extends Canvas implements Runnable{
         finestra.pack();//per ajustar el tamany a 800*800
         finestra.setLocationRelativeTo(null); //fixa finestra al mig de l'escriptori
         finestra.setVisible(true);
+
     }
 
     public static void main(String[] args)
@@ -67,12 +94,59 @@ public class Joc extends Canvas implements Runnable{
 
     private void actualitzar()
     {
+        teclat.actualizar();
+        //descobrir tecla polçada
+        if(teclat.adalt)
+        {
+            //log4javatecla picada
+            System.out.println("adalt");
+        }
+        if(teclat.abaix)
+        {
+            //log4javatecla picada
+            System.out.println("abaix");
+        }
+        if(teclat.esquerra)
+        {
+            //log4javatecla picada
+            System.out.println("esquerra");
+        }
+        if(teclat.dreta)
+        {
+            //log4javatecla picada
+            System.out.println("dreta");
+        }
+
         aps++;
-        fps++;
+
     }
     private void mostrar()
     {
-        aps++;
+        //estrategia de buffer, sense el buffer obtindriem la pantalla i la dibuixariem
+        //així les imatges arriben ja llestes a la pantalla i es dibuixen millor
+        BufferStrategy estrategiaBufer = getBufferStrategy();
+        if(estrategiaBufer == null)
+        {
+            createBufferStrategy(3);
+            return;
+        }
+        pantalla.netejar();
+        pantalla.mostrar(x,y);
+
+        //copiem gràfics de la pantalla al joc
+        //bucle for de la pnatalla
+            //origen,posOrigen,desti,posDesti,tamanyArrayaCopiar
+        System.arraycopy(pantalla.pixels,0, pixels,0,pixels.length);
+        /*for(int i=0; i <pixels.length; i++)
+        {
+            pixels[i] = pantalla.pixels[i];
+        }*/
+        //dibuixem els gràfics copiats
+        Graphics g = estrategiaBufer.getDrawGraphics(); //dibuixa les coses
+        g.drawImage(imatge, 0, 0,getWidth(), getHeight(), null);
+        g.dispose(); //quan g acaba la reinicialitza
+        estrategiaBufer.show();
+
         fps++;
     }
 
@@ -95,6 +169,7 @@ public class Joc extends Canvas implements Runnable{
         double  tempsPassat;
         double  delta= 0; //quantitat de temps que ha passat fins una actualitzacio
 
+        requestFocus(); //per saber on puc pica les tecles
 
         System.out.println("se esta executant");
         while(funcionant)

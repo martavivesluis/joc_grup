@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/recursos" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -39,5 +40,6 @@
     <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-client:2.24" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.jersey.media:jersey-media-jaxb:2.24" level="project" />
     <orderEntry type="library" name="Maven: javax.ws.rs:javax.ws.rs-api:2.0.1" level="project" />
+    <orderEntry type="library" name="org.kuali.maven.pom:pom-sandbox:1.0.2" level="project" />
   </component>
 </module>

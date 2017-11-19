@@ -7,7 +7,7 @@ public final class Teclat implements KeyListener{
 
     //aquest numero es més aviat els caracters que representa, ja miraré quin es. no idea
     private final static int numTecles = 120;
-    private final boolean[] teclas = new boolean[numTecles];
+    private final boolean[] tecles = new boolean[numTecles];
 
 
     //control de moviment, creació de moviment
@@ -19,26 +19,35 @@ public final class Teclat implements KeyListener{
     public void actualizar()//ho tenim en joc
     {
         //correspondecia de tecles
-        adalt=teclas[KeyEvent.VK_W];
-        abaix=teclas[KeyEvent.VK_S];
-        esquerra=teclas[KeyEvent.VK_A];
-        dreta=teclas[KeyEvent.VK_D];
+        adalt= tecles[KeyEvent.VK_W];
+        abaix= tecles[KeyEvent.VK_S];
+        esquerra= tecles[KeyEvent.VK_A];
+        dreta= tecles[KeyEvent.VK_D];
 
+    }
+    @Override
+    //tecla picada i no la hem soltat
+    public void keyPressed(KeyEvent e) {
+        tecles[e.getKeyCode()] = true;
+    }
+
+    @Override
+    //tecla lliberada
+    public void keyReleased(KeyEvent e) {
+        tecles[e.getKeyCode()] = false;
     }
 
 
     @Override
+    //tecla picada i l'hem soltat
     public void keyTyped(KeyEvent e) {
 
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
 
     }
 
-    @Override
-    public void keyReleased(KeyEvent e) {
 
-    }
+
+
+
+
 }

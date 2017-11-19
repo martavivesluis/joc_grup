@@ -3,6 +3,7 @@ package edu.upc.dsa.grafics;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 public class FullSprites {
 
@@ -12,7 +13,9 @@ public class FullSprites {
 
     //Col·leció de fulls de sprites
         //creació nou objecte
-    public static FullSprites panda = new FullSprites("/resources/textures/panda.png",160, 256);
+
+
+    public static FullSprites gris = new FullSprites("/recursos/gris.jpg/", 320, 320);
 
 
     //fí de la col·leció
