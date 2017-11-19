@@ -10,6 +10,13 @@ public class FullSprites {
     private final int alcada;
     public final int[]pixels;
 
+    //Col·leció de fulls de sprites
+        //creació nou objecte
+    public static FullSprites panda = new FullSprites("/resources/textures/panda.png",160, 256);
+
+
+    //fí de la col·leció
+
     public FullSprites(final String ruta, final int amplada, final int alcada)
     {
         this.amplada=amplada;

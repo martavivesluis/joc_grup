@@ -10,6 +10,10 @@ public final class Sprite {
     public int[]pixels;
     private final FullSprites fullSprites;
 
+    //col·leció sprites
+    public static Sprite asfalto = new Sprite(32,0,0, FullSprites.panda);
+    //fí de la col·leció
+
     public Sprite(int tamany, final int columna, final int fila, final FullSprites full) {
         this.tamany = tamany;
 
