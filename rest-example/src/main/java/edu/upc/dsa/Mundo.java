@@ -1,5 +1,9 @@
 package edu.upc.dsa;
 
+import edu.upc.dsa.caracteres.Jugador;
+import edu.upc.dsa.caracteres.Objeto;
+import edu.upc.dsa.caracteres.Personatge;
+
 import java.util.*;
 
 public class Mundo {
@@ -8,15 +12,13 @@ public class Mundo {
 
 
     public void añadirObjetoAUsuario(Personatge u, Objeto o) {
-        //u.MisObjetos.add(o);
+        u.getMisObjetos().add(o);
     }
-
     public Boolean crearUsuario(Personatge u) {
         if (usuarios.containsKey(u.getNombre())) {
             return false;
         } else {
             usuarios.putIfAbsent(u.getNombre(),u);
-
             return true;
         }
     }
@@ -55,7 +57,7 @@ public class Mundo {
 
     public void AfegirPersonatgeJugador(Jugador jugador, Personatge personatge)
     {
-        jugador.personatges.add(personatge);
+        jugador.getPersonatges().add(personatge);
     }
 
     public String consultarNomJugador(String nombre)

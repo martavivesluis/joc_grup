@@ -1,5 +1,8 @@
 package edu.upc.dsa;
 
+import edu.upc.dsa.caracteres.Jugador;
+import edu.upc.dsa.caracteres.Personatge;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;

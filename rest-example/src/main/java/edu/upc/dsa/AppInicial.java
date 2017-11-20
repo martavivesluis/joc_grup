@@ -1,6 +1,9 @@
 package edu.upc.dsa;
 
 
+import edu.upc.dsa.caracteres.Jugador;
+import edu.upc.dsa.caracteres.Personatge;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

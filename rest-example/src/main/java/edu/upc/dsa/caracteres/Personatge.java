@@ -1,4 +1,6 @@
-package edu.upc.dsa;
+package edu.upc.dsa.caracteres;
+
+import edu.upc.dsa.DAO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +13,27 @@ public class Personatge extends DAO
     public int nivel;
     public int ataque;
     public int resistencia;
-    //List<Objeto> MisObjetos = new ArrayList<Objeto>();
+    List<Objeto> MisObjetos = new ArrayList<Objeto>();
     public int defensa;
+
+    public int getPosx() {
+        return posx;
+    }
+
+    public void setPosx(int posx) {
+        this.posx = posx;
+    }
+
+    public int getPosy() {
+        return posy;
+    }
+
+    public void setPosy(int posy) {
+        this.posy = posy;
+    }
+
+    int posx;
+    int posy;
     private static final AtomicInteger count = new AtomicInteger(0);
     public Personatge(String nombre, String c, int n, int a, int d, int r)//constructor
     {   this.nombre = nombre;
@@ -98,4 +119,19 @@ public class Personatge extends DAO
         this.resistencia = resistencia;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public List<Objeto> getMisObjetos() {
+        return MisObjetos;
+    }
+
+    public void setMisObjetos(List<Objeto> misObjetos) {
+        MisObjetos = misObjetos;
+    }
 }

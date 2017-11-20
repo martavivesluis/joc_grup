@@ -1,4 +1,6 @@
 package edu.upc.dsa;
+import edu.upc.dsa.caracteres.Jugador;
+import edu.upc.dsa.caracteres.Personatge;
 import junit.framework.TestCase;
 
 import static junit.framework.Assert.assertEquals;

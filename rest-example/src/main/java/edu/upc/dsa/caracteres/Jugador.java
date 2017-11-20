@@ -1,4 +1,6 @@
-package edu.upc.dsa;
+package edu.upc.dsa.caracteres;
+
+import edu.upc.dsa.caracteres.Personatge;
 
 import java.util.ArrayList;
 
@@ -6,14 +8,12 @@ public class Jugador {
     public String nom;
     private String email;
     private String contrasenya;
+    private ArrayList <Personatge> personatges;
 
     public void setPersonatges(ArrayList<Personatge> personatges) {
         this.personatges = personatges;
     }
 
-    ArrayList <Personatge> personatges; //etiqueta buida
-
-    //constructor d'un jugador
     public Jugador(String nom, String contrasenya, String email)
     {
         this.nom = nom;

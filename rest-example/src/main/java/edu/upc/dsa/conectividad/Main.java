@@ -1,4 +1,4 @@
-package edu.upc.dsa;
+package edu.upc.dsa.conectividad;
 
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.grizzly.http.server.StaticHttpHandler;

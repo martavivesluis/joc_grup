@@ -1,4 +1,4 @@
-package edu.upc.dsa;
+package edu.upc.dsa.caracteres;
 
 public class Objeto{
     public String Nombre;

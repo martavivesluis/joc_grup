@@ -39,6 +39,46 @@ public final class Teclat implements KeyListener{
 
     @Override
     public void keyReleased(KeyEvent e) {
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_W:
+                setAdalt(true);
+            case KeyEvent.VK_S:
+                setAbaix(true);
+            case KeyEvent.VK_A:
+                setEsquerra(true);
+            case KeyEvent.VK_D:
+                setDreta(true);
+        }
+    }
+    public boolean isAdalt() {
+        return adalt;
+    }
 
+    public void setAdalt(boolean adalt) {
+        this.adalt = adalt;
+    }
+
+    public boolean isAbaix() {
+        return abaix;
+    }
+
+    public void setAbaix(boolean abaix) {
+        this.abaix = abaix;
+    }
+
+    public boolean isEsquerra() {
+        return esquerra;
+    }
+
+    public void setEsquerra(boolean esquerra) {
+        this.esquerra = esquerra;
+    }
+
+    public boolean isDreta() {
+        return dreta;
+    }
+
+    public void setDreta(boolean dreta) {
+        this.dreta = dreta;
     }
 }
