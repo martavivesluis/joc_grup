@@ -8,8 +8,13 @@ public class Mundo {
 
 
     public void añadirObjetoAUsuario(Personatge u, Objeto o) {
-        //u.MisObjetos.add(o);
+        u.getArrMisObjetos().add(o);
     }
+    public void perdervida(Personatge u)
+    {
+        u.setResistencia(u.getResistencia()-1);
+    }
+
 
     public Boolean crearUsuario(Personatge u) {
         if (usuarios.containsKey(u.getNombre())) {
@@ -36,7 +41,7 @@ public class Mundo {
     }/*
     public List<Objeto> consultarObjetosDeUsuario(Personatge u)
     {
-        return u.MisObjetos;
+        return u.arrMisObjetos;
     }
     public Objeto consultarObjetoDeUsuario(Personatge u, String nombreObjeto)
     {
@@ -44,8 +49,8 @@ public class Mundo {
     }
     public void transferirObjetoEntreUsuarios(Personatge origen,Personatge destino, Objeto o)
     {
-        origen.MisObjetos.remove(o);
-        destino.MisObjetos.add(o);
+        origen.arrMisObjetos.remove(o);
+        destino.arrMisObjetos.add(o);
     }
 */
     public Boolean crearJugador(Jugador jugador) {

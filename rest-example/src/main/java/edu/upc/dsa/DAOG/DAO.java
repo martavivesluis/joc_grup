@@ -1,15 +1,64 @@
-package edu.upc.dsa;
+package edu.upc.dsa.DAOG;
+
+import edu.upc.dsa.Jugador;
+import edu.upc.dsa.Personatge;
 
 import java.lang.reflect.Field;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+import java.sql.*;
 import java.lang.Object;
 import java.lang.reflect.AccessibleObject;
 import java.lang.TypeNotPresentException;
-import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class DAO {/*
+public class DAO {
+    public int id = 0;//totes les taules tindran un identificador del tipos enter
+    public Connection getConnection() throws SQLException, ClassNotFoundException {
+        Connection con = null;
+        Class.forName("com.mysql.jdbc.Driver");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/juego?" + "user=myapp&password=1234&useJDBCCompliantTimezoneShift=true&serverTimezone=UTC");
+        System.out.println("Connected to database");
+        return con;
+    }
+
+    public String selectAllQuery(Class seleccionada) {
+
+        StringBuffer sb = new StringBuffer("SELECT * FROM ");
+        sb.append(seleccionada.getSimpleName());
+        return sb.toString();
+    }
+    public List selectAll(Class seleccionada) throws SQLException,ClassNotFoundException
+    {
+        List<Object> objects = new ArrayList<>();//en el nostre cas usuaris
+        Connection mycon = getConnection();
+        String query = selectAllQuery(seleccionada);//construim sentencia
+        PreparedStatement pstm = mycon.prepareStatement(query);
+        ResultSet result = pstm.executeQuery();
+        while(result.next())
+        {
+            Object nou = new Object();
+            objects.add(nou);
+        }
+
+        return objects;
+
+    }
+    public List<Jugador> selectAllJugadors() throws SQLException,ClassNotFoundException
+    {
+        return selectAll(Jugador.class);
+    }
+
+    public boolean userLogueado(String nombre,String contraseña)
+    {
+
+        return true;
+    }
+
+
+
+
+
+
 
     private String queryInsert() {
         StringBuffer sb = new StringBuffer("INSERT INTO ");
@@ -32,13 +81,16 @@ public class DAO {/*
                     Integer.parseInt(identificador);
                 }
                 System.out.println(atributo.getGenericType().toString());
-                sb.append(atributo.getName().toString() + ",");
 
                 if (atributo.getGenericType().toString().equals("int"))
                 {
-                values.append(atributo.get(this) + ",");}
+                values.append(atributo.get(this) + ",");
+                    sb.append(atributo.getName().toString() + ",");
+                }
                 else if (atributo.getGenericType().toString().equals("class java.lang.String")){
                     values.append("'"+atributo.get(this) + "',");
+                    sb.append(atributo.getName().toString() + ",");
+
                 }
                 else
                 {
@@ -58,6 +110,13 @@ public class DAO {/*
         System.out.println(sb.toString());
         return sb.toString();//consulta a realitzar
     }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public void insert() {
         String theQuery = this.queryInsert();
@@ -67,8 +126,7 @@ public class DAO {/*
             conn = DriverManager.getConnection("jdbc:mysql://localhost/juego?" + "user=myapp&password=1234&useJDBCCompliantTimezoneShift=true&serverTimezone=UTC");
             PreparedStatement pstm = conn.prepareStatement(theQuery);
             pstm.execute();
-
-
+            this.setId(1);
         } catch (SQLException e) {
             if (e.getErrorCode() == 1062) {
                 System.out.println("regitre duplicat");
@@ -136,9 +194,9 @@ public void delete() {
     }
 }
     public static void main(String[] args) {
-        Personatge t = new Personatge("Anna", "1234", 1, 2, 3, 40);
+        Personatge t = new Personatge("Anna", 1, 2, 3, 40);
         t.insert();
         //t.delete();
 
-    }*/
+    }
 }

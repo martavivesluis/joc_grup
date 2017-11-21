@@ -26,14 +26,47 @@ public final class Teclat implements KeyListener{
 
     }
     @Override
-    //tecla picada i no la hem soltat
     public void keyPressed(KeyEvent e) {
+        switch(e.getKeyCode())
+        {
+            case KeyEvent.VK_W:
+                setAdalt(true);
+                break;
+            case KeyEvent.VK_S:
+                setAbaix(true);
+                break;
+            case KeyEvent.VK_A:
+                setEsquerra(true);
+                break;
+            case KeyEvent.VK_D:
+                setDreta(true);
+                break;
+
+        }
+
         tecles[e.getKeyCode()] = true;
     }
 
     @Override
-    //tecla lliberada
     public void keyReleased(KeyEvent e) {
+        switch(e.getKeyCode())
+        {
+            case KeyEvent.VK_W:
+                setAdalt(false);
+                break;
+            case KeyEvent.VK_S:
+                setAbaix(false);
+                break;
+            case KeyEvent.VK_A:
+                setEsquerra(false);
+                break;
+            case KeyEvent.VK_D:
+                setDreta(false);
+                break;
+
+        }
+
+
         tecles[e.getKeyCode()] = false;
     }
 
@@ -46,8 +79,19 @@ public final class Teclat implements KeyListener{
     }
 
 
+    public void setAdalt(boolean adalt) {
+        this.adalt = adalt;
+    }
 
+    public void setAbaix(boolean abaix) {
+        this.abaix = abaix;
+    }
 
+    public void setEsquerra(boolean esquerra) {
+        this.esquerra = esquerra;
+    }
 
-
+    public void setDreta(boolean dreta) {
+        this.dreta = dreta;
+    }
 }

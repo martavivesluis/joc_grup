@@ -1,20 +1,32 @@
 package edu.upc.dsa;
 
+import edu.upc.dsa.DAOG.DAO;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Personatge extends DAO
 {
     public String nombre;
-    public int id;
+
+
+
+
     public int nivel;
     public int ataque;
     public int resistencia;
-    //List<Objeto> MisObjetos = new ArrayList<Objeto>();
+    List<Objeto> arrMisObjetos = new ArrayList<Objeto>();
+
+    public void setArrMisObjetos(List<Objeto> arrMisObjetos) {
+        this.arrMisObjetos = arrMisObjetos;
+    }
+
+    public List<Objeto> getArrMisObjetos() {
+        return arrMisObjetos;
+    }
+
     public int defensa;
-    private static final AtomicInteger count = new AtomicInteger(0);
-    public Personatge(String nombre, String c, int n, int a, int d, int r)//constructor
+    public Personatge(String nombre, int n, int a, int d, int r)//constructor
     {   this.nombre = nombre;
         this.nivel = n;
         this.ataque = a;
@@ -28,12 +40,11 @@ public class Personatge extends DAO
         this.ataque = 0;
         this.resistencia = 0;
         this.defensa = 0;
-        this.id = count.incrementAndGet();
 
     }
-    /*
+
     public Objeto getPrimerObjetoLlamado(String nombreDeObjeto){
-        for (Objeto miobjeto:MisObjetos)
+        for (Objeto miobjeto: arrMisObjetos)
         {
             if(miobjeto.Nombre.equals(nombreDeObjeto))
                 return miobjeto;
@@ -43,7 +54,7 @@ public class Personatge extends DAO
     public Objeto eliminarObjetoPorNombre(String nombreObjeto)
     {
         Objeto aborrar = null;
-        for (Objeto miobjeto:MisObjetos)
+        for (Objeto miobjeto: arrMisObjetos)
         {
             if(miobjeto.Nombre.equals(nombreObjeto))
             {
@@ -53,9 +64,9 @@ public class Personatge extends DAO
         if(aborrar == null){
             return null;
         }
-        MisObjetos.remove(aborrar);
+        arrMisObjetos.remove(aborrar);
         return  aborrar;
-    }*/
+    }
 
     public String getNombre() {
         return nombre;

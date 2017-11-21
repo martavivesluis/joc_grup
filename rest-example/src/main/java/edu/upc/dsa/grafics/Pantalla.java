@@ -26,6 +26,18 @@ public final class Pantalla {
 
         }
     }
+    private int limitador(int valornou,int valorminim,int valormaxim)
+    {
+        if(valornou > valormaxim)
+        {
+            return valormaxim;
+        }
+        if(valornou< valorminim)
+        {
+            return valorminim;
+        }
+        return valornou;
+    }
 
     public void mostrar(final int compensacioX, final int compensacioY)
     {
