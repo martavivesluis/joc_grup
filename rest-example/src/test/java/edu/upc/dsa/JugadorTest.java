@@ -42,4 +42,19 @@ public class JugadorTest extends TestCase {
         }
     }
 
+    public void testSelect() {
+        try {
+            Jugador jugador = new Jugador();
+            jugador.setId(-1356844420);
+            jugador.select();
+            assertEquals(jugador.getEmail(),"s@hola.com");
+            System.out.println(jugador);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            fail();
+        }
+    }
+
 }

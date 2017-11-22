@@ -82,4 +82,12 @@ public class Jugador extends DAO {
     public void setId(int id) {
         this.id = id;
     }
+
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        sb.append(this.id).append(" ").append(this.email).append(" ").append(contrasenya).append(" ").append(nom);
+
+        return sb.toString();
+    }
+
 }

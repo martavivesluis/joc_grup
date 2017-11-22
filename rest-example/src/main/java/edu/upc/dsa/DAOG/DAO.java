@@ -4,6 +4,7 @@ import edu.upc.dsa.Jugador;
 import edu.upc.dsa.Personatge;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.sql.*;
 import java.lang.Object;
 import java.lang.reflect.AccessibleObject;
@@ -22,6 +23,54 @@ public class DAO {
         con = DriverManager.getConnection("jdbc:mysql://localhost/juego?" + "user=myapp&password=1234&useJDBCCompliantTimezoneShift=true&serverTimezone=UTC");
         System.out.println("Connected to database");
         return con;
+    }
+
+    private Method findSetMethod(String field) {
+        String s = "set"+field.substring(0,1).toUpperCase()+field.substring(1);
+
+        System.out.println("setter "+s);
+
+        Method[] methods = this.getClass().getDeclaredMethods();
+        for (Method m: methods) {
+            System.out.println(m.getName());
+            if (m.getName().equals(s)) return m;
+        }
+
+        return null;
+    }
+
+    private void addField(String field, Object value) throws  Exception {
+        System.out.println("field: "+field+" "+value);
+
+         Method m = findSetMethod(field); // email --> setEmail, setId, setName
+         Object[] args = {value};
+         m.invoke(this, args);
+    }
+
+    private void addRow(ResultSet rs) throws  Exception{
+        ResultSetMetaData rsmd = rs.getMetaData();
+        int totalColumnes = rsmd.getColumnCount();
+
+        for (int i=0; i< totalColumnes; i++) {
+            addField(rsmd.getColumnName(i+1), rs.getObject(i+1));
+        }
+    }
+
+    public List findAll() {
+
+    }
+
+    public void select() throws Exception {
+        String theQuery = this.querySelect();
+        Connection con = getConnection();
+        PreparedStatement pstm = con.prepareStatement(theQuery);
+        pstm.setInt(1, this.getId());
+        ResultSet rs = pstm.executeQuery();
+
+        while (rs.next()) {
+            addRow(rs);
+        }
+
     }
 
     public String selectAllQuery(Class seleccionada) {
@@ -46,17 +95,6 @@ public class DAO {
         return objects;
 
     }*/
-    public List<Jugador> selectAllJugadors() throws SQLException,ClassNotFoundException
-    {
-       // return selectAll(Jugador.class);
-        return null;
-    }
-
-    public boolean userLogueado(String nombre,String contraseña)
-    {
-
-        return true;
-    }
 
 
     public static List<Field> getAllFields(List<Field> fields, Class<?> type) {
@@ -70,7 +108,10 @@ public class DAO {
     }
 
 
-
+    private String querySelect() {
+        StringBuffer sb = new StringBuffer("SELECT * FROM "+this.getClass().getSimpleName()).append(" WHERE id=?");
+        return sb.toString();
+    }
 
     private String queryInsert() {
         StringBuffer sb = new StringBuffer("INSERT INTO ");
@@ -196,7 +237,8 @@ public class DAO {
         return sb.toString();//consulta a realit
 
     }
-public void delete() {
+
+    public void delete() {
     String theQuery = this.queryDelete();
     System.out.println(theQuery);
     try {
@@ -212,6 +254,7 @@ public void delete() {
         }
     }
 }
+
     public static void main(String[] args) {
         Personatge t = new Personatge("Anna", 1, 2, 3, 40);
         //t.insert();
