@@ -9,10 +9,13 @@ import java.lang.Object;
 import java.lang.reflect.AccessibleObject;
 import java.lang.TypeNotPresentException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class DAO {
     public int id = 0;//totes les taules tindran un identificador del tipos enter
+    protected boolean idAutogen = true;
+
     public Connection getConnection() throws SQLException, ClassNotFoundException {
         Connection con = null;
         Class.forName("com.mysql.jdbc.Driver");
@@ -27,7 +30,7 @@ public class DAO {
         sb.append(seleccionada.getSimpleName());
         return sb.toString();
     }
-    public List selectAll(Class seleccionada) throws SQLException,ClassNotFoundException
+ /*   public List selectAll(Class seleccionada) throws SQLException,ClassNotFoundException
     {
         List<Object> objects = new ArrayList<>();//en el nostre cas usuaris
         Connection mycon = getConnection();
@@ -42,10 +45,11 @@ public class DAO {
 
         return objects;
 
-    }
+    }*/
     public List<Jugador> selectAllJugadors() throws SQLException,ClassNotFoundException
     {
-        return selectAll(Jugador.class);
+       // return selectAll(Jugador.class);
+        return null;
     }
 
     public boolean userLogueado(String nombre,String contraseña)
@@ -55,7 +59,15 @@ public class DAO {
     }
 
 
+    public static List<Field> getAllFields(List<Field> fields, Class<?> type) {
+        fields.addAll(Arrays.asList(type.getDeclaredFields()));
 
+        if (type.getSuperclass() != null) {
+            getAllFields(fields, type.getSuperclass());
+        }
+
+        return fields;
+    }
 
 
 
@@ -65,26 +77,33 @@ public class DAO {
         sb.append(this.getClass().getSimpleName());//NOM DE LA CLASSE USUARIOS...
         System.out.println(sb.toString());//substituir por log4java
         sb.append("(");
-        Field[] misatributos = this.getClass().getDeclaredFields();
+
+        ArrayList<Field> almisatributos = new ArrayList<Field>();
+        almisatributos.addAll(Arrays.asList(this.getClass().getFields()));
+        Field[] misatributos = new Field[almisatributos.size()];
+        misatributos = almisatributos.toArray(misatributos);
+
+        this.getClass().getDeclaredFields();
         Field atributo;
         int j = 0;
         int identificadortaula = 0;
         int totalAtributs = 0;
         StringBuffer values = new StringBuffer();
+
         try {
-            for (int i = 0; i + 1 < misatributos.length; i++) {
+            for (int i = 0; i < misatributos.length; i++) {
                 atributo = misatributos[i];
                 System.out.println(atributo.getName().toString());
-                if(atributo.getName().toString().equals("id"))
-                {
-                   String identificador = (atributo.get(this)+"");
-                    Integer.parseInt(identificador);
-                }
+
                 System.out.println(atributo.getGenericType().toString());
 
-                if (atributo.getGenericType().toString().equals("int"))
+                if(atributo.getName().toString().equals("id") && !idAutogen)
                 {
-                values.append(atributo.get(this) + ",");
+                    values.append(""+atributo.get(this) + ",");
+                    sb.append(atributo.getName().toString() + ",");
+                } else  if (atributo.getGenericType().toString().equals("int"))
+                {
+                     values.append(atributo.get(this) + ",");
                     sb.append(atributo.getName().toString() + ",");
                 }
                 else if (atributo.getGenericType().toString().equals("class java.lang.String")){
@@ -103,9 +122,8 @@ public class DAO {
         } catch (Exception e) {
 
         }
-        atributo = misatributos[misatributos.length - 1];
-        System.out.println(atributo.getName().toString());
-        sb.append(atributo.getName().toString());
+        sb.setLength(sb.length() - 1);
+        values.setLength(values.length() - 1);
         sb.append(")VALUES(" + values.toString() + ")");
         System.out.println(sb.toString());
         return sb.toString();//consulta a realitzar
@@ -118,22 +136,23 @@ public class DAO {
         this.id = id;
     }
 
-    public void insert() {
+    public void insert() throws Exception{
         String theQuery = this.queryInsert();
         System.out.println(theQuery);
-        try {
-            Connection conn = null;
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/juego?" + "user=myapp&password=1234&useJDBCCompliantTimezoneShift=true&serverTimezone=UTC");
-            PreparedStatement pstm = conn.prepareStatement(theQuery);
-            pstm.execute();
-            this.setId(1);
-        } catch (SQLException e) {
-            if (e.getErrorCode() == 1062) {
-                System.out.println("regitre duplicat");
+
+        Connection conn = null;
+        conn = DriverManager.getConnection("jdbc:mysql://localhost/juego?" + "user=myapp&password=1234&useJDBCCompliantTimezoneShift=true&serverTimezone=UTC");
+        PreparedStatement pstm = conn.prepareStatement(theQuery);
+        pstm.execute();
+
+        if(idAutogen) {
+            ResultSet generatedKeys = pstm.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                this.setId((int) generatedKeys.getLong(1));
+            } else {
+                throw new SQLException("Creating user failed, no ID obtained.");
             }
         }
-
-//        rs.next(); rs.getString(1)
 
         // releaseConnectoin
     }
@@ -195,7 +214,7 @@ public void delete() {
 }
     public static void main(String[] args) {
         Personatge t = new Personatge("Anna", 1, 2, 3, 40);
-        t.insert();
+        //t.insert();
         //t.delete();
 
     }

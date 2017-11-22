@@ -1,11 +1,15 @@
 package edu.upc.dsa;
 
+import edu.upc.dsa.DAOG.DAO;
+
 import java.util.ArrayList;
 
-public class Jugador {
+public class Jugador extends DAO {
     public String nom;
-    private String email;
-    private String contrasenya;
+    public String email;
+    public String contrasenya;
+
+
 
     public void setPersonatges(ArrayList<Personatge> personatges) {
         this.personatges = personatges;
@@ -20,7 +24,8 @@ public class Jugador {
         this.contrasenya = contrasenya;
         this.email = email;
         personatges = new ArrayList<Personatge>();
-
+        idAutogen = false;
+        id =  email.hashCode();
     }
     public Jugador()
     {
@@ -28,6 +33,8 @@ public class Jugador {
         this.contrasenya = null;
         this.email = null;
         personatges = new ArrayList<Personatge>();
+        idAutogen = false;
+        id = 0;
     }
 
     public String getNombre() {
@@ -52,4 +59,27 @@ public class Jugador {
         this.contrasenya = contrasenya;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+        id =  email.hashCode();
+    }
+
+    public String getNom() {
+
+        return nom;
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
 }
