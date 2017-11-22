@@ -30,6 +30,8 @@ public class JugadorTest extends TestCase {
             Jugador jugador2 = new Jugador("Sonia","1234","swww@hola.com");
             jugador.insert();
             jugador2.insert();
+            jugador2.setEmail("martavivesluis@gmail.com");
+            jugador2.update();
             assertThat(jugador.getId(), is(not(jugador2.getId())));
             assertEquals(jugador.getId(), jugador.getEmail().hashCode());
             assertEquals(jugador2.getId(), jugador2.getEmail().hashCode());

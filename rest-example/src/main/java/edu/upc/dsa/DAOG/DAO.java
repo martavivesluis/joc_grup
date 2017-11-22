@@ -47,6 +47,63 @@ public class DAO {
          m.invoke(this, args);
     }
 
+ public String updateQuery(){
+     StringBuffer sb = new StringBuffer("UPDATE ");
+     sb.append(this.getClass().getSimpleName());//NOM DE LA CLASSE USUARIOS...
+     System.out.println(sb.toString());//substituir por log4java
+     ArrayList<Field> almisatributos = new ArrayList<Field>();
+     almisatributos.addAll(Arrays.asList(this.getClass().getFields()));
+     Field[] misatributos = new Field[almisatributos.size()];
+     misatributos = almisatributos.toArray(misatributos);
+
+     this.getClass().getDeclaredFields();
+     Field atributo;int j=0;
+     StringBuffer values = new StringBuffer();
+
+     try {
+         for (int i = 0; i < misatributos.length; i++) {
+             atributo = misatributos[i];
+             System.out.println(atributo.getName().toString());
+             values.append("SET(");
+
+             System.out.println(atributo.getGenericType().toString());
+
+             if (atributo.getGenericType().toString().equals("int"))
+             {
+                 values.append(atributo.get(this) + ",");
+                 sb.append(atributo.getName().toString() + ",");
+             }
+             else if (atributo.getGenericType().toString().equals("class java.lang.String")){
+                 values.append("'"+atributo.get(this) + "',");
+                 sb.append(atributo.getName().toString() + ",");
+
+             }
+             else
+             {
+                 //caso del array de objetos, creeemos tabla a partir del identificador
+
+             }
+             j = i;
+         }
+         values.append(misatributos[j + 1].get(this) + "");
+     } catch (Exception e) {
+
+     }
+     sb.setLength(sb.length() - 1);
+     values.setLength(values.length() - 1);
+     sb.append(values.toString() + ")");
+     System.out.println(sb.toString());
+     return sb.toString();//consulta a realitzar
+ }
+
+
+    public void update()throws Exception{
+        String theQuery = this.updateQuery();
+        Connection con = getConnection();
+        PreparedStatement pstm = con.prepareStatement(theQuery);
+        pstm.setInt(1, this.getId());
+        ResultSet rs = pstm.executeQuery();
+    }
     private void addRow(ResultSet rs) throws  Exception{
         ResultSetMetaData rsmd = rs.getMetaData();
         int totalColumnes = rsmd.getColumnCount();
@@ -56,9 +113,9 @@ public class DAO {
         }
     }
 
-    public List findAll() {
+  //  public List findAll() {
 
-    }
+    //}
 
     public void select() throws Exception {
         String theQuery = this.querySelect();
@@ -257,6 +314,7 @@ public class DAO {
 
     public static void main(String[] args) {
         Personatge t = new Personatge("Anna", 1, 2, 3, 40);
+
         //t.insert();
         //t.delete();
 
