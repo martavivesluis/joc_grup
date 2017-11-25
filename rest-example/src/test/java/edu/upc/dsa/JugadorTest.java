@@ -1,37 +1,66 @@
 package edu.upc.dsa;
-import edu.upc.dsa.caracteres.Jugador;
-import edu.upc.dsa.caracteres.Personatge;
+
+import edu.upc.dsa.Jugador;
 import junit.framework.TestCase;
 
-import static junit.framework.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.junit.Assert.assertThat;
 
 public class JugadorTest extends TestCase {
 
-    public void testCreacioJugador()
+
+    public void testIdEsDiferent0()
     {
         try {
-            SingletonMundo instanciaunica = SingletonMundo.getInstance();
-            Personatge personatge = new Personatge("Gnomo", "atacant", 10,20, 30,40);
-            instanciaunica.mundo.crearUsuario(personatge);
-            Jugador Anna = new Jugador("Anna", "marianet", "marianet9990");
-            instanciaunica.mundo.crearJugador(Anna);
-            instanciaunica.mundo.AfegirPersonatgeJugador(Anna, personatge);
-            //comprovació nom jugador
-            assertEquals( "Anna", instanciaunica.mundo.getJugador("Anna").nom );
-
-            assertEquals( "Gnomo", instanciaunica.mundo.consultarPersonatgesJugador(Anna).get(0) );
-            //comprovacio personatge afegit a jugador
-
-          // assertEquals( "Gnomo", instanciaunica.mundo.consultarPersonatgeJugador(Anna) );
-
-
+            Jugador jugador = new Jugador("Joan","1234","s@hola.com");
+            assertThat(jugador.getId(), is(not(0)));
+            System.out.println("p1"+ jugador.getId());
         }
         catch (Exception e)
         {
+            e.printStackTrace();
             fail();
         }
     }
 
 
+    public void testIdEsDiferentInsertantDosUsuaris()
+    {
+        try {
+            Jugador jugador = new Jugador("Joan","1234","s@hola.com");
+            Jugador jugador2 = new Jugador("Sonia","1234","swww@hola.com");
+            jugador.insert();
+            jugador2.insert();
+            jugador2.setEmail("martavivesluis@gmail.com");
+            jugador2.updateQuery();
+            assertThat(jugador.getId(), is(not(jugador2.getId())));
+            assertEquals(jugador.getId(), jugador.getEmail().hashCode());
+            assertEquals(jugador2.getId(), jugador2.getEmail().hashCode());
+            System.out.println("p1"+ jugador.getId()+"  p2"+ jugador2.getId());
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            fail();
+        }
+    }
+
+    public void testSelect() {
+        try {
+            Jugador jugador = new Jugador();
+            jugador.setId(-1356844420);
+            System.out.println("empezamos");
+            jugador.update();
+            jugador.actualitzarDades(jugador.getId(),"micasa");
+//            assertEquals(jugador.getEmail(),"s@hola.com");
+            //jugador.select();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+//            fail();
+        }
+    }
 
 }

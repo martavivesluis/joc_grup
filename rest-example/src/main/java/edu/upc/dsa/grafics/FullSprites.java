@@ -3,7 +3,6 @@ package edu.upc.dsa.grafics;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.ResourceBundle;
 
 public class FullSprites {
 

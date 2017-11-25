@@ -1,5 +1,5 @@
 package edu.upc.dsa.mapa.requadre;
-
+/*
 import edu.upc.dsa.grafics.Pantalla;
 import edu.upc.dsa.grafics.Sprite;
 
@@ -18,4 +18,4 @@ public class RequadreAsfalt extends Requadre {
         return false;
     }
 
-}
+}*/

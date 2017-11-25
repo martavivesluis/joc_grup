@@ -2,13 +2,11 @@ package edu.upc.dsa;
 
 import edu.upc.dsa.control.Teclat;
 import edu.upc.dsa.grafics.Pantalla;
-import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBuffer;
 import java.awt.image.DataBufferInt;
 
 public class Joc extends Canvas implements Runnable{
