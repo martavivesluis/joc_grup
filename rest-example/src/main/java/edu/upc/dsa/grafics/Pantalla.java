@@ -6,10 +6,10 @@ public final class Pantalla {
 
     public final int[] pixels;
 
-    //temporal
-    private final static int COSTATSPRITE = 32;
-    private final static int MASCARA_SPRITE= COSTATSPRITE -1;
-    //fí temporal
+        //temporal
+        private final static int COSTATSPRITE = 32;
+        private final static int MASCARA_SPRITE= COSTATSPRITE -1;
+        //fí temporal
 
     public Pantalla(final int amplada, final int alcada)
     {
@@ -47,8 +47,9 @@ public final class Pantalla {
                 //si lo de abans es compleix redibuixar pantalla
                 //El costat del sprite indica tamany sprite = 32pixels
                 //x & MASCARA_SPRITE + cada cegada que x traspasi el valor torni a ser 0
+                //temporal
                 pixels[(posicioX+ posicioY)*amplada] =
-                        Sprite.asfalto.pixels[(x & MASCARA_SPRITE + y & MASCARA_SPRITE)*COSTATSPRITE];
+                        Sprite.asfalto.pixels[((x & MASCARA_SPRITE )+ (y & MASCARA_SPRITE))*COSTATSPRITE];
             }
         }
     }

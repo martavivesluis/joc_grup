@@ -11,7 +11,7 @@ public final class Sprite {
     private final FullSprites fullSprites;
 
     //col·leció sprites
-    public static Sprite asfalto = new Sprite(32,0,0, FullSprites.panda);
+    public static Sprite asfalto = new Sprite(32,0,0, FullSprites.gris);
     //fí de la col·leció
 
     public Sprite(int tamany, final int columna, final int fila, final FullSprites full) {
