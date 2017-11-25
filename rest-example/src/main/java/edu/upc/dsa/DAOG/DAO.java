@@ -97,13 +97,13 @@ public class DAO {
  }
 
 
-    public void update()throws Exception{
+    /*public void update()throws Exception{
         String theQuery = this.updateQuery();
         Connection con = getConnection();
         PreparedStatement pstm = con.prepareStatement(theQuery);
         pstm.setInt(1, this.getId());
         ResultSet rs = pstm.executeQuery();
-    }
+    }*/
     private void addRow(ResultSet rs) throws  Exception{
         ResultSetMetaData rsmd = rs.getMetaData();
         int totalColumnes = rsmd.getColumnCount();
@@ -112,6 +112,7 @@ public class DAO {
             addField(rsmd.getColumnName(i+1), rs.getObject(i+1));
         }
     }
+
 
   //  public List findAll() {
 
@@ -163,8 +164,56 @@ public class DAO {
 
         return fields;
     }
+//sustituir els interrogants de les consultes
+    public void addFieldsToQueryUpdate(PreparedStatement pstm)
+    {
+        Field[] fields = this.getClass().getDeclaredFields();
+        for(int i = 0;i<fields.length;i++)
+        {
+            Method method = findGetMethod(fields[i].getName());
 
 
+        }
+    }
+    private Method findGetMethod(String field) {
+        String s = "get"+field.substring(0,1).toUpperCase()+field.substring(1);
+
+        System.out.println("getter "+s);
+
+        Method[] methods = this.getClass().getDeclaredMethods();
+        for (Method m: methods) {
+            System.out.println(m.getName());
+            if (m.getName().equals(s)) return m;
+        }
+
+        return null;
+    }
+
+
+
+
+
+
+    public boolean update()throws Exception
+    {
+        Connection con = getConnection();
+        StringBuffer consulta = new StringBuffer("UPDATE "+this.getClass().getSimpleName()+" SET ");
+        Field[] atributos = this.getClass().getDeclaredFields();
+        for(int i = 0;i<atributos.length;i++)
+        {
+           consulta.append(atributos[i].getName()+"=?),"); //--> nombre =?,
+            Method method = findGetMethod(atributos[i].getName());
+            consulta.append(method.invoke(this).toString());
+
+        }
+        consulta.setLength(consulta.length()-1);
+        consulta.append(" WHERE id = "+this.getId());
+        System.out.println(consulta);
+        PreparedStatement pstm = con.prepareStatement(consulta.toString());//substituim els interrogants
+
+        //addFieldsToQuery(pstm);
+        return false;
+    }
     private String querySelect() {
         StringBuffer sb = new StringBuffer("SELECT * FROM "+this.getClass().getSimpleName()).append(" WHERE id=?");
         return sb.toString();
@@ -224,6 +273,7 @@ public class DAO {
         values.setLength(values.length() - 1);
         sb.append(")VALUES(" + values.toString() + ")");
         System.out.println(sb.toString());
+
         return sb.toString();//consulta a realitzar
     }
     public int getId() {
@@ -311,6 +361,11 @@ public class DAO {
         }
     }
 }
+    public void comprobarExistencia(int id)
+    {
+
+    }
+
 
     public static void main(String[] args) {
         Personatge t = new Personatge("Anna", 1, 2, 3, 40);

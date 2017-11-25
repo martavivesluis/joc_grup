@@ -1,8 +1,7 @@
 package edu.upc.dsa.DAOG;
 
 public interface DAO_InterfaceUser {
-    //loguejar un nou usuari
-    //actualitzar dades del usuari
-    //funcio recuperacio de contrasenya
-
-}
+    boolean loguejarUsuari(String nombre,String contrassenya,String email);
+    boolean actualitzarDades(int id,String contrassenya)throws Exception;//apartir del mail--> id
+    String recuperarContrassenya(String email);
+    }
