@@ -2,12 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b4faefa-e3fe-49c7-bee8-b67439cdc193" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/DAO.class" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/DAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/Mundo.class" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/Mundo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/edu/upc/dsa/Usuario.class" afterPath="$PROJECT_DIR$/target/classes/edu/upc/dsa/Usuario.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__asm_asm_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_core_1_8.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_json_1_8.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_server_1_8.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_xml_bind_jaxb_impl_2_2_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_stream_stax_api_1_0_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_9.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_core_asl_1_7_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_jaxrs_1_7_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_mapper_asl_1_7_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_xc_1_7_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jettison_jettison_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO_InterfaceUser.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO_InterfaceUserImp.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO_Personaje.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_8_dmr.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_6.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAO.java" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Usuario.java" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Usuario.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rest-example2.iml" afterPath="$PROJECT_DIR$/rest-example2.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Personatge.java" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Personatge.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/edu/upc/dsa/JugadorTest.java" afterPath="$PROJECT_DIR$/src/test/java/edu/upc/dsa/JugadorTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,24 +52,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="JSONService.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="JSONService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/JSONService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+            <state relative-caret-position="375">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#219#220#0" expanded="true" />
+                <element signature="e#273#274#0" expanded="true" />
+                <element signature="e#651#652#0" expanded="true" />
+                <element signature="e#701#702#0" expanded="true" />
+                <element signature="e#852#853#0" expanded="true" />
+                <element signature="e#913#914#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DAO.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -55,8 +73,8 @@
       <file leaf-file-name="SingletonMundo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/SingletonMundo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="50" lean-forward="false" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+            <state relative-caret-position="325">
+              <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -66,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/MyExceptionMapper.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="200">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -77,21 +95,11 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-433">
+            <state relative-caret-position="275">
               <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Usuario.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/Usuario.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="13" column="6" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -109,9 +117,22 @@
       <file leaf-file-name="Mundo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/Mundo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-533">
+            <state relative-caret-position="700">
               <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1511726697562" expanded="true" signature="611:799" ph="{...}" />
+                <marker date="1511726697562" expanded="false" signature="853:868" ph=" { " />
+                <marker date="1511726697562" expanded="false" signature="925:931" ph=" }" />
+                <marker date="1511726697562" expanded="true" signature="987:1129" ph="{...}" />
+                <marker date="1511726697562" expanded="true" signature="1621:1694" ph="{...}" />
+                <marker date="1511726697562" expanded="false" signature="1775:1790" ph=" { " />
+                <marker date="1511726697562" expanded="false" signature="1826:1832" ph=" }" />
+                <marker date="1511726697562" expanded="true" signature="1891:2000" ph="{...}" />
+                <marker date="1511726697562" expanded="true" signature="2061:2192" ph="{...}" />
+                <marker date="1511726697562" expanded="false" signature="2234:2245" ph=" { " />
+                <marker date="1511726697562" expanded="false" signature="2273:2279" ph=" }" />
+                <marker date="1511726697562" expanded="true" signature="2352:2743" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -119,7 +140,7 @@
       <file leaf-file-name="Jugador.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/Jugador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-306">
+            <state relative-caret-position="100">
               <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
               <folding />
             </state>
@@ -171,10 +192,10 @@
         <option value="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Errors_mysql.java" />
         <option value="$PROJECT_DIR$/target/classes/edu/upc/dsa/JSONService.class" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/upc/dsa/JSONService.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Usuario.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/upc/dsa/JSONService.java" />
       </list>
     </option>
   </component>
@@ -189,7 +210,12 @@
       <expand>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="rest-example2" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="PreparacióExamen" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="PreparacióExamen" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
       </expand>
       <select />
@@ -217,10 +243,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -254,10 +276,23 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="dsa" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="rest-example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rest-example" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dsa" type="462c0819:PsiDirectoryNode" />
+              <item name="control" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -276,168 +311,6 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\marta\Documents\rest-example\src\main\java\edu\upc\dsa" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/edu/upc/dsa/Main.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/edu/upc/dsa/Mundo.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/edu/upc/dsa/Usuario.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/compiler.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/encodings.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__asm_asm_3_1.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__com_sun_jersey_jersey_core_1_8.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__com_sun_jersey_jersey_json_1_8.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__com_sun_jersey_jersey_server_1_8.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__com_sun_xml_bind_jaxb_impl_2_2_3_1.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__javax_activation_activation_1_1.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_2.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__javax_ws_rs_javax_ws_rs_api_2_0_1.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_2_2.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__javax_xml_stream_stax_api_1_0_2.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__junit_junit_4_9.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__mysql_mysql_connector_java_8_0_8_dmr.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_codehaus_jackson_jackson_core_asl_1_7_1.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_codehaus_jackson_jackson_jaxrs_1_7_1.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_codehaus_jackson_jackson_mapper_asl_1_7_1.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_codehaus_jackson_jackson_xc_1_7_1.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_codehaus_jettison_jettison_1_1.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_eclipse_persistence_org_eclipse_persistence_asm_2_6_0.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_eclipse_persistence_org_eclipse_persistence_core_2_6_0.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_eclipse_persistence_org_eclipse_persistence_moxy_2_6_0.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_glassfish_grizzly_grizzly_framework_2_3_23.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_glassfish_grizzly_grizzly_http_2_3_23.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_glassfish_grizzly_grizzly_http_server_2_3_23.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_glassfish_hk2_external_aopalliance_repackaged_2_5_0_b05.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_glassfish_hk2_external_javax_inject_2_5_0_b05.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_glassfish_hk2_hk2_api_2_5_0_b05.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_glassfish_hk2_hk2_locator_2_5_0_b05.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_glassfish_hk2_hk2_utils_2_5_0_b05.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_glassfish_hk2_osgi_resource_locator_1_0_1.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_glassfish_javax_json_1_0_4.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_glassfish_jersey_bundles_repackaged_jersey_guava_2_24.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_glassfish_jersey_containers_jersey_container_grizzly2_http_2_24.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_glassfish_jersey_core_jersey_client_2_24.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_glassfish_jersey_core_jersey_common_2_24.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_glassfish_jersey_core_jersey_server_2_24.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_glassfish_jersey_ext_jersey_entity_filtering_2_24.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_glassfish_jersey_media_jersey_media_jaxb_2_24.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_glassfish_jersey_media_jersey_media_moxy_2_24.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__org_javassist_javassist_3_20_0_GA.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/libraries/Maven__stax_stax_api_1_0_1.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/misc.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../.idea/vcs.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/edu/upc/dsa/AppInicial.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/edu/upc/dsa/Jugador.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/edu/upc/dsa/TextService.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/java/edu/upc/dsa/JugadorTest.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -721,9 +594,9 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09739583" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32798165" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -766,15 +639,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/SingletonMundo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="38" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/edu/upc/dsa/TextService.class" />
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/MyExceptionMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -820,6 +684,12 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#219#220#0" expanded="true" />
+            <element signature="e#273#274#0" expanded="true" />
+            <element signature="e#651#652#0" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+            <element signature="e#852#853#0" expanded="true" />
+            <element signature="e#913#914#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -891,6 +761,12 @@
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#219#220#0" expanded="true" />
+            <element signature="e#273#274#0" expanded="true" />
+            <element signature="e#651#652#0" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+            <element signature="e#852#853#0" expanded="true" />
+            <element signature="e#913#914#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1035,7 +911,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/MyExceptionMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1052,8 +928,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/SingletonMundo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="50" lean-forward="false" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+        <state relative-caret-position="325">
+          <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1068,15 +944,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/Mundo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-533">
+        <state relative-caret-position="700">
           <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1511726697562" expanded="true" signature="611:799" ph="{...}" />
+            <marker date="1511726697562" expanded="false" signature="853:868" ph=" { " />
+            <marker date="1511726697562" expanded="false" signature="925:931" ph=" }" />
+            <marker date="1511726697562" expanded="true" signature="987:1129" ph="{...}" />
+            <marker date="1511726697562" expanded="true" signature="1621:1694" ph="{...}" />
+            <marker date="1511726697562" expanded="false" signature="1775:1790" ph=" { " />
+            <marker date="1511726697562" expanded="false" signature="1826:1832" ph=" }" />
+            <marker date="1511726697562" expanded="true" signature="1891:2000" ph="{...}" />
+            <marker date="1511726697562" expanded="true" signature="2061:2192" ph="{...}" />
+            <marker date="1511726697562" expanded="false" signature="2234:2245" ph=" { " />
+            <marker date="1511726697562" expanded="false" signature="2273:2279" ph=" }" />
+            <marker date="1511726697562" expanded="true" signature="2352:2743" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-433">
+        <state relative-caret-position="275">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1086,35 +975,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/Jugador.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306">
+        <state relative-caret-position="100">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/Usuario.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAO.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO_InterfaceUserImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO_InterfaceUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/JSONService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+        <state relative-caret-position="375">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#219#220#0" expanded="true" />
+            <element signature="e#273#274#0" expanded="true" />
+            <element signature="e#651#652#0" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+            <element signature="e#852#853#0" expanded="true" />
+            <element signature="e#913#914#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/Usuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="13" column="6" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>

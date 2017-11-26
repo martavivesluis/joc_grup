@@ -1,5 +1,7 @@
 package edu.upc.dsa;
 
+import edu.upc.dsa.DAOG.DAO;
+import edu.upc.dsa.DAOG.DAO_InterfaceUserImp;
 import edu.upc.dsa.Jugador;
 import junit.framework.TestCase;
 
@@ -8,7 +10,7 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
 
 public class JugadorTest extends TestCase {
-
+DAO midao;
 
     public void testIdEsDiferent0()
     {
@@ -33,7 +35,7 @@ public class JugadorTest extends TestCase {
             jugador.insert();
             jugador2.insert();
             jugador2.setEmail("martavivesluis@gmail.com");
-            jugador2.updateQuery();
+            //jugador2.updateQuery();
             assertThat(jugador.getId(), is(not(jugador2.getId())));
             assertEquals(jugador.getId(), jugador.getEmail().hashCode());
             assertEquals(jugador2.getId(), jugador2.getEmail().hashCode());
@@ -45,14 +47,33 @@ public class JugadorTest extends TestCase {
             fail();
         }
     }
+    public void testusuariRegistrat() {
+        try {
+            Jugador jugador = new Jugador("Joan","1234","s@hola.com");
+            assertEquals(true,jugador.loguejarUsuari("1234","s@hola.com"));
+            }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+//            fail();
+        }
+    }
+    public void testActualitzarUsuari()
+    {try {
+        Jugador jugador = new Jugador("Marta", "3465", "s@hola.com");
+        jugador.update();
+    }
+    catch(Exception e){e.printStackTrace();}
+    }
 
     public void testSelect() {
         try {
-            Jugador jugador = new Jugador();
-            jugador.setId(-1356844420);
-            System.out.println("empezamos");
-            jugador.update();
-            jugador.actualitzarDades(jugador.getId(),"micasa");
+            Jugador jugador = new Jugador("Joan","1234","s@hola.com");
+            //jugador.setId(-1356844420);
+            //System.out.println("empezamos");
+            jugador.loguejarUsuari("1234","s@hola.com");
+            //jugador.insert();
+            //jugador.actualitzarDades(jugador.getId(),"micasa");
 //            assertEquals(jugador.getEmail(),"s@hola.com");
             //jugador.select();
         }

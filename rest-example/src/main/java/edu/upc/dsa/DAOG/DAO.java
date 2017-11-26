@@ -1,6 +1,5 @@
 package edu.upc.dsa.DAOG;
 
-import edu.upc.dsa.Objeto;
 import edu.upc.dsa.Personatge;
 
 import java.lang.reflect.Field;
@@ -14,15 +13,11 @@ public class DAO {
     //dao
     public int id = 0;//totes les taules tindran un identificador del tipos enter
     protected boolean idAutogen = true;
-
     public Connection getConnection() throws SQLException, ClassNotFoundException {
-        Connection con = null;
-        Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost/juego?" + "user=myapp&password=1234&useJDBCCompliantTimezoneShift=true&serverTimezone=UTC");
-        System.out.println("Connected to database");
-        return con;
+        Connection conn = null;
+        conn = DriverManager.getConnection("jdbc:mysql://localhost/juego?" + "user=myapp&password=1234&useJDBCCompliantTimezoneShift=true&serverTimezone=UTC");
+        return conn;
     }
-
     private Method findSetMethod(String field) {
         String s = "set"+field.substring(0,1).toUpperCase()+field.substring(1);
 
@@ -31,12 +26,14 @@ public class DAO {
         Method[] methods = this.getClass().getDeclaredMethods();
         for (Method m: methods) {
             System.out.println(m.getName());
-            if (m.getName().equals(s)) return m;
+            if (m.getName().equals(s)) {
+                System.out.println("metode trobat" + m.getName());
+                return m;
+            }
         }
 
         return null;
     }
-
     private void addField(String field, Object value) throws  Exception {
         System.out.println("field: "+field+" "+value);
 
@@ -44,64 +41,6 @@ public class DAO {
          Object[] args = {value};
          m.invoke(this, args);
     }
-
- public String updateQuery(){
-     StringBuffer sb = new StringBuffer("UPDATE ");
-     sb.append(this.getClass().getSimpleName());//NOM DE LA CLASSE USUARIOS...
-     System.out.println(sb.toString());//substituir por log4java
-     ArrayList<Field> almisatributos = new ArrayList<Field>();
-     almisatributos.addAll(Arrays.asList(this.getClass().getFields()));
-     Field[] misatributos = new Field[almisatributos.size()];
-     misatributos = almisatributos.toArray(misatributos);
-
-     this.getClass().getDeclaredFields();
-     Field atributo;int j=0;
-     StringBuffer values = new StringBuffer();
-
-     try {
-         for (int i = 0; i < misatributos.length; i++) {
-             atributo = misatributos[i];
-             System.out.println(atributo.getName().toString());
-             values.append("SET(");
-
-             System.out.println(atributo.getGenericType().toString());
-
-             if (atributo.getGenericType().toString().equals("int"))
-             {
-                 values.append(atributo.get(this) + ",");
-                 sb.append(atributo.getName().toString() + ",");
-             }
-             else if (atributo.getGenericType().toString().equals("class java.lang.String")){
-                 values.append("'"+atributo.get(this) + "',");
-                 sb.append(atributo.getName().toString() + ",");
-
-             }
-             else
-             {
-                 //caso del array de objetos, creeemos tabla a partir del identificador
-
-             }
-             j = i;
-         }
-         values.append(misatributos[j + 1].get(this) + "");
-     } catch (Exception e) {
-
-     }
-     sb.setLength(sb.length() - 1);
-     values.setLength(values.length() - 1);
-     sb.append(values.toString() + ")");
-     System.out.println(sb.toString());
-     return sb.toString();//consulta a realitzar
- }
-
-
-    /*public void update()throws Exception{
-        String theQuery = this.updateQuery();
-        Connection con = getConnection();
-        PreparedStatement pstm = con.prepareStatement(theQuery);
-        pstm.setInt(1, this.getId());
-        ResultSet rs = pstm.executeQuery();
-    }*/
     private void addRow(ResultSet rs) throws  Exception{
         ResultSetMetaData rsmd = rs.getMetaData();
         int totalColumnes = rsmd.getColumnCount();
@@ -110,113 +49,6 @@ public class DAO {
             addField(rsmd.getColumnName(i+1), rs.getObject(i+1));
         }
     }
-
-
-  //  public List findAll() {
-
-    //}
-
-    public void select() throws Exception {
-        String theQuery = this.querySelect();
-        Connection con = getConnection();
-        PreparedStatement pstm = con.prepareStatement(theQuery);
-        pstm.setInt(1, this.getId());
-        ResultSet rs = pstm.executeQuery();
-
-        while (rs.next()) {
-            addRow(rs);
-        }
-
-    }
-
-    public String selectAllQuery(Class seleccionada) {
-
-        StringBuffer sb = new StringBuffer("SELECT * FROM ");
-        sb.append(seleccionada.getSimpleName());
-        return sb.toString();
-    }
- /*   public List selectAll(Class seleccionada) throws SQLException,ClassNotFoundException
-    {
-        List<Object> objects = new ArrayList<>();//en el nostre cas usuaris
-        Connection mycon = getConnection();
-        String query = selectAllQuery(seleccionada);//construim sentencia
-        PreparedStatement pstm = mycon.prepareStatement(query);
-        ResultSet result = pstm.executeQuery();
-        while(result.next())
-        {
-            Object nou = new Object();
-            objects.add(nou);
-        }
-
-        return objects;
-
-    }*/
-
-
-    public static List<Field> getAllFields(List<Field> fields, Class<?> type) {
-        fields.addAll(Arrays.asList(type.getDeclaredFields()));
-
-        if (type.getSuperclass() != null) {
-            getAllFields(fields, type.getSuperclass());
-        }
-
-        return fields;
-    }
-//sustituir els interrogants de les consultes
-    public void addFieldsToQueryUpdate(PreparedStatement pstm)
-    {
-        Field[] fields = this.getClass().getDeclaredFields();
-        for(int i = 0;i<fields.length;i++)
-        {
-            Method method = findGetMethod(fields[i].getName());
-
-
-        }
-    }
-    private Method findGetMethod(String field) {
-        String s = "get"+field.substring(0,1).toUpperCase()+field.substring(1);
-
-        System.out.println("getter "+s);
-
-        Method[] methods = this.getClass().getDeclaredMethods();
-        for (Method m: methods) {
-            System.out.println(m.getName());
-            if (m.getName().equals(s)) return m;
-        }
-
-        return null;
-    }
-
-
-
-
-
-
-    public boolean update()throws Exception
-    {
-        Connection con = getConnection();
-        StringBuffer consulta = new StringBuffer("UPDATE "+this.getClass().getSimpleName()+" SET ");
-        Field[] atributos = this.getClass().getDeclaredFields();
-        for(int i = 0;i<atributos.length;i++)
-        {
-           consulta.append(atributos[i].getName()+"=?),"); //--> nombre =?,
-            Method method = findGetMethod(atributos[i].getName());
-            consulta.append(method.invoke(this).toString());
-
-        }
-        consulta.setLength(consulta.length()-1);
-        consulta.append(" WHERE id = "+this.getId());//
-        System.out.println(consulta);
-        PreparedStatement pstm = con.prepareStatement(consulta.toString());//substituim els interrogants
-
-        //addFieldsToQuery(pstm);
-        return false;
-    }
-    private String querySelect() {
-        StringBuffer sb = new StringBuffer("SELECT * FROM "+this.getClass().getSimpleName()).append(" WHERE id=?");
-        return sb.toString();
-    }
-
     private String queryInsert() {
         StringBuffer sb = new StringBuffer("INSERT INTO ");
         sb.append(this.getClass().getSimpleName());//NOM DE LA CLASSE USUARIOS...
@@ -248,7 +80,7 @@ public class DAO {
                     sb.append(atributo.getName().toString() + ",");
                 } else  if (atributo.getGenericType().toString().equals("int"))
                 {
-                     values.append(atributo.get(this) + ",");
+                    values.append(atributo.get(this) + ",");
                     sb.append(atributo.getName().toString() + ",");
                 }
                 else if (atributo.getGenericType().toString().equals("class java.lang.String")){
@@ -277,11 +109,9 @@ public class DAO {
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
-
     public void insert() throws Exception{
         String theQuery = this.queryInsert();
         System.out.println(theQuery);
@@ -302,6 +132,133 @@ public class DAO {
 
         // releaseConnectoin
     }
+    public void select() throws Exception {
+        String theQuery = this.querySelect();
+        Connection con = getConnection();
+        PreparedStatement pstm = con.prepareStatement(theQuery);
+        pstm.setInt(1, this.getId());
+        ResultSet rs = pstm.executeQuery();
+
+        while (rs.next()) {
+            addRow(rs);
+        }
+
+    }
+    public String selectAllQuery(Class myclass) {
+
+        StringBuffer sb = new StringBuffer("SELECT * FROM ");
+        sb.append(myclass.getSimpleName());
+        return sb.toString();
+    }
+    private String querySelect() {
+        StringBuffer sb = new StringBuffer("SELECT * FROM "+this.getClass().getSimpleName()).append(" WHERE id=?");
+        return sb.toString();
+    }
+    public boolean update()throws Exception {
+        Connection con = getConnection();
+        StringBuffer consulta = new StringBuffer("UPDATE "+this.getClass().getSimpleName()+" SET ");
+        Field[] atributos = this.getClass().getDeclaredFields();
+        for(int i = 0;i<atributos.length;i++)//ignorem vectors array
+        {
+            if(atributos[i].getGenericType().toString().equals("class java.lang.String"))
+            {
+                consulta.append(atributos[i].getName() + "=?,"); //--> nombre =?,
+            }
+            else if(atributos[i].getGenericType().toString().equals("int")) {
+                consulta.append(atributos[i].getName() + "=?,"); //--> nombre =?,
+            }
+            else{}
+
+        }
+        consulta.setLength(consulta.length()-1);
+        consulta.append(" WHERE id='"+this.getId()+"'");//
+        System.out.println(consulta);
+        PreparedStatement pstm = con.prepareStatement(consulta.toString());//substituim els interrogants
+        System.out.println(pstm.toString());
+        try{
+            addFieldsToQueryUpdate(pstm);
+            return true;
+        }
+        catch(Exception e){
+            return false;
+
+    }}//updae jugador set(nom=?,...)where id =get.id
+    public String queryDeleteTable(){
+
+        StringBuffer sb = new StringBuffer("DELETE * FROM "+this.getClass().getSimpleName()).append(" WHERE id=?");
+        return sb.toString();
+
+}
+    public void addFieldsToQueryUpdate(PreparedStatement pstm)throws Exception
+    {
+        int j =0;
+        Field[] fields = this.getClass().getDeclaredFields();
+        for(int i = 1;i<fields.length;i++)
+        try
+        {
+            Method method = findGetMethod(fields[j].getName());
+            System.out.println("mimetodo:"+method.getName().toString());
+            Object object = method.invoke(this);
+            System.out.println("valor:"+object.toString());
+            pstm.setObject(i,object.toString());
+            j++;
+
+
+        }
+
+        catch(Exception e){}
+        System.out.println("updatestatement:"+pstm.toString());
+        pstm.executeUpdate();
+    }
+
+
+
+
+
+
+
+
+
+    public static List<Field> getAllFields(List<Field> fields, Class<?> type) {
+        fields.addAll(Arrays.asList(type.getDeclaredFields()));
+
+        if (type.getSuperclass() != null) {
+            getAllFields(fields, type.getSuperclass());
+        }
+
+        return fields;
+    }
+//sustituir els interrogants de les consultes
+
+    private Method findGetMethod(String field) {
+        String s = "get"+field.substring(0,1).toUpperCase()+field.substring(1);
+
+        System.out.println("getter "+s);
+
+        Method[] methods = this.getClass().getDeclaredMethods();
+        for (Method m: methods)
+        {
+            System.out.println(m.getName());
+            if (m.getName().equals(s)) {
+                System.out.println("metode trobat" + m.getName());
+                return m;
+            }
+        }
+        return null;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     public String queryDelete(){
         StringBuffer sb = new StringBuffer("DELETE * FROM  ");
         sb.append(this.getClass().getSimpleName());//NOM DE LA CLASSE USUARIOS...
@@ -359,15 +316,8 @@ public class DAO {
         }
     }
 }
-    public void comprobarExistencia(int id)
-    {
-
-    }
-
-
-    public static void main(String[] args) {
-        Objeto o = new Objeto("ganivet", "ataque","buena",3);
-        Personatge t = new Personatge("anna",2,3,4,4,5, o);
+       public static void main(String[] args) {
+        Personatge t = new Personatge("Anna", 1, 2, 3, 40);
 
         //t.insert();
         //t.delete();

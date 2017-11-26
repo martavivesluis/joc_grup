@@ -8,10 +8,6 @@ import java.util.List;
 public class Personatge extends DAO
 {
     /*public String nombre;
-
-
-
-
     public int nivel;
     public int ataque;
     public int resistencia;

@@ -1,43 +1,55 @@
 package edu.upc.dsa.DAOG;
 
-import edu.upc.dsa.Jugador;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class DAO_InterfaceUserImp extends DAO implements DAO_InterfaceUser{
+public class DAO_InterfaceUserImp extends DAO implements DAO_InterfaceUser {
 
-    public boolean loguejarUsuari(String nombre,String contrassenya,String email){
-    Jugador j = new Jugador(nombre,contrassenya,email);
-
-
-
-
-        return true;
-    }
-
-    public boolean actualitzarDades(int id,String contrassenya)throws Exception{//apartir d'un usuari loguejat
-    StringBuffer sb = new StringBuffer("UPDATE jugador SET contrasenya ='"+contrassenya+"'WHERE (id="+id+")");
-    String consulta = sb.toString();
+    public boolean loguejarUsuari(String contrassenya,String email)throws Exception{
     try{
-        Connection con = getConnection();
-        System.out.println("connectat");
-        PreparedStatement pstm = con.prepareStatement(consulta);
-        ResultSet rs = pstm.executeQuery();
+        Connection conn = getConnection();
+        StringBuffer consulta = new StringBuffer("SELECT nom,email,contrasenya FROM jugador");
+        consulta.append(" WHERE email = '"+email+"' AND contrasenya ='"+contrassenya+"';");
+        try{
+            PreparedStatement pstm = conn.prepareStatement(consulta.toString());
+            ResultSet resultado = pstm.executeQuery();
+            if(resultado.next()){//usuari existeix
+               System.out.println("usuari registrat");
+               pstm.close();
+                return true;
+            }
+            else{
+                System.out.println("usuari no registrat");
+                pstm.close();
+                return false;
+            }
+        }
+        catch(Exception e){
+            System.out.println("no con");
+            e.printStackTrace();
+            return false;
+        }
 
     }
     catch(Exception e){
+        System.out.println("no entra");
         return false;
+    }
+
+    }
+    protected void insertUsuari()throws Exception{insert();}
+    protected boolean UpdateUsuari()throws Exception{
+        if(update()==true)
+        {
+           System.out.println("Usuari actualitzat");
+           return true;
         }
-
-
-
-
-
-        return true;
-    }//apartir del mail--> id
+        else
+            return false;}
     public String recuperarContrassenya(String email){
+
+
         return null;
     }
 }
