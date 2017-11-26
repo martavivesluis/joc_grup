@@ -25,7 +25,7 @@ public class JSONService {
     @Path("/Personaje/{nombre}")
     @Produces(MediaType.APPLICATION_JSON)
     public Personatge buscarPersonaje(@PathParam("nombre") String nombre) {
-        return jugadores.getMapaPersonajes().get(nombre);
+        return jugadores.get().get(nombre);
     }
 
     @GET
@@ -110,12 +110,6 @@ public class JSONService {
 
         return Response.status(201).entity("Añadido personaje con nombre:" +personajeNombre +"a jugador" +jugadorNombre).build();
     }
-
-
-
-
-
-
 
 
 

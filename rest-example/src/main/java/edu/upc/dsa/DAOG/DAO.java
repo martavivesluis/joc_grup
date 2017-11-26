@@ -1,5 +1,6 @@
 package edu.upc.dsa.DAOG;
 
+import edu.upc.dsa.Objeto;
 import edu.upc.dsa.Personatge;
 
 import java.lang.reflect.Field;
@@ -365,7 +366,8 @@ public class DAO {
 
 
     public static void main(String[] args) {
-        Personatge t = new Personatge("Anna", 1, 2, 3, 40);
+        Objeto o = new Objeto("ganivet", "ataque","buena",3);
+        Personatge t = new Personatge("anna",2,3,4,4,5, o);
 
         //t.insert();
         //t.delete();

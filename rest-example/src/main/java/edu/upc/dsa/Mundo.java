@@ -10,12 +10,12 @@ public class Mundo {
 
 
     public void añadirObjetoAUsuario(Personatge u, Objeto o) {
-        u.getArrMisObjetos().add(o);
+        usuarios.get(u.getNombre()).objetos.add(o);
     }
-    public void perdervida(Personatge u)
+    /*public void perderRes(Personatge u)
     {
         u.setResistencia(u.getResistencia()-1);
-    }
+    }*/
 
 
     public Boolean crearUsuario(Personatge u) {
