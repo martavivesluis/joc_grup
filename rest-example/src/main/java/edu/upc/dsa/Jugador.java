@@ -5,7 +5,7 @@ import edu.upc.dsa.DAOG.DAO_InterfaceUserImp;
 import java.util.ArrayList;
 
 public class Jugador extends DAO_InterfaceUserImp {
-    public String nom;
+   /* public String nom;
     public String email;
     public String contrasenya;
 
@@ -89,7 +89,55 @@ public class Jugador extends DAO_InterfaceUserImp {
 
         return sb.toString();
     }
+*/
+   private String nombre;
+    private String email;
+    private String contraseña;
 
+    ArrayList<Personatge> Personajes;
+
+    public Jugador(String nombre, String email, String contraseña, ArrayList<Personatge> personajes) {
+        this.nombre = nombre;
+        this.email = email;
+        this.contraseña = contraseña;
+        Personajes = personajes;
+    }
+
+    public Jugador(){
+        Personajes = new ArrayList<Personatge>();
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
+    public ArrayList<Personatge> getPersonajes() {
+        return Personajes;
+    }
+
+    public void setPersonajes(ArrayList<Personatge> personajes) {
+        Personajes = personajes;
+    }
 
 
 
