@@ -9,7 +9,7 @@ public class Mundo {
     Map<String, Jugador> mapJugadors = new HashMap<String, Jugador>();//jugadors
 
 
-    public void añadirObjetoAUsuario(Personatge u, Objeto o) {
+   /* public void añadirObjetoAUsuario(Personatge u, Objeto o) {
         usuarios.get(u.getNombre()).objetos.add(o);
     }
     /*public void perderRes(Personatge u)

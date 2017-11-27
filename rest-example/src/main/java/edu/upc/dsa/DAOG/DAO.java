@@ -333,7 +333,7 @@ public class DAO {
     }
 }
        public static void main(String[] args) {
-       // Personatge t = new Personatge("Anna", 1, 2, 3, 40);
+       //  Personatge t = new Personatge("Anna", 1, 2, 3, 40);
 
         //t.insert();
         //t.delete();
