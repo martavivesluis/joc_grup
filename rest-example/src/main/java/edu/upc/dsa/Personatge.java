@@ -5,9 +5,8 @@ import edu.upc.dsa.DAOG.DAO;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Personatge extends DAO
-{
-    /*public String nombre;
+public class Personatge extends DAO {
+    public String nombre;
     public int nivel;
     public int ataque;
     public int resistencia;
@@ -22,16 +21,20 @@ public class Personatge extends DAO
     }
 
     public int defensa;
+
     public Personatge(String nombre, int n, int a, int d, int r)//constructor
-    {   this.nombre = nombre;
+    {
+        this.nombre = nombre;
         this.nivel = n;
         this.ataque = a;
         this.resistencia = d;
         this.defensa = r;
 
     }
+
     public Personatge()//constructor
-    {   this.nombre = null;
+    {
+        this.nombre = null;
         this.nivel = 0;
         this.ataque = 0;
         this.resistencia = 0;
@@ -39,29 +42,26 @@ public class Personatge extends DAO
 
     }
 
-    public Objeto getPrimerObjetoLlamado(String nombreDeObjeto){
-        for (Objeto miobjeto: arrMisObjetos)
-        {
-            if(miobjeto.Nombre.equals(nombreDeObjeto))
+    public Objeto getPrimerObjetoLlamado(String nombreDeObjeto) {
+        for (Objeto miobjeto : arrMisObjetos) {
+            if (miobjeto.Nombre.equals(nombreDeObjeto))
                 return miobjeto;
         }
         return null;
     }
-    public Objeto eliminarObjetoPorNombre(String nombreObjeto)
-    {
+
+    public Objeto eliminarObjetoPorNombre(String nombreObjeto) {
         Objeto aborrar = null;
-        for (Objeto miobjeto: arrMisObjetos)
-        {
-            if(miobjeto.Nombre.equals(nombreObjeto))
-            {
+        for (Objeto miobjeto : arrMisObjetos) {
+            if (miobjeto.Nombre.equals(nombreObjeto)) {
                 aborrar = miobjeto;
             }
         }
-        if(aborrar == null){
+        if (aborrar == null) {
             return null;
         }
         arrMisObjetos.remove(aborrar);
-        return  aborrar;
+        return aborrar;
     }
 
     public String getNombre() {
@@ -103,11 +103,12 @@ public class Personatge extends DAO
 
     public void setResistencia(int resistencia) {
         this.resistencia = resistencia;
-    }*/
+    }
+}
 
     // codigo para la API REST
 
-
+/*
      private String nombre;
     private String id;
     private int nivel;
@@ -190,3 +191,4 @@ public class Personatge extends DAO
 
 
 }
+*/

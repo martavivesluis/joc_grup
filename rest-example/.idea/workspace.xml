@@ -2,34 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b4faefa-e3fe-49c7-bee8-b67439cdc193" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__asm_asm_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_core_1_8.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_json_1_8.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_server_1_8.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_xml_bind_jaxb_impl_2_2_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_stream_stax_api_1_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_9.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_core_asl_1_7_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_jaxrs_1_7_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_mapper_asl_1_7_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_xc_1_7_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jettison_jettison_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO_InterfaceUser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO_InterfaceUserImp.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO_Personaje.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_8_dmr.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_6.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO_PersonajeImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rest-example2.iml" afterPath="$PROJECT_DIR$/rest-example2.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO.java" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO_Personaje.java" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO_Personaje.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Jugador.java" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Jugador.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Mundo.java" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Mundo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Objeto.java" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Objeto.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Personatge.java" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Personatge.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/edu/upc/dsa/JugadorTest.java" afterPath="$PROJECT_DIR$/src/test/java/edu/upc/dsa/JugadorTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -120,18 +100,18 @@
             <state relative-caret-position="700">
               <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
-                <marker date="1511726697562" expanded="true" signature="611:799" ph="{...}" />
-                <marker date="1511726697562" expanded="false" signature="853:868" ph=" { " />
-                <marker date="1511726697562" expanded="false" signature="925:931" ph=" }" />
-                <marker date="1511726697562" expanded="true" signature="987:1129" ph="{...}" />
-                <marker date="1511726697562" expanded="true" signature="1621:1694" ph="{...}" />
-                <marker date="1511726697562" expanded="false" signature="1775:1790" ph=" { " />
-                <marker date="1511726697562" expanded="false" signature="1826:1832" ph=" }" />
-                <marker date="1511726697562" expanded="true" signature="1891:2000" ph="{...}" />
-                <marker date="1511726697562" expanded="true" signature="2061:2192" ph="{...}" />
-                <marker date="1511726697562" expanded="false" signature="2234:2245" ph=" { " />
-                <marker date="1511726697562" expanded="false" signature="2273:2279" ph=" }" />
-                <marker date="1511726697562" expanded="true" signature="2352:2743" ph="{...}" />
+                <marker date="1511780281730" expanded="true" signature="617:805" ph="{...}" />
+                <marker date="1511780281730" expanded="false" signature="859:874" ph=" { " />
+                <marker date="1511780281730" expanded="false" signature="931:937" ph=" }" />
+                <marker date="1511780281730" expanded="true" signature="993:1135" ph="{...}" />
+                <marker date="1511780281730" expanded="true" signature="1627:1700" ph="{...}" />
+                <marker date="1511780281730" expanded="false" signature="1781:1796" ph=" { " />
+                <marker date="1511780281730" expanded="false" signature="1832:1838" ph=" }" />
+                <marker date="1511780281730" expanded="true" signature="1897:2006" ph="{...}" />
+                <marker date="1511780281730" expanded="true" signature="2067:2198" ph="{...}" />
+                <marker date="1511780281730" expanded="false" signature="2240:2251" ph=" { " />
+                <marker date="1511780281730" expanded="false" signature="2279:2285" ph=" }" />
+                <marker date="1511780281730" expanded="true" signature="2358:2749" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -947,18 +927,18 @@
         <state relative-caret-position="700">
           <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
-            <marker date="1511726697562" expanded="true" signature="611:799" ph="{...}" />
-            <marker date="1511726697562" expanded="false" signature="853:868" ph=" { " />
-            <marker date="1511726697562" expanded="false" signature="925:931" ph=" }" />
-            <marker date="1511726697562" expanded="true" signature="987:1129" ph="{...}" />
-            <marker date="1511726697562" expanded="true" signature="1621:1694" ph="{...}" />
-            <marker date="1511726697562" expanded="false" signature="1775:1790" ph=" { " />
-            <marker date="1511726697562" expanded="false" signature="1826:1832" ph=" }" />
-            <marker date="1511726697562" expanded="true" signature="1891:2000" ph="{...}" />
-            <marker date="1511726697562" expanded="true" signature="2061:2192" ph="{...}" />
-            <marker date="1511726697562" expanded="false" signature="2234:2245" ph=" { " />
-            <marker date="1511726697562" expanded="false" signature="2273:2279" ph=" }" />
-            <marker date="1511726697562" expanded="true" signature="2352:2743" ph="{...}" />
+            <marker date="1511780281730" expanded="true" signature="617:805" ph="{...}" />
+            <marker date="1511780281730" expanded="false" signature="859:874" ph=" { " />
+            <marker date="1511780281730" expanded="false" signature="931:937" ph=" }" />
+            <marker date="1511780281730" expanded="true" signature="993:1135" ph="{...}" />
+            <marker date="1511780281730" expanded="true" signature="1627:1700" ph="{...}" />
+            <marker date="1511780281730" expanded="false" signature="1781:1796" ph=" { " />
+            <marker date="1511780281730" expanded="false" signature="1832:1838" ph=" }" />
+            <marker date="1511780281730" expanded="true" signature="1897:2006" ph="{...}" />
+            <marker date="1511780281730" expanded="true" signature="2067:2198" ph="{...}" />
+            <marker date="1511780281730" expanded="false" signature="2240:2251" ph=" { " />
+            <marker date="1511780281730" expanded="false" signature="2279:2285" ph=" }" />
+            <marker date="1511780281730" expanded="true" signature="2358:2749" ph="{...}" />
           </folding>
         </state>
       </provider>

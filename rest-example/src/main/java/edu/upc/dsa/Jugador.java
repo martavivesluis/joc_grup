@@ -5,7 +5,7 @@ import edu.upc.dsa.DAOG.DAO_InterfaceUserImp;
 import java.util.ArrayList;
 
 public class Jugador extends DAO_InterfaceUserImp {
-   /* public String nom;
+    public String nom;
     public String email;
     public String contrasenya;
 
@@ -89,7 +89,9 @@ public class Jugador extends DAO_InterfaceUserImp {
 
         return sb.toString();
     }
-*/
+}
+    /*
+
    private String nombre;
     private String email;
     private String contraseña;
@@ -139,6 +141,4 @@ public class Jugador extends DAO_InterfaceUserImp {
         Personajes = personajes;
     }
 
-
-
-}
+}*/

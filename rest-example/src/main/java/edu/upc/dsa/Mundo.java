@@ -10,7 +10,7 @@ public class Mundo {
 
 
     public void añadirObjetoAUsuario(Personatge u, Objeto o) {
-        usuarios.get(u.getNombre()).objetos.add(o);
+        usuarios.get(u.getNombre()).arrMisObjetos.add(o);
     }
     /*public void perderRes(Personatge u)
     {
