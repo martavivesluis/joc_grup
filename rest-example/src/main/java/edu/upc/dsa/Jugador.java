@@ -2,6 +2,7 @@ package edu.upc.dsa;
 
 import edu.upc.dsa.DAOG.DAO_InterfaceUserImp;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Jugador extends DAO_InterfaceUserImp {
@@ -89,6 +90,7 @@ public class Jugador extends DAO_InterfaceUserImp {
 
         return sb.toString();
     }
+
 }
     /*
 

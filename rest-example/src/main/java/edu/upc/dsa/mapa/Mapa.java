@@ -6,6 +6,7 @@ import edu.upc.dsa.grafics.Pantalla;
 public abstract class Mapa {
     protected int amplada;
     protected int alcada;
+    /*
     
     protected int[] requadres;
     
@@ -40,6 +41,6 @@ public abstract class Mapa {
         int abaix= (compensacioY + pantalla.getAlcada())/32;
         int dreta = compensacioX / 32; //així només camina un pixel i no un quadre
         int esquerra = (compensacioX + pantalla.getAmplada())/32;
-    }
+    }*/
 }
     

@@ -2,6 +2,7 @@ package edu.upc.dsa.mapa;
 import java.util.Random;
 
 public class MapaCreat extends Mapa {
+    /*
 
     private final Random ramdom = new Random();
 
@@ -21,5 +22,5 @@ public class MapaCreat extends Mapa {
                 requadres[(x+y)*amplada]= ramdom.nextInt(3);
             }
         }
-    }
+    }*/
 }

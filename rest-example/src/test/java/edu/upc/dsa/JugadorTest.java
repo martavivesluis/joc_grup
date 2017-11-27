@@ -11,6 +11,7 @@ import static org.junit.Assert.assertThat;
 
 public class JugadorTest extends TestCase {
 DAO midao;
+    DAO_InterfaceUserImp imp;
 
     public void testIdEsDiferent0()
     {
@@ -47,21 +48,34 @@ DAO midao;
             fail();
         }
     }
-    public void testusuariRegistrat() {
-        try {
-            Jugador jugador = new Jugador("Joan","1234","s@hola.com");
-            assertEquals(true,jugador.loguejarUsuari("1234","s@hola.com"));
-            }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-//            fail();
-        }
+    public void testusuariRegistrat()throws Exception {
+
     }
+    public void testLogin() throws Exception {
+        Jugador j = new Jugador();
+        j.select("email", "s@hola.com");
+
+        assertEquals(j.getContrasenya(),"3465");
+
+    }
+
+    public void testSelectByName() throws Exception {
+        Jugador j = new Jugador();
+        j.select("nom", "Sonia");
+
+        assertEquals(j.getContrasenya(),"1234");
+
+    }
+
+
     public void testActualitzarUsuari()
-    {try {
+    {
+        try {
         Jugador jugador = new Jugador("Marta", "3465", "s@hola.com");
-        jugador.update();
+       //jugador.update();
+            assertEquals(jugador.loguejarUsuari("3465","s@hola.com"),false);
+
+
     }
     catch(Exception e){e.printStackTrace();}
     }

@@ -12,6 +12,7 @@ import java.util.List;
 public class DAO {
     //dao
     public int id = 0;//totes les taules tindran un identificador del tipos enter
+
     protected boolean idAutogen = true;
     public Connection getConnection() throws SQLException, ClassNotFoundException {
         Connection conn = null;
@@ -20,19 +21,17 @@ public class DAO {
     }
     private Method findSetMethod(String field) {
         String s = "set"+field.substring(0,1).toUpperCase()+field.substring(1);
-
-        System.out.println("setter "+s);
-
         Method[] methods = this.getClass().getDeclaredMethods();
         for (Method m: methods) {
-            System.out.println(m.getName());
             if (m.getName().equals(s)) {
-                System.out.println("metode trobat" + m.getName());
                 return m;
             }
         }
 
         return null;
+    }
+    public boolean existent(boolean existent){
+       return existent;
     }
     private void addField(String field, Object value) throws  Exception {
         System.out.println("field: "+field+" "+value);
@@ -41,12 +40,14 @@ public class DAO {
          Object[] args = {value};
          m.invoke(this, args);
     }
+
     private void addRow(ResultSet rs) throws  Exception{
         ResultSetMetaData rsmd = rs.getMetaData();
         int totalColumnes = rsmd.getColumnCount();
 
         for (int i=0; i< totalColumnes; i++) {
             addField(rsmd.getColumnName(i+1), rs.getObject(i+1));
+
         }
     }
     private String queryInsert() {
@@ -134,37 +135,36 @@ public class DAO {
     }
 
 
-    public void select() throws Exception {
-        String theQuery = this.querySelect();
+    public boolean select(String Query, Object value) throws Exception {
         Connection con = getConnection();
-        PreparedStatement pstm = con.prepareStatement(theQuery);
-        pstm.setInt(1, this.getId());
+        boolean ret = false;
+        PreparedStatement pstm = con.prepareStatement(Query);
+        pstm.setObject(1, value);
         ResultSet rs = pstm.executeQuery();
-
         while (rs.next()) {
+            ret = true;
             addRow(rs);
         }
 
+        return ret;
     }
-    /*
-    public void select()throws Exception{
-    String the Query = this.querySelect();
-    select(theQuery);}
-
-    public void selec(String key,String value) throws Exception{
-    String thequery =""; //SELECT * FROM T WHERE email = 'hola@gmail.com'
-    select(thequery);
+    public boolean select()throws Exception{
+       return  select("id", this.getId());
     }
 
-    */
+    public boolean select(String key,String value) throws Exception{
+        String query = this.querySelect(key);
+        return select(query, (Object)value);
+    }
     public String selectAllQuery(Class myclass) {
 
         StringBuffer sb = new StringBuffer("SELECT * FROM ");
         sb.append(myclass.getSimpleName());
         return sb.toString();
     }
-    private String querySelect() {
-        StringBuffer sb = new StringBuffer("SELECT * FROM "+this.getClass().getSimpleName()).append(" WHERE id=?");
+    private String querySelect(String key) {
+        StringBuffer sb = new StringBuffer("SELECT * FROM "+this.getClass().getSimpleName()).append(" WHERE "+key+"=?");
+        System.out.println(sb.toString());
         return sb.toString();
     }
     public boolean update()throws Exception {

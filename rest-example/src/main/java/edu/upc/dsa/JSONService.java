@@ -6,7 +6,7 @@ import javax.ws.rs.core.Response;
 
 @Path("/json")//porta
 public class JSONService {
-
+/*
     Jugadores jugadores;
 
     public JSONService()
@@ -121,5 +121,6 @@ public class JSONService {
     {
         throw new Exception("My Exception");
     }
+    */
 
 }

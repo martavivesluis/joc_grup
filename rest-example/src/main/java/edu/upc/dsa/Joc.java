@@ -9,8 +9,8 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 
-public class Joc extends Canvas implements Runnable{
-
+public class Joc {
+/*extends Canvas implements Runnable{
     private static JFrame finestra;
 
     //segon thread
@@ -142,17 +142,17 @@ public class Joc extends Canvas implements Runnable{
         /*for(int i=0; i <pixels.length; i++)
         {
             pixels[i] = pantalla.pixels[i];
-        }*/
-        //dibuixem els gràfics copiats
-        Graphics g = estrategiaBufer.getDrawGraphics(); //dibuixa les coses
-        g.drawImage(imatge, 0, 0,getWidth(), getHeight(), null);
+        }
+        /*
+        //Graphics g = estrategiaBufer.getDrawGraphics();
+        //g.drawImage(imatge, 0, 0,getWidth(), getHeight(), null);
         //dibuixant el personatge temporal
-        g.setColor(Color.CYAN);
-        g.fill3DRect(AMPLADA/2, ALÇADA/2, 30, 30, true);
+        //g.setColor(Color.CYAN);
+        //g.fill3DRect(AMPLADA/2, ALÇADA/2, 30, 30, true);*/
         //fí personatge temporal
-        g.dispose(); //quan g acaba la reinicialitza
-        estrategiaBufer.show();
-
+        //g.dispose(); //quan g acaba la reinicialitza
+       // estrategiaBufer.show();
+/*
         fps++;
     }
 
@@ -201,5 +201,5 @@ public class Joc extends Canvas implements Runnable{
                 referenciaContador = System.nanoTime();
             }
         }
-    }
+    }*/
 }

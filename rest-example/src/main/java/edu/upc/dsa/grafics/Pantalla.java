@@ -1,8 +1,10 @@
 package edu.upc.dsa.grafics;
 
-import edu.upc.dsa.mapa.requadre.Requadre;
+
 
 public final class Pantalla {
+    /*
+
     private final int alcada;
     private final int amplada;
 
@@ -95,6 +97,7 @@ public final class Pantalla {
     {
         return this.amplada;
     }
+    */
 }
 
 
