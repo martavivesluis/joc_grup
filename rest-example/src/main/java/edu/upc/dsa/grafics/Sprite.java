@@ -33,4 +33,8 @@ public final class Sprite {
         }
     }
 
+    public int getTamany() //tamany 32*32 per defecte
+    {
+        return tamany;
+    }
 }

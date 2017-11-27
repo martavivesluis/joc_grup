@@ -1,5 +1,7 @@
 package edu.upc.dsa.grafics;
 
+import edu.upc.dsa.mapa.requadre.Requadre;
+
 public final class Pantalla {
     private final int alcada;
     private final int amplada;
@@ -65,5 +67,35 @@ public final class Pantalla {
             }
         }
     }
+    public void mostrarRequadre(int compensacioX, int compensacioY, Requadre requadre)
+    {
+        for(int y=0; y<requadre.sprite.getTamany(); y++)
+        {
+            int posicioY = y + compensacioY;
+            for(int x=0; x<requadre.sprite.getTamany(); x++)
+            {
+                int posicioX = x + compensacioX;
+                //estic dins?
+                if (posicioX <0 || posicioX > amplada || posicioY <0 || posicioY >alcada)
+                {
+                    break;
+                }
+                //copiem els pixels q representen el nostre quadre
+                pixels[(posicioX+posicioY)*amplada]=
+                        requadre.sprite.pixels[(x+y)*requadre.sprite.getTamany()];
+            }
+        }
 
+    }
+    public int getAlcada()
+    {
+        return this.alcada;
+    }
+    public int getAmplada()
+    {
+        return this.amplada;
+    }
 }
+
+
+
