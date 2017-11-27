@@ -108,8 +108,8 @@ public class Personatge extends DAO
     // codigo para la API REST
 
 
-     private String nombre;
-    private String id;
+    private String nombre;
+    private int id;
     private int nivel;
     private int ataque;
     private int defensa;
@@ -117,14 +117,14 @@ public class Personatge extends DAO
     ArrayList<Objeto> objetos;
 
 
-    public Personatge(String nombre, String id, int nivel, int ataque, int defensa, int hp, ArrayList<Objeto> objetos) {
+    public Personatge(String nombre, int id, int nivel, int ataque, int defensa, int hp, Objeto o) {
         this.nombre = nombre;
         this.id = id;
         this.nivel = nivel;
         this.ataque = ataque;
         this.defensa = defensa;
         this.hp = hp;
-        this.objetos = objetos;
+        objetos.add(o);
     }
 
     public Personatge(){
@@ -139,11 +139,11 @@ public class Personatge extends DAO
         this.nombre = nombre;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -186,6 +186,8 @@ public class Personatge extends DAO
     public void setObjetos(ArrayList<Objeto> objetos) {
         this.objetos = objetos;
     }
+
+
 
 
 

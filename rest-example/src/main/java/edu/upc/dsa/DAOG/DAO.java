@@ -134,6 +134,20 @@ public class DAO {
     }
     public void select() throws Exception {
         String theQuery = this.querySelect();
+        select(theQuery);
+
+    }
+
+
+    public void select(String key, String value) throws Exception {
+        String theQuery="";// SELECT * FROM t WHERE email = ' yo@hola.com0
+        select(theQuery);
+
+    }
+
+    public void select(String theQuery) throws Exception{
+
+
         Connection con = getConnection();
         PreparedStatement pstm = con.prepareStatement(theQuery);
         pstm.setInt(1, this.getId());
@@ -143,7 +157,9 @@ public class DAO {
             addRow(rs);
         }
 
+
     }
+
     public String selectAllQuery(Class myclass) {
 
         StringBuffer sb = new StringBuffer("SELECT * FROM ");
@@ -317,7 +333,7 @@ public class DAO {
     }
 }
        public static void main(String[] args) {
-        Personatge t = new Personatge("Anna", 1, 2, 3, 40);
+       // Personatge t = new Personatge("Anna", 1, 2, 3, 40);
 
         //t.insert();
         //t.delete();

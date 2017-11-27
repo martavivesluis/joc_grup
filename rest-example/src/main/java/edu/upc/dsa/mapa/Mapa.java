@@ -33,9 +33,13 @@ public abstract class Mapa {
     {
 
     }
-    public void mostrar(int compesacioX, int compensacioY, Pantalla pantalla)
+    public void mostrar(int compensacioX, int compensacioY, Pantalla pantalla)
     {
-
+        //investigar sobre bitShifting
+        int adalt= compensacioY/32;
+        int abaix= (compensacioY + pantalla.getAlcada())/32;
+        int dreta = compensacioX / 32; //així només camina un pixel i no un quadre
+        int esquerra = (compensacioX + pantalla.getAmplada())/32;
     }
 }
     

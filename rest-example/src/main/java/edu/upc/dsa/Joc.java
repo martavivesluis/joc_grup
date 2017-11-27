@@ -98,21 +98,25 @@ public class Joc extends Canvas implements Runnable{
         {
             //log4javatecla picada
             System.out.println("adalt");
+            y++;
         }
         if(teclat.abaix)
         {
             //log4javatecla picada
             System.out.println("abaix");
+            y--;
         }
         if(teclat.esquerra)
         {
             //log4javatecla picada
             System.out.println("esquerra");
+            x++;
         }
         if(teclat.dreta)
         {
             //log4javatecla picada
             System.out.println("dreta");
+            x--;
         }
 
         aps++;
@@ -142,6 +146,10 @@ public class Joc extends Canvas implements Runnable{
         //dibuixem els gràfics copiats
         Graphics g = estrategiaBufer.getDrawGraphics(); //dibuixa les coses
         g.drawImage(imatge, 0, 0,getWidth(), getHeight(), null);
+        //dibuixant el personatge temporal
+        g.setColor(Color.CYAN);
+        g.fill3DRect(AMPLADA/2, ALÇADA/2, 30, 30, true);
+        //fí personatge temporal
         g.dispose(); //quan g acaba la reinicialitza
         estrategiaBufer.show();
 

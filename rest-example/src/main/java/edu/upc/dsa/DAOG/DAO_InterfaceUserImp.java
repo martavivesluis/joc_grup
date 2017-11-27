@@ -1,5 +1,7 @@
 package edu.upc.dsa.DAOG;
 
+import edu.upc.dsa.Jugador;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,6 +9,11 @@ import java.sql.ResultSet;
 public class DAO_InterfaceUserImp extends DAO implements DAO_InterfaceUser {
 
     public boolean loguejarUsuari(String contrassenya,String email)throws Exception{
+    /*    Jugador j = new Jugador();
+        j.select("email", "s@hola.com");
+        j.getContraseña().equals(contrassenya)
+      */
+
     try{
         Connection conn = getConnection();
         StringBuffer consulta = new StringBuffer("SELECT nom,email,contrasenya FROM jugador");
