@@ -46,10 +46,19 @@ public class Mapa {
 
         int x = this.getDrawableIndexX(element);
         int y = this.getDrawableIndexY(element);
-
         if(amuntInc == 1 && esquerraInc == 0 ){
             this.putElement(x,y+1,element);
         }
+        else if(amuntInc == -1 && esquerraInc == 0 ){
+            this.putElement(x,y-1,element);
+        }
+        else if(amuntInc == 0 && esquerraInc == 1 ){
+            this.putElement(x-1,y,element);
+        }
+        else if(amuntInc == 0 && esquerraInc == -1 ){
+            this.putElement(x+1,y,element);
+        }
+      
         this.putElement(x,y,new EmptyCell());
     }
 

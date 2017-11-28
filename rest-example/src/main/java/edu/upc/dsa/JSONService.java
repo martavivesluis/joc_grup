@@ -12,14 +12,6 @@ SingletonMundo mimundo;
        mimundo = SingletonMundo.getInstance();
 
     }
-    @GET
-    @Path("/Jugador/{nombre}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Jugador buscarJugador(@PathParam("nombre") String nombre) {
-        return mimundo.mundo.getJugador(nombre);
-    }
-
-
     /*
 
 
