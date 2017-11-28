@@ -2,16 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b4faefa-e3fe-49c7-bee8-b67439cdc193" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/control/Controlador_Sesions.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/mapa/Drawable.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/mapa/EmptyCell.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/pintador/Pintador.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/pintador/per_consola/PrintadorPerConsolaImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/edu/upc/dsa/mapa/MapaTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/edu/upc/dsa/pintador/per_consola/PrintadorPerConsolaImplTest.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/mapa/MapaCreat.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO.java" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO_InterfaceUser.java" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO_InterfaceUser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO_InterfaceUserImp.java" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/DAOG/DAO_InterfaceUserImp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/JSONService.java" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/JSONService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Joc.java" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Joc.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Jugador.java" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Jugador.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/grafics/Pantalla.java" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/grafics/Pantalla.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Mundo.java" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Mundo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Personatge.java" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/Personatge.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/mapa/Mapa.java" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/mapa/Mapa.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/mapa/MapaCreat.java" afterPath="$PROJECT_DIR$/src/main/java/edu/upc/dsa/mapa/MapaCreat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/edu/upc/dsa/JugadorTest.java" afterPath="$PROJECT_DIR$/src/test/java/edu/upc/dsa/JugadorTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,10 +43,12 @@
       <file leaf-file-name="JSONService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/JSONService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="300">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#423#424#0" expanded="true" />
+                <element signature="e#478#479#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -93,21 +101,17 @@
       <file leaf-file-name="Mundo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/Mundo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state relative-caret-position="675">
+              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding>
-                <marker date="1511780414149" expanded="true" signature="617:805" ph="{...}" />
-                <marker date="1511780414149" expanded="false" signature="859:874" ph=" { " />
-                <marker date="1511780414149" expanded="false" signature="931:937" ph=" }" />
-                <marker date="1511780414149" expanded="true" signature="993:1135" ph="{...}" />
-                <marker date="1511780414149" expanded="true" signature="1627:1700" ph="{...}" />
-                <marker date="1511780414149" expanded="false" signature="1781:1796" ph=" { " />
-                <marker date="1511780414149" expanded="false" signature="1832:1838" ph=" }" />
-                <marker date="1511780414149" expanded="true" signature="1897:2006" ph="{...}" />
-                <marker date="1511780414149" expanded="true" signature="2067:2198" ph="{...}" />
-                <marker date="1511780414149" expanded="false" signature="2240:2251" ph=" { " />
-                <marker date="1511780414149" expanded="false" signature="2279:2285" ph=" }" />
-                <marker date="1511780414149" expanded="true" signature="2358:2749" ph="{...}" />
+                <marker date="1511903646001" expanded="false" signature="855:870" ph=" { " />
+                <marker date="1511903646001" expanded="false" signature="924:930" ph=" }" />
+                <marker date="1511903646001" expanded="true" signature="973:1109" ph="{...}" />
+                <marker date="1511903646001" expanded="true" signature="1581:1704" ph="{...}" />
+                <marker date="1511903646001" expanded="false" signature="1784:1799" ph=" { " />
+                <marker date="1511903646001" expanded="false" signature="1835:1841" ph=" }" />
+                <marker date="1511903646001" expanded="true" signature="1888:1966" ph="{...}" />
+                <marker date="1511903646001" expanded="true" signature="2035:2425" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -660,6 +664,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#423#424#0" expanded="true" />
+            <element signature="e#478#479#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -731,6 +737,8 @@
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#423#424#0" expanded="true" />
+            <element signature="e#478#479#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -908,21 +916,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/Mundo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state relative-caret-position="675">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
-            <marker date="1511780414149" expanded="true" signature="617:805" ph="{...}" />
-            <marker date="1511780414149" expanded="false" signature="859:874" ph=" { " />
-            <marker date="1511780414149" expanded="false" signature="931:937" ph=" }" />
-            <marker date="1511780414149" expanded="true" signature="993:1135" ph="{...}" />
-            <marker date="1511780414149" expanded="true" signature="1627:1700" ph="{...}" />
-            <marker date="1511780414149" expanded="false" signature="1781:1796" ph=" { " />
-            <marker date="1511780414149" expanded="false" signature="1832:1838" ph=" }" />
-            <marker date="1511780414149" expanded="true" signature="1897:2006" ph="{...}" />
-            <marker date="1511780414149" expanded="true" signature="2067:2198" ph="{...}" />
-            <marker date="1511780414149" expanded="false" signature="2240:2251" ph=" { " />
-            <marker date="1511780414149" expanded="false" signature="2279:2285" ph=" }" />
-            <marker date="1511780414149" expanded="true" signature="2358:2749" ph="{...}" />
+            <marker date="1511903646001" expanded="false" signature="855:870" ph=" { " />
+            <marker date="1511903646001" expanded="false" signature="924:930" ph=" }" />
+            <marker date="1511903646001" expanded="true" signature="973:1109" ph="{...}" />
+            <marker date="1511903646001" expanded="true" signature="1581:1704" ph="{...}" />
+            <marker date="1511903646001" expanded="false" signature="1784:1799" ph=" { " />
+            <marker date="1511903646001" expanded="false" signature="1835:1841" ph=" }" />
+            <marker date="1511903646001" expanded="true" signature="1888:1966" ph="{...}" />
+            <marker date="1511903646001" expanded="true" signature="2035:2425" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -965,10 +969,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/upc/dsa/JSONService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="300">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#423#424#0" expanded="true" />
+            <element signature="e#478#479#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,11 +1,12 @@
 package edu.upc.dsa;
 
 import edu.upc.dsa.DAOG.DAO;
+import edu.upc.dsa.mapa.Drawable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Personatge extends DAO {
+public class Personatge extends DAO implements Drawable {
     public String nombre;
     public int nivel;
     public int ataque;

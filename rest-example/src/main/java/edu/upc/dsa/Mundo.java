@@ -2,88 +2,66 @@ package edu.upc.dsa;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Mundo {
-    Map<String, Personatge> usuarios = new HashMap<String, Personatge>();//recibimos como clave el nombre del usuario,añade el usuario
-    Map<String, Jugador> mapJugadors = new HashMap<String, Jugador>();//jugadors
+    Map<String, Personatge> personajes = new HashMap<String, Personatge>();//recibimos como clave el nombre del usuario,añade el usuario
+    Map<Integer, Jugador> jugadores = new HashMap<Integer, Jugador>();//jugadors
 
-
-    public void añadirObjetoAUsuario(Personatge u, Objeto o) {
-        usuarios.get(u.getNombre()).arrMisObjetos.add(o);
+    public void añadirObjetoPersonaje(Personatge u, Objeto o) {
+        personajes.get(u.getNombre()).arrMisObjetos.add(o);
     }
-    /*public void perderRes(Personatge u)
-    {
-        u.setResistencia(u.getResistencia()-1);
-    }*/
-
-
-    public Boolean crearUsuario(Personatge u) {
-        if (usuarios.containsKey(u.getNombre())) {
+    public Boolean crearUsuario(Jugador j) {
+        if (jugadores.containsKey(j.getId())){
             return false;
         } else {
-            usuarios.putIfAbsent(u.getNombre(),u);
-
+            jugadores.putIfAbsent(j.getId(),j);
             return true;
         }
-    }
-    public Personatge consultarUsuario(String nombre)
-    {
-        return usuarios.get(nombre);//si no esta devuelve un null
-    }
 
-    public boolean eliminarUsuario(String Nombre)
+    }
+    public void perderRes(Personatge u){
+        u.setResistencia(u.getResistencia()-1);
+    }
+    public Jugador consultarUsuario(int id)
     {
-        Personatge v = usuarios.remove(Nombre);
+        return jugadores.get(id);//si no esta devuelve un null
+    }
+    public boolean eliminarUsuario(int id){
+        Jugador v = jugadores.remove(id);
         if(v == null)
             return false;
         else
             return true;
 
-    }/*
-    public List<Objeto> consultarObjetosDeUsuario(Personatge u)
-    {
+    }
+    public List<Objeto> consultarObjetosDeUsuario(Personatge u){
         return u.arrMisObjetos;
     }
-    public Objeto consultarObjetoDeUsuario(Personatge u, String nombreObjeto)
-    {
+    public Objeto consultarObjetoDeUsuario(Personatge u, String nombreObjeto){
         return u.getPrimerObjetoLlamado(nombreObjeto);
     }
-    public void transferirObjetoEntreUsuarios(Personatge origen,Personatge destino, Objeto o)
-    {
+    public void transferirObjetoEntreUsuarios(Personatge origen,Personatge destino, Objeto o) {
         origen.arrMisObjetos.remove(o);
         destino.arrMisObjetos.add(o);
     }
-*/
-    public Boolean crearJugador(Jugador jugador) {
-       mapJugadors.put(jugador.nom, jugador);
+    public Boolean crearPersonaje(Personatge p) {
+      Personatge j = personajes.put(p.getNombre(),p);
+      if(j==null)
+          return false;
        return true;
     }
-
     public void AfegirPersonatgeJugador(Jugador jugador, Personatge personatge)
     {
         jugador.personatges.add(personatge);
     }
-
-    public String consultarNomJugador(String nombre)
-    {
-        Jugador j1= mapJugadors.get(nombre);
-        String nom = j1.getNombre();
-        return nom;
-    }
-    public String consultarContraJugador(String nombre)
-    {
-        Jugador j1= mapJugadors.get(nombre);
-        String contrasenya = j1.getContrasenya();
-        return contrasenya;
+    public String consultarNomJugador(int id) {
+        Jugador j1 =jugadores.get(id);
+        return j1.getNombre();
 
     }
-    public Jugador getJugador(String nom) {
-        return mapJugadors.get(nom);
-    }
-    public ArrayList<String> consultarPersonatgesJugador(Jugador u)
-    {
-
+    public ArrayList<String> consultarPersonatgesJugador(Jugador u) {
         ArrayList<Personatge> totselsdaquestjugador = u.getPersonatges();
         ArrayList<String> totselsNomsdelspersonatgesdeljugador = new ArrayList<String>();
         for(Personatge p : totselsdaquestjugador){
@@ -92,8 +70,4 @@ public class Mundo {
         }
         return totselsNomsdelspersonatgesdeljugador;
     }
-
-
-
-
 }

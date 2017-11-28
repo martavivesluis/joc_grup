@@ -10,9 +10,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class DAO {
-    //dao
+    //comandes aplicables totes les classes
     public int id = 0;//totes les taules tindran un identificador del tipos enter
-
     protected boolean idAutogen = true;
     public Connection getConnection() throws SQLException, ClassNotFoundException {
         Connection conn = null;
@@ -40,7 +39,6 @@ public class DAO {
          Object[] args = {value};
          m.invoke(this, args);
     }
-
     private void addRow(ResultSet rs) throws  Exception{
         ResultSetMetaData rsmd = rs.getMetaData();
         int totalColumnes = rsmd.getColumnCount();
@@ -133,8 +131,6 @@ public class DAO {
 
         // releaseConnectoin
     }
-
-
     public boolean select(String Query, Object value) throws Exception {
         Connection con = getConnection();
         boolean ret = false;
@@ -151,7 +147,6 @@ public class DAO {
     public boolean select()throws Exception{
        return  select("id", this.getId());
     }
-
     public boolean select(String key,String value) throws Exception{
         String query = this.querySelect(key);
         return select(query, (Object)value);
@@ -202,8 +197,7 @@ public class DAO {
         return sb.toString();
 
 }
-    public void addFieldsToQueryUpdate(PreparedStatement pstm)throws Exception
-    {
+    public void addFieldsToQueryUpdate(PreparedStatement pstm)throws Exception {
         int j =0;
         Field[] fields = this.getClass().getDeclaredFields();
         for(int i = 1;i<fields.length;i++)
@@ -232,8 +226,6 @@ public class DAO {
 
         return fields;
     }
-//sustituir els interrogants de les consultes
-
     private Method findGetMethod(String field) {
         String s = "get"+field.substring(0,1).toUpperCase()+field.substring(1);
 

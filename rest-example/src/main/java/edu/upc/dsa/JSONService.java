@@ -6,13 +6,22 @@ import javax.ws.rs.core.Response;
 
 @Path("/json")//porta
 public class JSONService {
-/*
-    Jugadores jugadores;
-
+SingletonMundo mimundo;
     public JSONService()
     {
-        jugadores = Jugadores.getDbInstancia();
+       mimundo = SingletonMundo.getInstance();
+
     }
+    @GET
+    @Path("/Jugador/{nombre}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Jugador buscarJugador(@PathParam("nombre") String nombre) {
+        return mimundo.mundo.getJugador(nombre);
+    }
+
+
+    /*
+
 
     @GET
     @Path("/Jugador/{nombre}")
