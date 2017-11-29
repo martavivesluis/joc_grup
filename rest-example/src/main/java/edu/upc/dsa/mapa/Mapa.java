@@ -58,7 +58,7 @@ public class Mapa {
         else if(amuntInc == 0 && esquerraInc == -1 ){
             this.putElement(x+1,y,element);
         }
-      
+
         this.putElement(x,y,new EmptyCell());
     }
 
