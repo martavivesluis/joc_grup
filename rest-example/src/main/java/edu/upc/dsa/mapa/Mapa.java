@@ -7,13 +7,9 @@ import edu.upc.dsa.grafics.Pantalla;
 import java.util.ArrayList;
 
 public class Mapa {
-
-
     protected int[] requadres;
     ArrayList<ArrayList<Drawable>> cells;
-
-    public Mapa(int amplada, int alcada)
-    {
+    public Mapa(int amplada, int alcada) {
         cells = new ArrayList<ArrayList<Drawable>>();
 
         for(int i=0; i< amplada;i++){
@@ -24,24 +20,19 @@ public class Mapa {
             cells.add(columna);
         }
     }
-
     public int getWidth() {
         return cells.size();
     }
-
     public int getHeight() {
         return cells.get(0).size();
     }
-
     public void putElement(int x, int y, Drawable drawable1) {
 
         cells.get(x).set(y,drawable1);
     }
-
     public Drawable getElement(int x, int y) {
         return cells.get(x).get(y);
     }
-
     public void moure(int amuntInc, int esquerraInc, Drawable element) {
 
         int x = this.getDrawableIndexX(element);
@@ -61,12 +52,10 @@ public class Mapa {
 
         this.putElement(x,y,new EmptyCell());
     }
-
     private int getDrawableIndexY(Drawable element) {
         int x = this.getDrawableIndexX(element);
         return cells.get(x).indexOf(element);
     }
-
     private int getDrawableIndexX(Drawable element) {
         for(int x = 0; x < this.getWidth(); x++){
             if(cells.get(x).contains(element)){
@@ -75,7 +64,6 @@ public class Mapa {
         }
         return -1;
     }
-
     /*
 
     protected void generarMapa() {

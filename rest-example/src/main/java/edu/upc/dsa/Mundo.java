@@ -8,7 +8,6 @@ import java.util.Map;
 public class Mundo {
     Map<String, Personatge> personajes = new HashMap<String, Personatge>();//recibimos como clave el nombre del usuario,añade el usuario
     Map<Integer, Jugador> jugadores = new HashMap<Integer, Jugador>();//jugadors
-
     public void añadirObjetoPersonaje(Personatge u, Objeto o) {
         personajes.get(u.getNombre()).arrMisObjetos.add(o);
     }
@@ -24,10 +23,7 @@ public class Mundo {
     public void perderRes(Personatge u){
         u.setResistencia(u.getResistencia()-1);
     }
-    public Jugador consultarUsuario(int id)
-    {
-        return jugadores.get(id);//si no esta devuelve un null
-    }
+
     public boolean eliminarUsuario(int id){
         Jugador v = jugadores.remove(id);
         if(v == null)
@@ -69,5 +65,12 @@ public class Mundo {
             totselsNomsdelspersonatgesdeljugador.add(nombre);
         }
         return totselsNomsdelspersonatgesdeljugador;
+    }
+    public Jugador consultarUsuarioMail(String mail) {
+        int id = mail.hashCode();
+        return consultarUsuario(id);
+    }
+    public Jugador consultarUsuario(int id) {
+        return jugadores.get(id);//si no esta devuelve un null
     }
 }

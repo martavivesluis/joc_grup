@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 
 public class AppInicial {
-
+/*
     public void Arrencar()
 
     {
@@ -90,7 +90,7 @@ public class AppInicial {
 
         }
 
-    }
+    }*/
 
 }
 

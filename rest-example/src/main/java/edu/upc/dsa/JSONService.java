@@ -4,13 +4,24 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/json")//porta
+@Path("json")//porta
 public class JSONService {
-SingletonMundo mimundo;
-    public JSONService()
-    {
-       mimundo = SingletonMundo.getInstance();
 
+    SingletonMundo mimundo;
+    public JSONService() {
+        mimundo = SingletonMundo.getInstance();
+        Jugador j = new Jugador("marta","1234","martavivesluis@gmail.com");
+        mimundo.mundo.jugadores.put(j.getId(),j);
+    }
+    @GET
+    @Path("/Jugador/{email}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response buscarJugador(@PathParam("email") String email) {
+        if(mimundo.mundo.consultarUsuarioMail(email) == null) {
+            return Response.status(201).entity("no existeix").build();
+        }
+        return Response.status(201).entity(" existeix").build();
+       // return mimundo.mundo.consultarUsuarioMail(email);
     }
     /*
 

@@ -19,7 +19,6 @@ public class PrintadorPerConsolaImpl implements Pintador{
         }
         return ans;
     }
-
     private String printDrawable(Drawable dr) {
         if(dr instanceof EmptyCell){
             return ".";
