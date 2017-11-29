@@ -8,9 +8,40 @@ import java.util.Map;
 public class Mundo {
     Map<String, Personatge> personajes = new HashMap<String, Personatge>();//recibimos como clave el nombre del usuario,añade el usuario
     Map<Integer, Jugador> jugadores = new HashMap<Integer, Jugador>();//jugadors
+    HashMap<String, Jugador> mapaJugadores;
+
+
+
+    public Mundo(){
+        Jugador bruno = new Jugador("bruno", "123", "email1");
+        jugadores.put(bruno.getId(), bruno);
+        mapaJugadores.put(bruno.getNombre(), bruno);
+    }
     public void añadirObjetoPersonaje(Personatge u, Objeto o) {
         personajes.get(u.getNombre()).arrMisObjetos.add(o);
     }
+
+    public Map<String, Personatge> getPersonajes() {
+        return personajes;
+
+    }
+
+    public void setPersonajes(Map<String, Personatge> personajes) {
+        this.personajes = personajes;
+    }
+
+    public Map<Integer, Jugador> getJugadores() {
+        return jugadores;
+    }
+
+    public HashMap<String, Jugador> devuelveMapa(){
+        return mapaJugadores;
+    }
+
+    public void setJugadores(Map<Integer, Jugador> jugadores) {
+        this.jugadores = jugadores;
+    }
+
     public Boolean crearUsuario(Jugador j) {
         if (jugadores.containsKey(j.getId())){
             return false;

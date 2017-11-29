@@ -4,25 +4,27 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("json")//porta
+@Path("/")//porta
 public class JSONService {
-
+    BDTemporal BDtemp;
     SingletonMundo mimundo;
+
     public JSONService() {
         mimundo = SingletonMundo.getInstance();
         Jugador j = new Jugador("marta","1234","martavivesluis@gmail.com");
         mimundo.mundo.jugadores.put(j.getId(),j);
     }
     @GET
-    @Path("/Jugador/{email}")
+    @Path("/Jugador/{nombre}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response buscarJugador(@PathParam("email") String email) {
-        if(mimundo.mundo.consultarUsuarioMail(email) == null) {
-            return Response.status(201).entity("no existeix").build();
-        }
-        return Response.status(201).entity(" existeix").build();
-       // return mimundo.mundo.consultarUsuarioMail(email);
+    public Jugador buscarJugador(@PathParam("nombre") String nombre) {
+        return mimundo.mundo.devuelveMapa().get(nombre);
+
+
     }
+
+
+
     /*
 
 
