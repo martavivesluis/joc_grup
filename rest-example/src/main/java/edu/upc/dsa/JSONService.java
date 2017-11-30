@@ -9,10 +9,10 @@ import javax.ws.rs.core.Response;
 
 @Path("json")//porta
 public class JSONService {
+    BDTemporal BDtemp;
+    SingletonMundo mimundo;
 
-    protected SingletonMundo mimundo;
     public JSONService() {
-
         mimundo = SingletonMundo.getInstance();
         Jugador j = new Jugador("marta","1234","martavivesluis@gmail.com");
         mimundo.mundo.jugadores.put(j.getId(),j);
