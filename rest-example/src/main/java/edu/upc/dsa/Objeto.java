@@ -7,6 +7,9 @@ public class Objeto {
     private int Valor;
     private int Coste;
 
+    public Objeto(){
+
+    }
     public Objeto(String nombre, String t, String d, int v, int c)//constructor
     {
         this.Nombre = nombre;

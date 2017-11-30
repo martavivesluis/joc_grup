@@ -145,7 +145,7 @@ public class Joc {
         }
         /*
         //Graphics g = estrategiaBufer.getDrawGraphics();
-        //g.drawImage(imatge, 0, 0,getWidth(), getHeight(), null);
+        //g.drawImage(imatge, 0, 0,doGetWidth(), doGetHeight(), null);
         //dibuixant el personatge temporal
         //g.setColor(Color.CYAN);
         //g.fill3DRect(AMPLADA/2, ALÇADA/2, 30, 30, true);*/

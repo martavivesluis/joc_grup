@@ -1,5 +1,6 @@
 package edu.upc.dsa;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.upc.dsa.DAOG.DAO;
 import edu.upc.dsa.mapa.Drawable;
 
@@ -11,9 +12,9 @@ public class Personatge extends DAO implements Drawable {
     public int nivel;
     public int ataque;
     public int resistencia;
-    List<Objeto> arrMisObjetos = new ArrayList<Objeto>();
+    public ArrayList<Objeto> arrMisObjetos;
 
-    public void setArrMisObjetos(List<Objeto> arrMisObjetos) {
+    public void setArrMisObjetos(ArrayList<Objeto> arrMisObjetos) {
         this.arrMisObjetos = arrMisObjetos;
     }
 
@@ -30,6 +31,7 @@ public class Personatge extends DAO implements Drawable {
         this.ataque = a;
         this.resistencia = d;
         this.defensa = r;
+        arrMisObjetos = new ArrayList<Objeto>();
 
     }
 
@@ -40,9 +42,10 @@ public class Personatge extends DAO implements Drawable {
         this.ataque = 0;
         this.resistencia = 0;
         this.defensa = 0;
+        arrMisObjetos = new ArrayList<Objeto>();
 
     }
-
+/*
     public Objeto getPrimerObjetoLlamado(String nombreDeObjeto) {
         for (Objeto miobjeto : arrMisObjetos) {
             if (miobjeto.Nombre.equals(nombreDeObjeto))
@@ -64,7 +67,7 @@ public class Personatge extends DAO implements Drawable {
         arrMisObjetos.remove(aborrar);
         return aborrar;
     }
-
+*/
     public String getNombre() {
         return nombre;
     }

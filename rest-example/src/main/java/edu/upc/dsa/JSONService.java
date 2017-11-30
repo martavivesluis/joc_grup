@@ -1,5 +1,8 @@
 package edu.upc.dsa;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import edu.upc.dsa.mapa.Mapa;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -7,21 +10,49 @@ import javax.ws.rs.core.Response;
 @Path("json")//porta
 public class JSONService {
 
-    SingletonMundo mimundo;
+    protected SingletonMundo mimundo;
     public JSONService() {
+
         mimundo = SingletonMundo.getInstance();
         Jugador j = new Jugador("marta","1234","martavivesluis@gmail.com");
         mimundo.mundo.jugadores.put(j.getId(),j);
+       Personatge p =  new Personatge("Hamlet",1,1,1,1);
+       mimundo.mundo.afegirPersonatgeJugador(j,p);
     }
     @GET
     @Path("/Jugador/{email}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response buscarJugador(@PathParam("email") String email) {
-        if(mimundo.mundo.consultarUsuarioMail(email) == null) {
-            return Response.status(201).entity("no existeix").build();
+    public Jugador buscarJugador2(@PathParam("email") String email){
+        Jugador j = mimundo.mundo.consultarUsuarioMail(email);
+        System.out.println("JUGADOR "+j);
+        return j;
+    }
+    @GET
+    @Path("/Login/{email}/{password}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String buscarJugador2(@PathParam("email") String email,@PathParam("password") String password){
+        Jugador j = mimundo.mundo.consultarUsuarioMail(email);
+        if( j !=null && j.getContrasenya().equals(password) ) {
+            return "true";
         }
-        return Response.status(201).entity(" existeix").build();
-       // return mimundo.mundo.consultarUsuarioMail(email);
+        return "false";
+    }
+
+    @GET
+    @Path("/Personaje/{nombre}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Personatge buscarPersonaje(@PathParam("nombre") String nombre) {
+        return new Personatge("Hamlet",1,1,1,1);
+    }
+
+    @GET
+    @Path("/Mapa")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getMapa() throws Exception{
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+        return mapper.writeValueAsString( mimundo.mundo.mapa);
     }
     /*
 
@@ -33,12 +64,7 @@ public class JSONService {
         return jugadores.getMapaJugadores().get(nombre);
     }
 
-    @GET
-    @Path("/Personaje/{nombre}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Personatge buscarPersonaje(@PathParam("nombre") String nombre) {
-        return jugadores.get().get(nombre);
-    }
+
 
     @GET
     @Path("/Objeto/{nombre}")

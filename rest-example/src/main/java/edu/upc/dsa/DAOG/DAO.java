@@ -1,7 +1,5 @@
 package edu.upc.dsa.DAOG;
 
-import edu.upc.dsa.Personatge;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.*;
@@ -12,8 +10,17 @@ import java.util.List;
 public class DAO {
     //comandes aplicables totes les classes
     public int id = 0;//totes les taules tindran un identificador del tipos enter
+
+    public boolean isIdAutogen() {
+        return idAutogen;
+    }
+
+    public void setIdAutogen(boolean idAutogen) {
+        this.idAutogen = idAutogen;
+    }
+
     protected boolean idAutogen = true;
-    public Connection getConnection() throws SQLException, ClassNotFoundException {
+    public Connection doGetConnection() throws SQLException, ClassNotFoundException {
         Connection conn = null;
         conn = DriverManager.getConnection("jdbc:mysql://localhost/juego?" + "user=myapp&password=1234&useJDBCCompliantTimezoneShift=true&serverTimezone=UTC");
         return conn;
@@ -132,7 +139,7 @@ public class DAO {
         // releaseConnectoin
     }
     public boolean select(String Query, Object value) throws Exception {
-        Connection con = getConnection();
+        Connection con = doGetConnection();
         boolean ret = false;
         PreparedStatement pstm = con.prepareStatement(Query);
         pstm.setObject(1, value);
@@ -163,7 +170,7 @@ public class DAO {
         return sb.toString();
     }
     public boolean update()throws Exception {
-        Connection con = getConnection();
+        Connection con = doGetConnection();
         StringBuffer consulta = new StringBuffer("UPDATE "+this.getClass().getSimpleName()+" SET ");
         Field[] atributos = this.getClass().getDeclaredFields();
         for(int i = 0;i<atributos.length;i++)//ignorem vectors array
@@ -217,11 +224,11 @@ public class DAO {
         System.out.println("updatestatement:"+pstm.toString());
         pstm.executeUpdate();
     }
-    public static List<Field> getAllFields(List<Field> fields, Class<?> type) {
+    public static List<Field> doGetAllFields(List<Field> fields, Class<?> type) {
         fields.addAll(Arrays.asList(type.getDeclaredFields()));
 
         if (type.getSuperclass() != null) {
-            getAllFields(fields, type.getSuperclass());
+            doGetAllFields(fields, type.getSuperclass());
         }
 
         return fields;

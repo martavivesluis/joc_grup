@@ -7,6 +7,7 @@ public class SingletonMundo {
     private SingletonMundo(){
         mundo = new Mundo();
 
+
     }
 
     static SingletonMundo getInstance(){

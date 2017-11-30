@@ -10,9 +10,9 @@ public class PrintadorPerConsolaImpl implements Pintador{
     @Override
     public String print(Mapa m) {
         String ans = "";
-        for( int y= 0; y < m.getHeight();y++){
-            for( int x= 0; x < m.getWidth();x++) {
-               Drawable dr =  m.getElement(x,y);
+        for(int y = 0; y < m.doGetHeight(); y++){
+            for(int x = 0; x < m.doGetWidth(); x++) {
+               Drawable dr =  m.doGetElement(x,y);
                ans = ans + this.printDrawable(dr);
             }
             ans = ans + "\n";

@@ -1,42 +1,50 @@
 package edu.upc.dsa.mapa;
 //un mapa es una col·leció de sprites
 
-import edu.upc.dsa.Personatge;
-import edu.upc.dsa.grafics.Pantalla;
-
 import java.util.ArrayList;
 
 public class Mapa {
-    protected int[] requadres;
-    ArrayList<ArrayList<Drawable>> cells;
+
+    public ArrayList<Column> columns;
+
+    public Mapa(){
+
+    }
+
+    public ArrayList<Column> getColumns() {
+        return columns;
+    }
+    public void setColumns(ArrayList<Column> columns) {
+        this.columns = columns;
+    }
     public Mapa(int amplada, int alcada) {
-        cells = new ArrayList<ArrayList<Drawable>>();
+        columns = new ArrayList<Column>();
 
         for(int i=0; i< amplada;i++){
-            ArrayList<Drawable> columna = new ArrayList<Drawable>();
+            Column columna = new Column();
             for(int j = 0; j < alcada; j++){
-                columna.add(new EmptyCell());
+                columna.rows.add(new EmptyCell());
             }
-            cells.add(columna);
+            columns.add(columna);
         }
     }
-    public int getWidth() {
-        return cells.size();
+    public int doGetWidth() {
+        return columns.size();
     }
-    public int getHeight() {
-        return cells.get(0).size();
+    public int doGetHeight() {
+        return columns.get(0).rows.size();
     }
     public void putElement(int x, int y, Drawable drawable1) {
 
-        cells.get(x).set(y,drawable1);
+        columns.get(x).rows.set(y,drawable1);
     }
-    public Drawable getElement(int x, int y) {
-        return cells.get(x).get(y);
+    public Drawable doGetElement(int x, int y) {
+        return columns.get(x).rows.get(y);
     }
     public void moure(int amuntInc, int esquerraInc, Drawable element) {
 
-        int x = this.getDrawableIndexX(element);
-        int y = this.getDrawableIndexY(element);
+        int x = this.doGetDrawableIndexX(element);
+        int y = this.doGetDrawableIndexY(element);
         if(amuntInc == 1 && esquerraInc == 0 ){
             this.putElement(x,y+1,element);
         }
@@ -52,13 +60,13 @@ public class Mapa {
 
         this.putElement(x,y,new EmptyCell());
     }
-    private int getDrawableIndexY(Drawable element) {
-        int x = this.getDrawableIndexX(element);
-        return cells.get(x).indexOf(element);
+    private int doGetDrawableIndexY(Drawable element) {
+        int x = this.doGetDrawableIndexX(element);
+        return columns.get(x).rows.indexOf(element);
     }
-    private int getDrawableIndexX(Drawable element) {
-        for(int x = 0; x < this.getWidth(); x++){
-            if(cells.get(x).contains(element)){
+    private int doGetDrawableIndexX(Drawable element) {
+        for(int x = 0; x < this.doGetWidth(); x++){
+            if(columns.get(x).rows.contains(element)){
                 return x;
             }
         }

@@ -1,39 +1,42 @@
 package edu.upc.dsa;
 
 import edu.upc.dsa.DAOG.DAO_InterfaceUserImp;
+import edu.upc.dsa.mapa.Drawable;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Jugador extends DAO_InterfaceUserImp {
+public class Jugador extends DAO_InterfaceUserImp implements Drawable {
     public String nom;
     public String email;
     public String contrasenya;
+    public  ArrayList<Personatge> personatges; //etiqueta buida
 
 
     public void setPersonatges(ArrayList<Personatge> personatges) {
         this.personatges = personatges;
     }
 
-    ArrayList<Personatge> personatges; //etiqueta buida
+
 
     //constructor d'un jugador
     public Jugador(String nom, String contrasenya, String email) {
         this.nom = nom;
         this.contrasenya = contrasenya;
         this.email = email;
-        personatges = new ArrayList<Personatge>();
-        idAutogen = false;
-        id = email.hashCode();
+        this.personatges = new ArrayList<Personatge>();
+       this.idAutogen = false;
+        this.id = email.hashCode();
     }
+
 
     public Jugador() {
         this.nom = null;
         this.contrasenya = null;
         this.email = null;
-        personatges = new ArrayList<Personatge>();
-        idAutogen = false;
-        id = 0;
+        this.personatges = new ArrayList<Personatge>();
+        this.idAutogen = false;
+        this.id = 0;
     }
 
     public String getNombre() {
@@ -83,7 +86,16 @@ public class Jugador extends DAO_InterfaceUserImp {
     public void setId(int id) {
         this.id = id;
     }
+    @Override
+    public boolean isIdAutogen() {
+        return idAutogen;
+    }
+    @Override
+    public void setIdAutogen(boolean idAutogen) {
+        this.idAutogen = idAutogen;
+    }
 
+    @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();
         sb.append(this.id).append(" ").append(this.email).append(" ").append(contrasenya).append(" ").append(nom);
