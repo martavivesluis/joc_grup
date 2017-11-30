@@ -40,7 +40,7 @@ public class Mundo {
         return u.arrMisObjetos;
     }
     public Objeto consultarObjetoDeUsuario(Personatge u, String nombreObjeto){
-        return u.getPrimerObjetoLlamado(nombreObjeto);
+        return null;//.getPrimerObjetoLlamado(nombreObjeto);
     }
     public void transferirObjetoEntreUsuarios(Personatge origen,Personatge destino, Objeto o) {
         origen.arrMisObjetos.remove(o);
