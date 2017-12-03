@@ -39,12 +39,33 @@ public class JSONService {
     }
 
     @GET
-    @Path("/Personaje/{nombre}")
+    @Path("/Personaje/{nombrePersonaje}/{idJugador}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Personatge buscarPersonaje(@PathParam("nombre") String nombre) {
+    public Personatge buscarPersonaje(@PathParam("nombrePersonaje") String nombrePersonaje, @PathParam("idJugador") int id) {
         return new Personatge("Hamlet",1,1,1,1);
     }
+    @GET
+    @Path("/Personatge/{nombre}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response AfegirPersonatge(@PathParam("nombre") String nombre) throws Exception{
+    Personatge p = new Personatge();
+    p.setNombre(nombre);
+    try{p.insert();
+        System.out.println(p.getId());//id base de dades
+        try{
+            
+        }
+        catch(Exception e)
+        {
+            return Response.status(201).entity("no s'ha pogut al jugador:" +nombre).build();
+        }
+    return Response.status(201).entity("afegit el personatge amb nom:" +nombre).build();
+    }
+    catch(Exception e){e.printStackTrace();
+        return Response.status(201).entity("no s'ha pogut afegir el personatge:" +nombre).build();
+    }
 
+    }
     @GET
     @Path("/Mapa")
     @Produces(MediaType.TEXT_PLAIN)

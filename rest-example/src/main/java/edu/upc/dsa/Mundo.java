@@ -52,7 +52,7 @@ public class Mundo {
         Personatge j = personajes.put(p.getNombre(),p);
         if(j!=null)
             return false;
-        mapa.putElement(0,0,p);
+        mapa.putElement(0,0,p);//afegim personatge al mapa
         jugador.personatges.add(p);
         return true;
     }
