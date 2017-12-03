@@ -1,7 +1,7 @@
 package edu.upc.dsa;
 
 public class Objeto {
-    public String Nombre;
+    private String Nombre;
     private String Tipo;
     private String Descripcion;
     private int Valor;
@@ -10,6 +10,7 @@ public class Objeto {
     public Objeto(){
 
     }
+
     public Objeto(String nombre, String t, String d, int v, int c)//constructor
     {
         this.Nombre = nombre;
@@ -17,7 +18,6 @@ public class Objeto {
         this.Descripcion = d;
         this.Valor = v;
         this.Coste = c;
-
     }
 
     public String getNombre() {

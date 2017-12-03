@@ -25,7 +25,7 @@ public class Jugador extends DAO_InterfaceUserImp implements Drawable {
         this.contrasenya = contrasenya;
         this.email = email;
         this.personatges = new ArrayList<Personatge>();
-       this.idAutogen = false;
+        this.idAutogen = false;
         this.id = email.hashCode();
     }
 
