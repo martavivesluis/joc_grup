@@ -114,7 +114,15 @@ public class JSONService {
 
 
 
-    /*   mimundo = SingletonMundo.getInstance();
+    /*  import javax.ws.rs.core.Response;
+
+@Path("json")//porta
+public class JSONService {
+    BDTemporal BDtemp;
+    SingletonMundo mimundo;
+
+    public JSONService() {
+        mimundo = SingletonMundo.getInstance();
         Jugador j = new Jugador("marta","1234","martavivesluis@gmail.com");
         mimundo.mundo.jugadores.put(j.getId(),j);
        Personatge p =  new Personatge("Hamlet",1,1,1,1);
@@ -139,7 +147,34 @@ public class JSONService {
         return "false";
     }
 
+    @GET
+    @Path("/Personaje/{nombrePersonaje}/{idJugador}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Personatge buscarPersonaje(@PathParam("nombrePersonaje") String nombrePersonaje, @PathParam("idJugador") int id) {
+        return new Personatge("Hamlet",1,1,1,1);
+    }
+    @GET
+    @Path("/Personatge/{nombre}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response AfegirPersonatge(@PathParam("nombre") String nombre) throws Exception{
+    Personatge p = new Personatge();
+    p.setNombre(nombre);
+    try{p.insert();
+        System.out.println(p.getId());//id base de dades
+        try{
 
+        }
+        catch(Exception e)
+        {
+            return Response.status(201).entity("no s'ha pogut al jugador:" +nombre).build();
+        }
+    return Response.status(201).entity("afegit el personatge amb nom:" +nombre).build();
+    }
+    catch(Exception e){e.printStackTrace();
+        return Response.status(201).entity("no s'ha pogut afegir el personatge:" +nombre).build();
+    }
+
+    }
     @GET
     @Path("/Mapa")
     @Produces(MediaType.TEXT_PLAIN)
