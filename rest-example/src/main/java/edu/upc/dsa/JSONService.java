@@ -7,15 +7,84 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/")
+@Path("json")//porta
 public class JSONService {
     BDTemporal BDtemp;
+    SingletonMundo mimundo;
 
     public JSONService() {
-        BDtemp = BDTemporal.getDbInstancia();
+        mimundo = SingletonMundo.getInstance();
+        Jugador j = new Jugador("marta","1234","martavivesluis@gmail.com");
+        mimundo.mundo.jugadores.put(j.getId(),j);
+        Personatge p =  new Personatge("Hamlet",1,1,1,1);
+        mimundo.mundo.afegirPersonatgeJugador(j,p);
+    }
+    //servei d'autentificació arreglar login
+    @POST
+    @Path("/Jugador/{email}")
+    @Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_JSON})
+    @Produces(MediaType.APPLICATION_JSON)
+    public Jugador Login(@PathParam("email") String email,String contrassenya){
+        System.out.println(contrassenya);
+        Jugador j = mimundo.mundo.consultarUsuarioMail(email);
+        if(j.getContrasenya().equals(contrassenya))
+        {
+            return j;
+        }
+
+        return null;
+    }
+    @GET
+    @Path("/Login/{email}/{password}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response buscarJugador2(@PathParam("email") String email,@PathParam("password") String password){
+     Jugador j = new Jugador();
+
+
+
+        return Response.status(101).build();
     }
 
     @GET
+    @Path("/Personaje/{nombrePersonaje}/{idJugador}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Personatge buscarPersonaje(@PathParam("nombrePersonaje") String nombrePersonaje, @PathParam("idJugador") int id) {
+        return new Personatge("Hamlet",1,1,1,1);
+    }
+    @GET
+    @Path("/Personatge/{nombre}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response AfegirPersonatge(@PathParam("nombre") String nombre) throws Exception{
+        Personatge p = new Personatge();
+        p.setNombre(nombre);
+        try{p.insert();
+            System.out.println(p.getId());//id base de dades
+            try{
+
+            }
+            catch(Exception e)
+            {
+                return Response.status(201).entity("no s'ha pogut al jugador:" +nombre).build();
+            }
+            return Response.status(201).entity("afegit el personatge amb nom:" +nombre).build();
+        }
+        catch(Exception e){e.printStackTrace();
+            return Response.status(201).entity("no s'ha pogut afegir el personatge:" +nombre).build();
+        }
+
+    }
+    @GET
+    @Path("/Mapa")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getMapa() throws Exception{
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+        return mapper.writeValueAsString( mimundo.mundo.mapa);
+    }
+
+}
+   /* @GET
     @Path("/Jugador/{nombre}")
     @Produces(MediaType.APPLICATION_JSON)
     public Jugador buscarJugador(@PathParam("nombre") String nombre) {
@@ -115,74 +184,4 @@ public class JSONService {
 
 
     /*  import javax.ws.rs.core.Response;
-
-@Path("json")//porta
-public class JSONService {
-    BDTemporal BDtemp;
-    SingletonMundo mimundo;
-
-    public JSONService() {
-        mimundo = SingletonMundo.getInstance();
-        Jugador j = new Jugador("marta","1234","martavivesluis@gmail.com");
-        mimundo.mundo.jugadores.put(j.getId(),j);
-       Personatge p =  new Personatge("Hamlet",1,1,1,1);
-       mimundo.mundo.afegirPersonatgeJugador(j,p);
-    }
-    @GET
-    @Path("/Jugador/{email}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Jugador buscarJugador2(@PathParam("email") String email){
-        Jugador j = mimundo.mundo.consultarUsuarioMail(email);
-        System.out.println("JUGADOR "+j);
-        return j;
-    }
-    @GET
-    @Path("/Login/{email}/{password}")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String buscarJugador2(@PathParam("email") String email,@PathParam("password") String password){
-        Jugador j = mimundo.mundo.consultarUsuarioMail(email);
-        if( j !=null && j.getContrasenya().equals(password) ) {
-            return "true";
-        }
-        return "false";
-    }
-
-    @GET
-    @Path("/Personaje/{nombrePersonaje}/{idJugador}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Personatge buscarPersonaje(@PathParam("nombrePersonaje") String nombrePersonaje, @PathParam("idJugador") int id) {
-        return new Personatge("Hamlet",1,1,1,1);
-    }
-    @GET
-    @Path("/Personatge/{nombre}")
-    @Produces(MediaType.TEXT_PLAIN)
-    public Response AfegirPersonatge(@PathParam("nombre") String nombre) throws Exception{
-    Personatge p = new Personatge();
-    p.setNombre(nombre);
-    try{p.insert();
-        System.out.println(p.getId());//id base de dades
-        try{
-
-        }
-        catch(Exception e)
-        {
-            return Response.status(201).entity("no s'ha pogut al jugador:" +nombre).build();
-        }
-    return Response.status(201).entity("afegit el personatge amb nom:" +nombre).build();
-    }
-    catch(Exception e){e.printStackTrace();
-        return Response.status(201).entity("no s'ha pogut afegir el personatge:" +nombre).build();
-    }
-
-    }
-    @GET
-    @Path("/Mapa")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getMapa() throws Exception{
-
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
-        return mapper.writeValueAsString( mimundo.mundo.mapa);
-    }*/
-
-}
+*/

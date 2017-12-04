@@ -18,7 +18,6 @@ public class DAO {
     public void setIdAutogen(boolean idAutogen) {
         this.idAutogen = idAutogen;
     }
-
     protected boolean idAutogen = true;
     public Connection doGetConnection() throws SQLException, ClassNotFoundException {
         Connection conn = null;
