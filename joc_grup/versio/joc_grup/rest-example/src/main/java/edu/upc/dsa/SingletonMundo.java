@@ -1,7 +1,7 @@
 package edu.upc.dsa;
 
 public class SingletonMundo {
-    public Mundo mundo;
+    /*public Mundo mundo;
     static private SingletonMundo instancia_unica;
 
     private SingletonMundo(){
@@ -15,6 +15,6 @@ public class SingletonMundo {
            instancia_unica = new SingletonMundo();
        }
         return instancia_unica;
-    }
+    }*/
 
 }
