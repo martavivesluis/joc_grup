@@ -63,8 +63,34 @@ public class JSONService {
         }
     }
 
-    //******************************************************************
 
+    @POST
+    @Path("/newJugador")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces(MediaType.APPLICATION_JSON)
+    public Jugador newJugador(Jugador j){
+       j.setEmail(j.getMail());//per crear la nova id
+       System.out.println(j.toString());
+        try {
+            boolean existe = j.select("email",j.getEmail());
+            if(existe == false)//no esta a la taula
+            {
+                try {
+                    j.insert();
+                    return j;
+                } catch (Exception e) {
+                    return null;
+                }
+            }
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+
+        }
+            }
+
+    //******************************************************************
     @GET
     @Path("/Jugador/{email}")
     @Produces(MediaType.APPLICATION_JSON)

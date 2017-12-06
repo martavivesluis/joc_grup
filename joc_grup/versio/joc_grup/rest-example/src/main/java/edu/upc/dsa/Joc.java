@@ -1,7 +1,7 @@
 package edu.upc.dsa;
 
 import edu.upc.dsa.control.Teclat;
-import edu.upc.dsa.grafics.Pantalla;
+
 
 import javax.swing.*;
 import java.awt.*;
