@@ -16,7 +16,7 @@ public class Main {
         // in edu.upc.dsa package
         final ResourceConfig rc = new ResourceConfig().packages("edu.upc.dsa");
         // create and start a new instance of grizzly http server
-        // exposing the Jersey application at BASE_URI
+        // exposing the Jersey application at BASE_URIsdede
         return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
     }
     public static void main(String[] args) throws IOException {
