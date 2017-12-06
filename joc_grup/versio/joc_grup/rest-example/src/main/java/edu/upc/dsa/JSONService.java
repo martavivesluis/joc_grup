@@ -20,7 +20,7 @@ public class JSONService {
         mimundo.mundo.afegirPersonatgeJugador(j,p);
     }
     //************REST APUNTANT BASE DE DADES****************
-    //servei d'autentificació login
+    //servei d'autentificació login funcionant
     @POST
     @Path("/Jugador/{email}")
     @Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_JSON})
