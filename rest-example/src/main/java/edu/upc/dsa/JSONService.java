@@ -76,15 +76,16 @@ public class JSONService {
         miMundo.getMapaPersonajes().put(nombre, personaje);
         return Response.status(201).entity("Añadido personaje con nombre:" +nombre).build();
     }
-
-    /*@POST
+    //comentar esto
+    @POST
     @Path("/nuevoPersonaje/{personajeNombre}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response nuevoPersonaje(Personatge personaje, @PathParam("personajeNombre") String nombre) {
         personaje.setNombre(nombre);
         miMundo.getMapaPersonajes().put(nombre, personaje);
         return Response.status(201).entity("Añadido personaje con nombre:" +nombre).build();
-    }*/
+    }
+    // push de control
 
     @POST
     @Path("/eliminarPersonaje/{personajeNombre}")
