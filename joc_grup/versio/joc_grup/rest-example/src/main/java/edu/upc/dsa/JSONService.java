@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Path("/json")//porta
 public class JSONService {
 
-    //Para los metodos de añadir jugador/personaje/objeto se podrian quitar los parametros y llamar al constructor?
+    //iiPara los metodos de añadir jugador/personaje/objeto se podrian quitar los parametros y llamar al constructor?
     //Añadir comprobaciones y comprobar comportamiento en caso de error/que no exista algo
 
     Mundo miMundo;
