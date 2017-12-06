@@ -10,7 +10,6 @@ public class Mapa {
     public Mapa(){
 
     }
-
     public ArrayList<Column> getColumns() {
         return columns;
     }
