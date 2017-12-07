@@ -272,7 +272,7 @@ public class DAO {
                 sb.append(atributo.getName().toString() + "=");
                 if (atributo.getGenericType().toString().equals("int"))
                 {
-                    sb.append(atributo.get(this).toString() + " AND ");}
+                    sb.append(atributo.get(this).toString() + " AND");}
 
                 else if(atributo.getGenericType().toString().equals("class java.lang.String")) {
                     sb.append("'"+atributo.get(this).toString() + "' AND ");
@@ -292,20 +292,25 @@ public class DAO {
         return sb.toString();//consulta a realitzar
 
     }
-    public void delete() {
+    public boolean delete() {
     String theQuery = this.queryDelete();
     System.out.println(theQuery);
     try {
         Connection conn = null;
         conn = DriverManager.getConnection("jdbc:mysql://localhost/juego?" + "user=myapp&password=1234&useJDBCCompliantTimezoneShift=true&serverTimezone=UTC");
         PreparedStatement pstm = conn.prepareStatement(theQuery);
-        pstm.execute();
+        int update = pstm.executeUpdate();
+        if(update==1){return true;}
+        System.out.println(update);//0 no fa res,1 ha esborrat
         System.out.println("regitre esborrat");
+        return false;// el registre enviat no existeix
 
     } catch (SQLException e) {
         if (e.getErrorCode() == 1062) {
             System.out.println("regitre duplicat");
+            return false;
         }
+        return false;
     }
 }
        public static void main(String[] args) {

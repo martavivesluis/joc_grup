@@ -26,6 +26,16 @@ DAO midao;
             fail();
         }
     }
+public void test3usuaris()
+{ Jugador j = new Jugador("marta","1234","martavivesluis@gmail.com");
+    Jugador k = new Jugador("anna","1234","anna@gmail.com");
+    Jugador l= new Jugador("sonia","1234","sonia@gmail.com");
+    try {
+        j.insert();
+        k.insert();l.insert();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }}
 public void testDelete()
 {
     Jugador j = new Jugador("Marta","1234","martavivesluis@gmail.com");

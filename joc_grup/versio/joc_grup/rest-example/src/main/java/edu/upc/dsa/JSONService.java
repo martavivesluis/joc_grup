@@ -16,9 +16,13 @@ public class JSONService {
 
     public JSONService() {
         miMundo = Mundo.getIntanceMundo();
+
+
+
     }
 
     //************REST APUNTANT BASE DE DADES****************
+
     //servei d'autentificació login funcionant
     @POST
     @Path("/Jugador/{email}")
@@ -57,6 +61,23 @@ public class JSONService {
         }
         return j;
     }
+    //elimina usuari
+    @POST
+    @Path("/delete/{email}")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces(MediaType.APPLICATION_JSON)
+    public Answer deleteJugador(@PathParam("email") String email, Login login){
+        System.out.println("registrem a "+login.getNom());
+        Jugador j = new Jugador(login.getNom(),login.getPassword(),email);
+        Answer mianswer = new Answer();
+        if(j.delete()==true){
+            mianswer.setResposta("OK");
+            return mianswer;}
+            mianswer.setResposta("KO");
+        return mianswer;
+
+    }
+
     //********************************************************
 
 
