@@ -66,7 +66,6 @@ public class DAO {
         almisatributos.addAll(Arrays.asList(this.getClass().getFields()));
         Field[] misatributos = new Field[almisatributos.size()];
         misatributos = almisatributos.toArray(misatributos);
-
         this.getClass().getDeclaredFields();
         Field atributo;
         int j = 0;
@@ -254,21 +253,8 @@ public class DAO {
         }
         return null;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
     public String queryDelete(){
-        StringBuffer sb = new StringBuffer("DELETE * FROM  ");
+        StringBuffer sb = new StringBuffer("DELETE FROM  ");
         sb.append(this.getClass().getSimpleName());//NOM DE LA CLASSE USUARIOS...
         System.out.println(sb.toString());//substituir por log4java
         sb.append(" WHERE ");
@@ -276,38 +262,36 @@ public class DAO {
         Field atributo;
         int j = 0;
         int totalAtributs = 0;
-
-
         StringBuffer values = new StringBuffer();
         try {
-            for (int i = 0; i + 1 < misatributos.length; i++) {
+            for (int i = 0; i + 1 < misatributos.length; i++)
+            {
                 atributo = misatributos[i];
                 System.out.println(atributo.getName().toString());
                 System.out.println(atributo.getGenericType().toString());
                 sb.append(atributo.getName().toString() + "=");
-
                 if (atributo.getGenericType().toString().equals("int"))
                 {
                     sb.append(atributo.get(this).toString() + " AND ");}
 
-                else if(atributo.getGenericType().toString().equals("string")) {
+                else if(atributo.getGenericType().toString().equals("class java.lang.String")) {
                     sb.append("'"+atributo.get(this).toString() + "' AND ");
                 }
+                else{}
                 j = i;
             }
-
-            atributo = misatributos[misatributos.length - 1];
-            sb.append(atributo.getName().toString()+"=");
-            sb.append(atributo.get(this).toString());
+        sb.setLength(sb.length()-4);//borrem el and del final
+            atributo = misatributos[misatributos.length -20];
+            //sb.append(atributo.getName().toString()+"=");
+            //sb.append(atributo.get(this).toString());
         } catch (Exception e) {
 
         }
 
         System.out.println(sb.toString());
-        return sb.toString();//consulta a realit
+        return sb.toString();//consulta a realitzar
 
     }
-
     public void delete() {
     String theQuery = this.queryDelete();
     System.out.println(theQuery);

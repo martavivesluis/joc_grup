@@ -17,6 +17,7 @@ public class JSONService {
     public JSONService() {
         miMundo = Mundo.getIntanceMundo();
     }
+
     //************REST APUNTANT BASE DE DADES****************
     //servei d'autentificació login funcionant
     @POST
@@ -41,8 +42,7 @@ public class JSONService {
         }
         return null;
     }
-
-
+    //nou usuari
     @POST
     @Path("/newJugador/{email}")
     @Consumes({MediaType.APPLICATION_JSON})
@@ -57,6 +57,8 @@ public class JSONService {
         }
         return j;
     }
+    //********************************************************
+
 
     //Creacio personatgeeeee
     @POST

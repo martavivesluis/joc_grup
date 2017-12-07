@@ -26,7 +26,11 @@ DAO midao;
             fail();
         }
     }
-
+public void testDelete()
+{
+    Jugador j = new Jugador("Marta","1234","martavivesluis@gmail.com");
+    j.delete();
+}
 
     public void testIdEsDiferentInsertantDosUsuaris()
     {
