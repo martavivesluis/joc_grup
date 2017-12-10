@@ -195,8 +195,9 @@ public class DAO {
         PreparedStatement pstm = con.prepareStatement(consulta.toString());//substituim els interrogants
         System.out.println(pstm.toString());
         try{
-            addFieldsToQueryUpdate(pstm);
-            return true;
+            int modificar = addFieldsToQueryUpdate(pstm);
+            if(modificar == 1){return true;}
+            else return false;
         }
         catch(Exception e){
             return false;
@@ -208,7 +209,7 @@ public class DAO {
         return sb.toString();
 
 }
-    public void addFieldsToQueryUpdate(PreparedStatement pstm)throws Exception {
+    public int addFieldsToQueryUpdate(PreparedStatement pstm)throws Exception {
         int j =0;
         Field[] fields = this.getClass().getDeclaredFields();
         for(int i = 1;i<fields.length;i++)
@@ -226,7 +227,8 @@ public class DAO {
 
         catch(Exception e){}
         System.out.println("updatestatement:"+pstm.toString());
-        pstm.executeUpdate();
+        return pstm.executeUpdate();// 0 cap modificacio 1 ninguna
+
     }
     public static List<Field> doGetAllFields(List<Field> fields, Class<?> type) {
         fields.addAll(Arrays.asList(type.getDeclaredFields()));

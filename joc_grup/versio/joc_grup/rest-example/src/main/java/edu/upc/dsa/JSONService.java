@@ -46,6 +46,7 @@ public class JSONService {
         }
         return null;
     }
+
     //nou usuari
     @POST
     @Path("/newJugador/{email}")
@@ -61,6 +62,7 @@ public class JSONService {
         }
         return j;
     }
+
     //elimina usuari
     @POST
     @Path("/delete/{email}")
@@ -77,6 +79,35 @@ public class JSONService {
         return mianswer;
 
     }
+
+    //actualitzar contrassenya o nom
+    @POST
+    @Path("/update/{email}")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces(MediaType.APPLICATION_JSON)
+    public Answer updateJugador(@PathParam("email") String email, Login login){
+        Jugador j = new Jugador(login.getNom(),login.getPassword(),email);
+        Answer mianswer = new Answer();
+        mianswer.setResposta("KO");
+        try {
+            if(j.update() == true)
+            {
+                mianswer.setResposta("OK");
+                return mianswer;
+            }
+
+            else{
+
+                return mianswer;}
+        } catch (Exception e) {
+            e.printStackTrace();
+            return mianswer;
+
+        }
+
+    }
+
+
 
     //********************************************************
 
