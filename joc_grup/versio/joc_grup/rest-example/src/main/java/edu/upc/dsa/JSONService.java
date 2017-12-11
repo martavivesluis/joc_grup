@@ -86,6 +86,8 @@ public class JSONService {
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces(MediaType.APPLICATION_JSON)
     public Answer updateJugador(@PathParam("email") String email, Login login){
+        System.out.println(email);
+
         Jugador j = new Jugador(login.getNom(),login.getPassword(),email);
         Answer mianswer = new Answer();
         mianswer.setResposta("KO");
@@ -97,7 +99,6 @@ public class JSONService {
             }
 
             else{
-
                 return mianswer;}
         } catch (Exception e) {
             e.printStackTrace();
@@ -119,11 +120,13 @@ public class JSONService {
     @Produces(MediaType.APPLICATION_JSON)
     public void newPersonaje(@PathParam("nomPersonatge") String nomPersonatge,@PathParam("idjugador") String id){
         System.out.println(nomPersonatge);
+
+        //GestorDePErsonatges.addPersonatge(nomPersonatge, id);
         Personatge p = new Personatge();
         p.setNombre(nomPersonatge);
         try {
             p.insert();
-            relacio r = new relacio(Integer.parseInt(id),p.getId());
+            RelacioPersonatgeJugador r = new RelacioPersonatgeJugador(Integer.parseInt(id),p.getId());
             r.insert();
 
 
@@ -307,6 +310,14 @@ public class JSONService {
         mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
         return mapper.writeValueAsString( miMundo.mapa); //  mirate esta linea MARTA por que he cambiado el singletone
     }
+
+    /*
+    public List<Partida> partidas () {
+        List<Partida> partides = new ArrayList<Partida>();
+        partides.add(new Partida("1", "PArtida 1", 7777));
+        partides.add(new Partida("2", "PArtida 2", 3));
+        partides.add(new Partida("3", "PArtida 3",3333));
+    }*/
 
 }
 
