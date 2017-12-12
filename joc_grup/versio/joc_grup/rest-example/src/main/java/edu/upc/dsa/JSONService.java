@@ -303,7 +303,7 @@ public class JSONService {
 
     @GET
     @Path("/Mapa")
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     public String getMapa() throws Exception{
 
         ObjectMapper mapper = new ObjectMapper();

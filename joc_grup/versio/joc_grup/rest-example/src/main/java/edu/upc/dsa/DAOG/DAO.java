@@ -56,6 +56,9 @@ public class DAO {
 
         }
     }
+    private void selectInsertLmited(String query){
+
+    }
     private String queryInsert() {
         StringBuffer sb = new StringBuffer("INSERT INTO ");
         sb.append(this.getClass().getSimpleName());//NOM DE LA CLASSE USUARIOS...
@@ -95,6 +98,9 @@ public class DAO {
                     sb.append(atributo.getName().toString() + ",");
 
                 }
+                else if(atributo.getGenericType().toString().equals("class java.util.Date"))
+                {values.append("'"+atributo.get(this) + "',");
+                    sb.append(atributo.getName().toString() + ",");}
                 else
                 {
                     //caso del array de objetos, creeemos tabla a partir del identificador
@@ -162,10 +168,10 @@ public class DAO {
         String query = this.querySelect(key);
         return select(query, (Object)value);
     }
-    public String selectAllQuery(Class myclass) {
+    public String selectAllQuery() {
 
         StringBuffer sb = new StringBuffer("SELECT * FROM ");
-        sb.append(myclass.getSimpleName());
+        sb.append(this.getClass().getSimpleName());
         return sb.toString();
     }
     private String querySelect(String key) {

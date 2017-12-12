@@ -118,5 +118,12 @@ j.update();
 //            fail();
         }
     }
-
+public void testPersonaje(){
+        Personatge mipersonaje = new Personatge("minion",5,6,7,8);
+    try {
+        mipersonaje.insert();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
 }
