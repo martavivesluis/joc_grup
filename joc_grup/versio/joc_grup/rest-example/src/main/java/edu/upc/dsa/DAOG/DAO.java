@@ -10,18 +10,19 @@ import java.util.List;
 public class DAO {
     //comandes aplicables totes les classes
     public int id = 0;//totes les taules tindran un identificador del tipos enter
+    protected boolean idAutogen = true;
+    protected boolean hasId = true;
+
+    public Connection doGetConnection() throws SQLException, ClassNotFoundException {
+        Connection conn = null;
+        conn = DriverManager.getConnection("jdbc:mysql://localhost/juego?" + "user=myapp&password=1234&useJDBCCompliantTimezoneShift=true&serverTimezone=UTC");
+        return conn;
+    }
     public boolean isIdAutogen() {
         return idAutogen;
     }
     public void setIdAutogen(boolean idAutogen) {
         this.idAutogen = idAutogen;
-    }
-    protected boolean idAutogen = true;
-    protected boolean hasId = true;
-    public Connection doGetConnection() throws SQLException, ClassNotFoundException {
-        Connection conn = null;
-        conn = DriverManager.getConnection("jdbc:mysql://localhost/juego?" + "user=myapp&password=1234&useJDBCCompliantTimezoneShift=true&serverTimezone=UTC");
-        return conn;
     }
     private Method findSetMethod(String field) {
         String s = "set"+field.substring(0,1).toUpperCase()+field.substring(1);

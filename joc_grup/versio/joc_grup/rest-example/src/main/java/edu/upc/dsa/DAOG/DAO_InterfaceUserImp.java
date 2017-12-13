@@ -1,11 +1,6 @@
 package edu.upc.dsa.DAOG;
 
-import edu.upc.dsa.Jugador;
-
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import edu.upc.dsa.beans.Jugador;
 
 public class DAO_InterfaceUserImp extends DAO implements DAO_InterfaceUser {
 
