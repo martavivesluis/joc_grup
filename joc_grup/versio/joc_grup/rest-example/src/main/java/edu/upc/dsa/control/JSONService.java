@@ -40,6 +40,7 @@ public class JSONService {
         }
         catch(Exception e)
         {
+            e.printStackTrace();
             return null;
         }
         if(j.getContrasenya().equals(login.getPassword()))

@@ -34,8 +34,6 @@ public class BDTemporal {
         bruno.getPersonatges().add(nodet);
         juan.getPersonatges().add(vidente);
 
-        mapaJugadores.put(bruno.getNombre(), bruno);
-        mapaJugadores.put(juan.getNombre(), juan);
 
         Jugador jugadorEmpty = new Jugador();
         mapaJugadores.put("empty", jugadorEmpty);

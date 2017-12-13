@@ -18,6 +18,8 @@ DAO midao;
     {
         try {
             Jugador jugador = new Jugador("Joan","1234","s@hola.com");
+            Jugador j = new Jugador("narta","1234","martavivesluis@gmail.com");
+            j.insert();
             assertThat(jugador.getId(), is(not(0)));
             System.out.println("p1"+ jugador.getId());
         }
