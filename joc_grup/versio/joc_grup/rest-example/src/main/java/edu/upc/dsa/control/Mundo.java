@@ -13,7 +13,7 @@ public class Mundo {
     Map<String, Personatge> mapaPersonajes;
     Map<Integer, Jugador> mapaJugadores;
     Map<String, Objeto> mapaObjetos;
-    Mapa mapa = new Mapa(5,5);
+    Mapa mapa = new Mapa(9,9);
 
 
     static Mundo intanceMundo;
