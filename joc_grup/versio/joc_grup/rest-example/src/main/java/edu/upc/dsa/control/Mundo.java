@@ -32,8 +32,7 @@ public class Mundo {
 
         Personatge vidente = new Personatge("vidente", 1,1,1,1);
         Personatge nodet = new Personatge("nodet", 2,2,2,2);
-        Objeto objeto1 = new Objeto("pico", "herramienta", "epico", 100, 1);
-        Objeto objeto2 = new Objeto("revolver", "pistola", "raro", 99, 1);
+
 
 
         mapa.putElement(2,2,vidente);
@@ -57,8 +56,7 @@ public class Mundo {
         Objeto objetoEmpty = new Objeto();
         objetoEmpty.setNombre("empty");
         mapaObjetos.put("empty", objetoEmpty);
-        mapaObjetos.put("pico", objeto1);
-        mapaObjetos.put("revolver", objeto2);
+
 
 
     }

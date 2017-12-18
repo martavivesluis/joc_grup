@@ -1,6 +1,10 @@
 package edu.upc.dsa.beans.mapa;
 //un mapa es una col·leció de sprites
 
+import edu.upc.dsa.beans.Monstruo;
+import edu.upc.dsa.beans.Objeto;
+import edu.upc.dsa.beans.Personatge;
+
 import java.util.ArrayList;
 
 public class Mapa {
@@ -71,29 +75,27 @@ public class Mapa {
         }
         return -1;
     }
-    /*
 
-    protected void generarMapa() {
+    /****************************Mapas*******************/
+    public Mapa miMapa(int nivel,Personatge mipersonaje)throws Exception{
+        Mapa mimapa = new Mapa(10,10);
+        Monstruo mimonstruo = new Monstruo();
+        Objeto miobjeto = new Objeto();
+        miobjeto.select("id",5);
+        mimonstruo.select("id",1);
+
+        switch(nivel){
+            case 1://nivell 1
+                mimapa.putElement(7,6,mipersonaje);
+                mimapa.putElement(9,9,mimonstruo);
+                mimapa.putElement(2,2,miobjeto);
+                mimapa.toString();
+                break;
+
+        }
+        return mimapa;
     }
 
-    private void Mapa(String ruta)
-    {
-        carregarMapa(ruta);
-    }
 
-    private void carregarMapa(String ruta) {
-    }
-    public void actualitzar()
-    {
-
-    }
-    public void mostrar(int compensacioX, int compensacioY, Pantalla pantalla)
-    {
-        //investigar sobre bitShifting
-        int adalt= compensacioY/32;
-        int abaix= (compensacioY + pantalla.getAlcada())/32;
-        int dreta = compensacioX / 32; //així només camina un pixel i no un quadre
-        int esquerra = (compensacioX + pantalla.getAmplada())/32;
-    }*/
 }
     

@@ -1,27 +1,28 @@
 package edu.upc.dsa.beans;
 
 import edu.upc.dsa.DAOG.DAO;
+import edu.upc.dsa.beans.mapa.Drawable;
 
 import java.util.ArrayList;
 
-public class Monstruo extends DAO{
+public class Monstruo extends DAO implements Drawable{
     public String nomMonstruo;
     public int defensaMonstruo;
     public int atacMonstruo;
-    public Objeto objetoMonstruo;
+    public int idObjeto;
 
     //constructors
     public Monstruo(){
         this.nomMonstruo = null;
         this.defensaMonstruo = 1;
         this.atacMonstruo = 1;
-        this.objetoMonstruo = new Objeto();
+        this.idObjeto = 0;
     }
-    public Monstruo(String nomMonstruo, int defensaMonstruo, int atacMonstruo, Objeto objetoMonstruo){
+    public Monstruo(String nomMonstruo, int defensaMonstruo, int atacMonstruo, int idObjeto){
         this.nomMonstruo = nomMonstruo;
         this.defensaMonstruo = defensaMonstruo;
         this.atacMonstruo = atacMonstruo;
-        this.objetoMonstruo = objetoMonstruo;
+        this.idObjeto = idObjeto;
     }
 
     public String getNomMonstruo() {
@@ -48,14 +49,12 @@ public class Monstruo extends DAO{
         this.atacMonstruo = atacMonstruo;
     }
 
-    public Objeto getObjetoMonstruo() {
-        return objetoMonstruo;
+
+    public int getIdObjeto() {
+        return idObjeto;
     }
 
-    public void setObjetoMonstruo(Objeto objetoMonstruo) {
-        this.objetoMonstruo = objetoMonstruo;
+    public void setIdObjeto(int idObjeto) {
+        this.idObjeto = idObjeto;
     }
-
-
-
 }

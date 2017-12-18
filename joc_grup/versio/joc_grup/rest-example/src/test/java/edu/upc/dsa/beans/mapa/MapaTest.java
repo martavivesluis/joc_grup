@@ -21,6 +21,7 @@ public class MapaTest extends TestCase {
 
         assertEquals(ans,drawable1);
         assertThat(ans2, is(not(drawable1)));
+
     }
 
 }
