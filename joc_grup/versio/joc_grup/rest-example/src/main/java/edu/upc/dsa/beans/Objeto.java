@@ -3,53 +3,48 @@ package edu.upc.dsa.beans;
 import edu.upc.dsa.DAOG.DAO;
 import edu.upc.dsa.beans.mapa.Drawable;
 
-public class Objeto extends DAO implements Drawable {
-    public String Nombre;
-    public String Tipo;
-    public String Descripcion;
-    public int Valor;
-
-
-    public Objeto() {
-
-    }
+public class Objeto extends DAO implements Drawable{
+    public String nombre;
+    public String tipo;
+    public String descripcion;
+    public int valor;
+    public Objeto() { }
 
     public Objeto(String nombre, String tipo, String descripcion, int valor) {
-        Nombre = nombre;
-        Tipo = tipo;
-        Descripcion = descripcion;
-        Valor = valor;
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.descripcion = descripcion;
+        this.valor = valor;
     }
-
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        this.nombre = nombre;
     }
 
     public String getTipo() {
-        return Tipo;
+        return tipo;
     }
 
     public void setTipo(String tipo) {
-        Tipo = tipo;
+        this.tipo = tipo;
     }
 
     public String getDescripcion() {
-        return Descripcion;
+        return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
-        Descripcion = descripcion;
+        this.descripcion = descripcion;
     }
 
     public int getValor() {
-        return Valor;
+        return valor;
     }
 
     public void setValor(int valor) {
-        Valor = valor;
+        this.valor = valor;
     }
 }

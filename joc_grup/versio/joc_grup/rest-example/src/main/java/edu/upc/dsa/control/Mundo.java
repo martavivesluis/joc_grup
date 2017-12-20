@@ -13,7 +13,7 @@ public class Mundo {
     Map<String, Personatge> mapaPersonajes;
     Map<Integer, Jugador> mapaJugadores;
     Map<String, Objeto> mapaObjetos;
-    Mapa mapa = new Mapa(9,9);
+    Mapa mapa = new Mapa(10,10);
 
 
     static Mundo intanceMundo;
@@ -35,8 +35,7 @@ public class Mundo {
 
 
 
-        mapa.putElement(2,2,vidente);
-        mapa.putElement(4,4,nodet);
+        mapa.miMapa(1,vidente);
 
 
         bruno.getPersonatges().add(nodet);

@@ -45,6 +45,7 @@ public class JSONService {
         }
         if(j.getContrasenya().equals(login.getPassword()))
         {
+            j.seleccionarPersonajes(j);
             return j;
         }
         return null;
@@ -110,20 +111,14 @@ public class JSONService {
         }
 
     }
-
-
-
-    //********************************************************
-
-
-    //Creacio personatgeeeee
+   //********************************************************
+   //Creacio personatgeeeee
     @POST
     @Path("/Jugador/{nomPersonatge}/{idjugador}")
     @Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_JSON})
     @Produces(MediaType.APPLICATION_JSON)
     public void newPersonaje(@PathParam("nomPersonatge") String nomPersonatge,@PathParam("idjugador") String id){
         System.out.println(nomPersonatge);
-
         //GestorDePErsonatges.addPersonatge(nomPersonatge, id);
         Personatge p = new Personatge();
         p.setNombre(nomPersonatge);
@@ -138,11 +133,30 @@ public class JSONService {
             e.printStackTrace();
         }
     }
-
-
-
-
     //******************************************************************
+    //SELECCIO PERSONATGES DISPONIBLES
+
+    @GET
+    @Path("/Personajes/{idjugador}")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces(MediaType.APPLICATION_JSON)
+    public Jugador personajes(@PathParam("idjugador") String id)
+    {
+        int idJugador =  Integer.parseInt(id);
+        System.out.println(idJugador);
+        Jugador j = new Jugador();
+        try {
+            j.select("id",id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return j.seleccionarPersonajes(j);
+        }
+
+
+
+
+
     @GET
     @Path("/Jugador/{email}")
     @Produces(MediaType.APPLICATION_JSON)

@@ -1,5 +1,6 @@
 package edu.upc.dsa.beans;
 
+import edu.upc.dsa.DAOG.relacioPersonatgeObjecte;
 import junit.framework.TestCase;
 
 public class ObjetoTest extends TestCase{
@@ -10,4 +11,14 @@ public class ObjetoTest extends TestCase{
         a.insert();
         b.insert();
         c.insert();}
+
+    public void testRelacio(){
+        relacioPersonatgeObjecte mirelacio = new relacioPersonatgeObjecte(5,73);
+        try {
+            mirelacio.insert();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 }

@@ -26,7 +26,7 @@ public class DAO {
     }
     private Method findSetMethod(String field) {
         String s = "set"+field.substring(0,1).toUpperCase()+field.substring(1);
-        Method[] methods = this.getClass().getDeclaredMethods();
+        Method[] methods = this.getClass().getMethods();
         for (Method m: methods) {
             if (m.getName().equals(s)) {
                 return m;
@@ -146,7 +146,7 @@ public class DAO {
 
         // releaseConnectoin
     }
-    public boolean select(String Query, Object value) throws Exception {
+    public boolean select2(String Query, Object value) throws Exception {
         Connection con = doGetConnection();
         boolean ret = false;
         PreparedStatement pstm = con.prepareStatement(Query);
@@ -163,11 +163,12 @@ public class DAO {
         if(!hasId){
             throw new Exception();
         }
-       return  select("id", this.getId());
+       return  select2("id", this.getId());
     }
+
     public boolean select(String key,String value) throws Exception{
         String query = this.querySelect(key);
-        return select(query, (Object)value);
+        return select2(query, (Object)value);
     }
     public String selectAllQuery() {
 
@@ -328,5 +329,13 @@ public class DAO {
         //t.insert();
         //t.delete();
 
+    }
+
+    public boolean isHasId() {
+        return hasId;
+    }
+
+    public void setHasId(boolean hasId) {
+        this.hasId = hasId;
     }
 }

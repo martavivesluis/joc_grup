@@ -77,22 +77,28 @@ public class Mapa {
     }
 
     /****************************Mapas*******************/
-    public Mapa miMapa(int nivel,Personatge mipersonaje)throws Exception{
-        Mapa mimapa = new Mapa(10,10);
+    public Mapa miMapa(int nivel,Personatge mipersonaje){
+        Mapa mimapa = this;
         Monstruo mimonstruo = new Monstruo();
         Objeto miobjeto = new Objeto();
-        miobjeto.select("id",5);
-        mimonstruo.select("id",1);
+
+        try {
+           miobjeto.select("id","5");
+           mimonstruo.select("id","1");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         switch(nivel){
             case 1://nivell 1
+                /*******Ho farem en un fitxer**********/
                 mimapa.putElement(7,6,mipersonaje);
-                mimapa.putElement(9,9,mimonstruo);
+                mimapa.putElement(6,6,mimonstruo);
                 mimapa.putElement(2,2,miobjeto);
-                mimapa.toString();
                 break;
 
         }
+
         return mimapa;
     }
 
