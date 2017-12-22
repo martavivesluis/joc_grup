@@ -112,7 +112,7 @@ public class JSONService {
 
     }
    //********************************************************
-   //Creacio personatgeeeee
+   //Creacio personatge
     @POST
     @Path("/Jugador/{nomPersonatge}/{idjugador}")
     @Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_JSON})
