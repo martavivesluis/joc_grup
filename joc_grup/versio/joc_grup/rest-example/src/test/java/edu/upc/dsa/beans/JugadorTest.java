@@ -129,10 +129,13 @@ j.update();
 //            fail();
         }
     }
-public void testPersonaje(){
-        Personatge mipersonaje = new Personatge("minion",5,6,7,8);
+    public void testPersonaje(){
+        Personatge mipersonaje = new Personatge("minion",5,6,7,8,1);
+        Personatge mipersonaje2 = new Personatge("batman",1,2,3,4,0);
+        Personatge mipersonaje3 = new Personatge("spiderman",1,2,3,4,2);
+
     try {
-        mipersonaje.insert();
+        mipersonaje.insert();mipersonaje2.insert();mipersonaje3.insert();
     } catch (Exception e) {
         e.printStackTrace();
     }

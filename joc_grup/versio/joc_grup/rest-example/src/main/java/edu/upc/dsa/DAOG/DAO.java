@@ -1,5 +1,7 @@
 package edu.upc.dsa.DAOG;
 
+import edu.upc.dsa.beans.Partida;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.*;
@@ -12,6 +14,10 @@ public class DAO {
     public int id = 0;//totes les taules tindran un identificador del tipos enter
     protected boolean idAutogen = true;
     protected boolean hasId = true;
+
+    public DAO() {
+
+    }
 
     public Connection doGetConnection() throws SQLException, ClassNotFoundException {
         Connection conn = null;
@@ -165,7 +171,6 @@ public class DAO {
         }
        return  select2("id", this.getId());
     }
-
     public boolean select(String key,String value) throws Exception{
         String query = this.querySelect(key);
         return select2(query, (Object)value);
@@ -301,6 +306,30 @@ public class DAO {
         System.out.println(sb.toString());
         return sb.toString();//consulta a realitzar
 
+    }
+    public ArrayList<Partida> ranking(){
+        ArrayList<Partida> milista = new ArrayList<Partida>();
+        Connection con = null;
+        try {
+            con = doGetConnection();
+            String sb ="SELECT * FROM Partida ORDER BY puntos DESC LIMIT 5";
+            PreparedStatement pstm = con.prepareStatement(sb);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                String idJugador =""+rs.getObject(1);//IDJUGADOR
+                String puntos =""+rs.getObject(2);
+                String inici =""+rs.getObject(3);
+                String idPartida =""+rs.getObject(4);
+                Partida p = new Partida(Integer.parseInt(idJugador),Integer.parseInt(puntos),inici);
+                p.setId(Integer.parseInt(idPartida));
+                milista.add(p);
+                System.out.println(idJugador+" "+puntos+" "+inici+" "+idPartida);}
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return milista;
     }
     public boolean delete() {
     String theQuery = this.queryDelete();

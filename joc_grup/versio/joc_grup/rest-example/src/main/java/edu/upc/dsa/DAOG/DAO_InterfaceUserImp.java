@@ -2,9 +2,12 @@ package edu.upc.dsa.DAOG;
 
 import edu.upc.dsa.beans.Jugador;
 import edu.upc.dsa.beans.Objeto;
+import edu.upc.dsa.beans.Partida;
 import edu.upc.dsa.beans.Personatge;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DAO_InterfaceUserImp extends DAO implements DAO_InterfaceUser {
 
@@ -61,6 +64,8 @@ public class DAO_InterfaceUserImp extends DAO implements DAO_InterfaceUser {
 
         return j;
     }
+
+
 }
 
 

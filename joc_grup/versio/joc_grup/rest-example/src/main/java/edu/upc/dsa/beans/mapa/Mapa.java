@@ -1,15 +1,16 @@
 package edu.upc.dsa.beans.mapa;
 //un mapa es una col·leció de sprites
 
-import edu.upc.dsa.beans.Monstruo;
-import edu.upc.dsa.beans.Objeto;
-import edu.upc.dsa.beans.Personatge;
+import edu.upc.dsa.beans.*;
 
 import java.util.ArrayList;
 
 public class Mapa {
 
     public ArrayList<Column> columns;
+
+
+    //TODO: from file // OJO !!
 
     public Mapa(){
 
@@ -80,10 +81,12 @@ public class Mapa {
     public Mapa miMapa(int nivel,Personatge mipersonaje){
         Mapa mimapa = this;
         Monstruo mimonstruo = new Monstruo();
-        Objeto miobjeto = new Objeto();
-
+        Objeto espasa = new Objeto("excalibur","espada","del rey arturo",10000);
+        Objeto casco = new Objeto("helmuth","casco","del caballero verde",300);
+        ParedCell pared = new ParedCell();
         try {
-           miobjeto.select("id","5");
+           espasa.insert();
+           casco.insert();
            mimonstruo.select("id","1");
         } catch (Exception e) {
             e.printStackTrace();
@@ -94,7 +97,12 @@ public class Mapa {
                 /*******Ho farem en un fitxer**********/
                 mimapa.putElement(7,6,mipersonaje);
                 mimapa.putElement(6,6,mimonstruo);
-                mimapa.putElement(2,2,miobjeto);
+                mimapa.putElement(2,2,espasa);
+                mimapa.putElement(3,3,casco);
+                mimapa.putElement(5,4,pared);
+                mimapa.putElement(4,4,pared);
+                mimapa.putElement(3,4,pared);
+
                 break;
 
         }

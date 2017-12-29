@@ -3,9 +3,13 @@ package edu.upc.dsa.control;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import edu.upc.dsa.DAOG.DAO;
 import edu.upc.dsa.DAOG.RelacioPersonatgeJugador;
+import edu.upc.dsa.DAOG.relacioPersonatgeObjecte;
 import edu.upc.dsa.beans.*;
 
 @Path("/json")//porta
@@ -15,17 +19,14 @@ public class JSONService {
     //Añadir comprobaciones y comprobar comportamiento en caso de error/que no exista algo
 
     Mundo miMundo;
+    DAO midao = new DAO();
 
-    public JSONService() {
-        miMundo = Mundo.getIntanceMundo();
-
-
-
+    public JSONService() {miMundo = Mundo.getIntanceMundo();
     }
 
     //************REST APUNTANT BASE DE DADES****************
 
-    //servei d'autentificació login funcionant
+    //servei d'autentificació login funcionant, tornant personatjes+objectes
     @POST
     @Path("/Jugador/{email}")
     @Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_JSON})
@@ -112,30 +113,26 @@ public class JSONService {
 
     }
    //********************************************************
-   //Creacio personatge
+   //Assosiació nou personatge a jugador
     @POST
     @Path("/Jugador/{nomPersonatge}/{idjugador}")
     @Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_JSON})
     @Produces(MediaType.APPLICATION_JSON)
     public void newPersonaje(@PathParam("nomPersonatge") String nomPersonatge,@PathParam("idjugador") String id){
         System.out.println(nomPersonatge);
-        //GestorDePErsonatges.addPersonatge(nomPersonatge, id);
         Personatge p = new Personatge();
         p.setNombre(nomPersonatge);
         try {
             p.insert();
             RelacioPersonatgeJugador r = new RelacioPersonatgeJugador(Integer.parseInt(id),p.getId());
             r.insert();
-
-
         }
         catch(Exception e){
             e.printStackTrace();
         }
     }
     //******************************************************************
-    //SELECCIO PERSONATGES DISPONIBLES
-
+    //LListat personatges disponibles -> Jugador
     @GET
     @Path("/Personajes/{idjugador}")
     @Consumes({MediaType.APPLICATION_JSON})
@@ -153,17 +150,54 @@ public class JSONService {
         return j.seleccionarPersonajes(j);
         }
 
-
-
-
-
-    @GET
-    @Path("/Jugador/{email}")
+    //añadir objeto a personaje
+    @POST
+    @Path("/addObject/{idobject}/{idpersonatge}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Jugador buscarJugador(@PathParam("email") String email) {
-        return miMundo.getMapaJugadores().get(email.hashCode());
-    }
+    public Personatge addNewObject(Objeto miob,@PathParam("idpersonatge") Integer idp)
+    {
+        //TODO: implementar añadir objeto (Marta)
+        //comprovem que esta a la base de dades l'objecte
+        try{
+            Objeto miobjeto = new Objeto();
+            miobjeto.select("id",""+miob.getId());
+            if(miobjeto==null) {//objecto inexistente añadimos
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        relacioPersonatgeObjecte mirelacion = new relacioPersonatgeObjecte();
 
+        Personatge mipersonatge = new Personatge();
+
+
+        return null;
+    }
+    //nova partida
+
+
+    @POST
+    @Path("/newPartida/")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces(MediaType.APPLICATION_JSON)
+    public int addNewPartida(Partida nueva)//1 correctamente creada
+    {
+    try {
+        nueva.insert();
+        //TODO: quan nova partida read mapa from file and delete mapa/jugador de la base de  // 20 mins
+        return 1;
+    } catch (Exception e) {
+        e.printStackTrace();
+        return 0;
+    }
+}
+
+//TODO: update personatje  (POST QUE REP UN JSON DE PERSONATGE) (Marta)
+
+
+
+
+//TODO: neteijar aquestes funcions (Marta)
     @GET
     @Path("/Personaje/{nombre}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -178,12 +212,7 @@ public class JSONService {
         return miMundo.getMapaPersonajes().get(nombre).getArrMisObjetos();
     }
 
-    @GET
-    @Path("/Objeto/{nombre}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Objeto buscarObjeto(@PathParam("nombre") String nombre) {
-        return miMundo.getMapaObjetos().get(nombre);
-    }
+
 
     //Expecificar como se quiere añadir un jugador y con que campos, de momento le pasas el email y le asigna el email y la id sin mas
     @POST
@@ -197,126 +226,20 @@ public class JSONService {
         return Response.status(201).entity("Añadido jugador con correo:" +email).build();
     }
 
-    @POST
-    @Path("/eliminarJugador/{emailJugador}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response eliminarJugador(@PathParam("emailJugador") String email) {
-        miMundo.getMapaJugadores().remove(email.hashCode());
-        return Response.status(201).entity("Eliminado jugador con correo:" +email).build();
-    }
-
-
-    @POST
-    @Path("/nuevoPersonaje/{personajeNombre}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response nuevoPersonaje(@PathParam("personajeNombre") String nombre) {
-        Personatge personaje = new Personatge();
-        personaje.setNombre(nombre);
-        miMundo.getMapaPersonajes().put(nombre, personaje);
-        return Response.status(201).entity("Añadido personaje con nombre:" +nombre).build();
-    }
-    /*
-    @POST
-    @Path("/nuevoPersonaje/{personajeNombre}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response nuevoPersonaje(Personatge personaje, @PathParam("personajeNombre") String nombre) {
-        personaje.setNombre(nombre);
-        miMundo.getMapaPersonajes().put(nombre, personaje);
-        return Response.status(201).entity("Añadido personaje con nombre:" +nombre).build();
-    }
-    /*/
-
-    @POST
-    @Path("/eliminarPersonaje/{personajeNombre}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response eliminarPersonaje(@PathParam("personajeNombre") String nombre) {
-        miMundo.getMapaPersonajes().remove(nombre);
-        return Response.status(201).entity("Eliminado personaje con nombre:" +nombre).build();
-    }
-
-    @POST
-    @Path("/nuevoObjeto/{objetoNombre}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response nuevoObjeto(@PathParam("objetoNombre") String nombre) {
-        Objeto objeto = new Objeto();
-        objeto.setNombre(nombre);
-        miMundo.getMapaObjetos().put(nombre, objeto);
-        return Response.status(201).entity("Añadido objeto con nombre:" +nombre).build();
-    }
-
-    /*@POST
-    @Path("/nuevoObjeto/{objetoNombre}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response nuevoObjeto(Objeto objeto, @PathParam("objetoNombre") String nombre) {
-        objeto.setNombre(nombre);
-        miMundo.getMapaObjetos().put(nombre, objeto);
-        return Response.status(201).entity("Añadido objeto con nombre:" +nombre).build();
-    }*/
-
-    @POST
-    @Path("/eliminarObjeto/{objetoNombre}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response eliminarObjeto(@PathParam("objetoNombre") String nombre) {
-        miMundo.getMapaObjetos().remove(nombre);
-        return Response.status(201).entity("Eliminado objeto con nombre:" +nombre).build();
-    }
-
-    @POST
-    @Path("/nuevoObjetoPersonaje/{personajeNombre}/{objetoNombre}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response nuevoObjetoPersonaje(@PathParam("personajeNombre") String nombrePersonaje,
-                                         @PathParam("objetoNombre") String nombreObjeto) {
-
-        //Añadir comprobaciones de errores y tal
-        miMundo.getMapaPersonajes().get(nombrePersonaje).getArrMisObjetos().add(miMundo.getMapaObjetos().get(nombreObjeto));
-
-        return Response.status(201).entity("Añadido objeto con nombre:" +nombreObjeto +"a personaje" +nombrePersonaje).build();
-    }
-
-    @POST
-    @Path("/transferirObjeto/{personajeNombre1}/{personajeNombre2}/{objetoNombre}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response transferirObjeto(@PathParam("personajeNombre1") String nombrePersonaje,
-                                     @PathParam("personajeNombre2") String nombrePersonaje2,
-                                     @PathParam("objetoNombre") String nombreObjeto) {
-        //Comprobacion o dara nullpointer probablemente
-        miMundo.getMapaPersonajes().get(nombrePersonaje2).getArrMisObjetos().add(
-                miMundo.buscarObjeto(miMundo.mapaPersonajes.get(nombrePersonaje).arrMisObjetos, nombreObjeto));
-        miMundo.getMapaPersonajes().get(nombrePersonaje).getArrMisObjetos().remove(
-                miMundo.buscarObjeto(miMundo.mapaPersonajes.get(nombrePersonaje).arrMisObjetos, nombreObjeto));
-
-        return Response.status(201).entity("Transferido el objeto" +nombreObjeto +"a personaje" +nombrePersonaje).build();
-    }
-
-
-    //Ya existente
-    @POST
-    @Path("/nuevoPersonajeJugador/{jugadorEmail}/{personajeNombre}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response nuevoPersonajeJugador(@PathParam("jugadorEmail") String jugadorEmail,
-                                          @PathParam("personajeNombre") String personajeNombre) {
-
-        //Añadir comprobaciones de errores y tal
-        miMundo.getMapaJugadores().get(jugadorEmail.hashCode()).getPersonatges().add(miMundo.getMapaPersonajes().get(personajeNombre));
-
-        return Response.status(201).entity("Añadido personaje con nombre:" +personajeNombre +"a jugador con email" +jugadorEmail).build();
-    }
-
-    @POST
-    @Path("/perderResistencia/{personajeNombre}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void perderResistencia(@PathParam("personajeNombre") String personajeNombre){
-        miMundo.getMapaPersonajes().get(personajeNombre).setResistencia(miMundo.getMapaPersonajes().get(personajeNombre).getResistencia()-1);
-    }
 
 
 
-    @GET
-    @Path("/Personaje/{nombrePersonaje}/{idJugador}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Personatge buscarPersonaje(@PathParam("nombrePersonaje") String nombrePersonaje, @PathParam("idJugador") int id) {
-        return new Personatge("Hamlet",1,1,1,1);
-    }
+// TODO: update Mapa // OJO !!!
+// TODO: store in database (DAO) taula FET
+
+    /// cella-jug-obj
+    /// Lau - c f- Obj - Tipo
+
+     ///    idjug columna fila idElement tipus
+    ///  12    1         3     15     Monstruo / Objeto / Personaje
+
+//            {{c1}c2}c3{@Jugador j1}}}}
+
 
     @GET
     @Path("/Mapa")
@@ -335,6 +258,13 @@ public class JSONService {
         partides.add(new Partida("2", "PArtida 2", 3));
         partides.add(new Partida("3", "PArtida 3",3333));
     }*/
+/***************************Gestion Partidas**********************************/
+    @GET
+    @Path("/Ranking")
+    @Produces(MediaType.APPLICATION_JSON)
+    public ArrayList<Partida> getRanking() {
+        return midao.ranking();
+    }
 
 }
 

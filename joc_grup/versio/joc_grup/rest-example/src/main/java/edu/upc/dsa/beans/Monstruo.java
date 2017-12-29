@@ -57,4 +57,13 @@ public class Monstruo extends DAO implements Drawable{
     public void setIdObjeto(int idObjeto) {
         this.idObjeto = idObjeto;
     }
+    @Override
+    public int dogetId() {
+        return getId();
+    }
+
+    @Override
+    public String dogetTipus() {
+        return "monstruo";
+    }
 }

@@ -13,9 +13,12 @@ public class ObjetoTest extends TestCase{
         c.insert();}
 
     public void testRelacio(){
-        relacioPersonatgeObjecte mirelacio = new relacioPersonatgeObjecte(5,73);
+        relacioPersonatgeObjecte mirelacio = new relacioPersonatgeObjecte(5,79);
+        relacioPersonatgeObjecte mirelacio2 = new relacioPersonatgeObjecte(10,79);
+
         try {
-            mirelacio.insert();
+            mirelacio.insert();mirelacio2.insert();
+
         } catch (Exception e) {
             e.printStackTrace();
         }

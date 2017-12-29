@@ -47,4 +47,13 @@ public class Objeto extends DAO implements Drawable{
     public void setValor(int valor) {
         this.valor = valor;
     }
+    @Override
+    public int dogetId() {
+        return getId();
+    }
+
+    @Override
+    public String dogetTipus() {
+        return "Objeto";
+    }
 }

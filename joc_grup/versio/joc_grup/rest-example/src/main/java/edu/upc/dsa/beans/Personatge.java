@@ -11,6 +11,7 @@ public class Personatge extends DAO implements Drawable {
     public int nivel;
     public int ataque;
     public int resistencia;
+    public int tipo;
     public ArrayList<Objeto> arrMisObjetos;
 
     public void setArrMisObjetos(ArrayList<Objeto> arrMisObjetos) {
@@ -23,13 +24,14 @@ public class Personatge extends DAO implements Drawable {
 
     public int defensa;
 
-    public Personatge(String nombre, int n, int a, int d, int r)//constructor
+    public Personatge(String nombre, int n, int a, int d, int r,int tipo)//constructor
     {
         this.nombre = nombre;
         this.nivel = n;
         this.ataque = a;
         this.resistencia = d;
         this.defensa = r;
+        this.tipo = tipo;
         arrMisObjetos = new ArrayList<Objeto>();
 
     }
@@ -41,6 +43,7 @@ public class Personatge extends DAO implements Drawable {
         this.ataque = 0;
         this.resistencia = 0;
         this.defensa = 0;
+        this.tipo = 0;
         arrMisObjetos = new ArrayList<Objeto>();
 
     }
@@ -84,6 +87,24 @@ public class Personatge extends DAO implements Drawable {
 
     public void setResistencia(int resistencia) {
         this.resistencia = resistencia;
+    }
+
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+    @Override
+    public int dogetId() {
+        return getId();
+    }
+
+    @Override
+    public String dogetTipus() {
+        return "personatge";
     }
 }
 

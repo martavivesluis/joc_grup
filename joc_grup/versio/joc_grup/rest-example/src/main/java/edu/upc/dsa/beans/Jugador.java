@@ -79,10 +79,13 @@ public class Jugador extends DAO_InterfaceUserImp implements Drawable {
     }
 
 
+    @Override
+    public int dogetId() {
+        return getId();
+    }
 
-
-
-
-
-
+    @Override
+    public String dogetTipus() {
+        return "Jugador";
+    }
 }

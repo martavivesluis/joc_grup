@@ -2,18 +2,18 @@ package edu.upc.dsa.beans.mapa;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
-@JsonTypeName("empty")
-public class EmptyCell implements Drawable {
-    public EmptyCell(){
+@JsonTypeName("pared")
+public class ParedCell implements Drawable {
+    public ParedCell(){
 
     }
     @Override
     public int dogetId() {
-        return 0;
+        return 1;
     }
 
     @Override
     public String dogetTipus() {
-        return "EmptyCell";
+        return "ParedCell";
     }
 }

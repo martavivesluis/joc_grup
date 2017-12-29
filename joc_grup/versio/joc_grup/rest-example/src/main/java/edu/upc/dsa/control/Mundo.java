@@ -1,5 +1,6 @@
 package edu.upc.dsa.control;
 
+import edu.upc.dsa.DAOG.DAOMapa;
 import edu.upc.dsa.beans.Jugador;
 import edu.upc.dsa.beans.Objeto;
 import edu.upc.dsa.beans.Personatge;
@@ -13,7 +14,7 @@ public class Mundo {
     Map<String, Personatge> mapaPersonajes;
     Map<Integer, Jugador> mapaJugadores;
     Map<String, Objeto> mapaObjetos;
-    Mapa mapa = new Mapa(10,10);
+    DAOMapa mapa = new DAOMapa(10,10);
 
 
     static Mundo intanceMundo;
@@ -30,13 +31,13 @@ public class Mundo {
 
 
 
-        Personatge vidente = new Personatge("vidente", 1,1,1,1);
-        Personatge nodet = new Personatge("nodet", 2,2,2,2);
-
+        Personatge vidente = new Personatge("vidente", 1,1,1,1,0);
+        Personatge nodet = new Personatge("nodet", 2,2,2,2,0);
 
 
         mapa.miMapa(1,vidente);
 
+        mapa.insert(-793856310);
 
         bruno.getPersonatges().add(nodet);
         juan.getPersonatges().add(vidente);

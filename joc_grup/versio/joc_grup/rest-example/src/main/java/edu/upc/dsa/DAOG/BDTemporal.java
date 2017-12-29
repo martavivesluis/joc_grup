@@ -25,8 +25,8 @@ public class BDTemporal {
 
         Jugador juan = new Jugador("juan", "123","juan@msn.com");
         Jugador bruno = new Jugador("bruno", "123", "bruno@msn.com");
-        Personatge vidente = new Personatge("vidente", 1,1,1,1);
-        Personatge nodet = new Personatge("nodet", 2,2,2,2);
+        Personatge vidente = new Personatge("vidente", 1,1,1,1,0);
+        Personatge nodet = new Personatge("nodet", 2,2,2,2,0);
 
 
         bruno.getPersonatges().add(nodet);
