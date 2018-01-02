@@ -193,39 +193,27 @@ public class JSONService {
 }
 
 //TODO: update personatje  (POST QUE REP UN JSON DE PERSONATGE) (Marta)
-
-
-
-
-//TODO: neteijar aquestes funcions (Marta)
-    @GET
-    @Path("/Personaje/{nombre}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Personatge buscarPersonaje(@PathParam("nombre") String nombre) {
-        return miMundo.getMapaPersonajes().get(nombre);
+@GET
+@Path("/updatePersonaje")
+@Produces(MediaType.APPLICATION_JSON)
+public Personatge updatePersonaje(Personatge p) {
+    try {
+        boolean update = p.update();//true hi ha hagut modificacio, false no hi ha hagut modificació
+        if(update == true){return p;}
+        return null;
+    } catch (Exception e) {
+        e.printStackTrace();
+        return null;
     }
-
-    @GET
-    @Path("/objetosPersonaje/{nombre}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Objeto> objetosPersonaje(@PathParam("nombre") String nombre) {
-        return miMundo.getMapaPersonajes().get(nombre).getArrMisObjetos();
-    }
+}
 
 
 
-    //Expecificar como se quiere añadir un jugador y con que campos, de momento le pasas el email y le asigna el email y la id sin mas
-    @POST
-    @Path("/nuevoJugador/{jugadorEmail}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response nuevoJugador(@PathParam("jugadorEmail") String email) {
-        Jugador jugador = new Jugador();
-        jugador.setEmail(email);
-        jugador.setId(email.hashCode());
-        miMundo.getMapaJugadores().put(jugador.getId(), jugador);
-        return Response.status(201).entity("Añadido jugador con correo:" +email).build();
-    }
 
+
+
+
+    
 
 
 
