@@ -54,6 +54,6 @@ public class Objeto extends DAO implements Drawable{
 
     @Override
     public String dogetTipus() {
-        return "Objeto";
+        return "objeto";
     }
 }

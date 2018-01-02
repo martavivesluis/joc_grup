@@ -74,7 +74,7 @@ public class JSONService {
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces(MediaType.APPLICATION_JSON)
     public Answer deleteJugador(@PathParam("email") String email, Login login){
-        System.out.println("registrem a "+login.getNom());
+        System.out.println("Eliminem  a "+login.getNom());
         Jugador j = new Jugador(login.getNom(),login.getPassword(),email);
         Answer mianswer = new Answer();
         if(j.delete()==true){
