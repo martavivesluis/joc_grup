@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.upc.dsa.DAOG.DAO;
+import edu.upc.dsa.DAOG.DAOMapa;
 import edu.upc.dsa.DAOG.RelacioPersonatgeJugador;
 import edu.upc.dsa.DAOG.relacioPersonatgeObjecte;
 import edu.upc.dsa.beans.*;
@@ -184,7 +185,7 @@ public class JSONService {
     {
     try {
         nueva.insert();
-        //TODO: quan nova partida read mapa from file and delete mapa/jugador de la base de  // 20 mins
+        //TODO: logica de quan iniciar mapa dese DB i quan desde arxiu
         return 1;
     } catch (Exception e) {
         e.printStackTrace();
@@ -213,12 +214,8 @@ public Personatge updatePersonaje(Personatge p) {
 
 
 
-    
 
 
-
-// TODO: update Mapa // OJO !!!
-// TODO: store in database (DAO) taula FET
 
     /// cella-jug-obj
     /// Lau - c f- Obj - Tipo
@@ -233,10 +230,10 @@ public Personatge updatePersonaje(Personatge p) {
     @Path("/Mapa")
     @Produces(MediaType.APPLICATION_JSON)
     public String getMapa() throws Exception{
-
+        DAOMapa mimapa = new DAOMapa(10,10);
         ObjectMapper mapper = new ObjectMapper();
         mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
-        return mapper.writeValueAsString( miMundo.mapa); //  mirate esta linea MARTA por que he cambiado el singletone
+        return mapper.writeValueAsString( mimapa.select(-793856310)); //  mirate esta linea MARTA por que he cambiado el singletone
     }
 
     /*

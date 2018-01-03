@@ -162,14 +162,14 @@ public class DAO {
             ret = true;
             addRow(rs);
         }
-
         return ret;
     }
     public boolean select()throws Exception{
         if(!hasId){
             throw new Exception();
         }
-       return  select2("id", this.getId());
+        String query = this.querySelect("id");
+       return  select2(query, this.getId());
     }
     public boolean select(String key,String value) throws Exception{
         String query = this.querySelect(key);

@@ -26,37 +26,17 @@ public class Mundo {
         mapaObjetos = new HashMap<String, Objeto>();
 
 
-        Jugador juan = new Jugador("juan", "123","juan@msn.com");
-        Jugador bruno = new Jugador("bruno", "123", "bruno@msn.com");
+        Jugador marta = new Jugador("Marta", "1234","martavivesluis@gmail.com");
 
+        try {
+            marta.select();
 
+            marta.seleccionarPersonajes(marta);
+            mapa = Mapa.miMapa(1,marta.personatges.get(0));
 
-        Personatge vidente = new Personatge("vidente", 1,1,1,1,0);
-        Personatge nodet = new Personatge("nodet", 2,2,2,2,0);
-
-
-        mapa.miMapa(1,vidente);
-
-        mapa.insert(-793856310);
-
-        bruno.getPersonatges().add(nodet);
-        juan.getPersonatges().add(vidente);
-
-        mapaJugadores.put(bruno.getId(), bruno);
-        mapaJugadores.put(juan.getId(), juan);
-
-        Jugador jugadorEmpty = new Jugador();
-        mapaJugadores.put(jugadorEmpty.getId(), jugadorEmpty);
-
-        Personatge personajeEmpty = new Personatge();
-        mapaPersonajes.put("empty", personajeEmpty);
-        mapaPersonajes.put("vidente", vidente);
-        mapaPersonajes.put("nodet", nodet);
-
-        Objeto objetoEmpty = new Objeto();
-        objetoEmpty.setNombre("empty");
-        mapaObjetos.put("empty", objetoEmpty);
-
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }

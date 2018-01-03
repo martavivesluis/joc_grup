@@ -1,5 +1,6 @@
 package edu.upc.dsa.beans.mapa;
 
+import edu.upc.dsa.DAOG.DAOMapa;
 import junit.framework.TestCase;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -21,6 +22,11 @@ public class MapaTest extends TestCase {
 
         assertEquals(ans,drawable1);
         assertThat(ans2, is(not(drawable1)));
+
+    }
+    public void testMapa(){
+        DAOMapa mimapa = new DAOMapa(10,10);
+        mimapa.select(-793856310);
 
     }
 

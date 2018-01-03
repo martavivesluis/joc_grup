@@ -24,4 +24,13 @@ public class ObjetoTest extends TestCase{
         }
 
     }
+    public void testSelect(){
+        Objeto miobjeto = new Objeto();
+        try {
+            miobjeto.select("id","18");
+            miobjeto.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
