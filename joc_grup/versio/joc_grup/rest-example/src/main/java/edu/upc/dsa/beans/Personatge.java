@@ -11,8 +11,10 @@ public class Personatge extends DAO implements Drawable {
     public int nivel;
     public int ataque;
     public int resistencia;
+    public int defensa;
     public int tipo;
     public ArrayList<Objeto> arrMisObjetos;
+
 
     public void setArrMisObjetos(ArrayList<Objeto> arrMisObjetos) {
         this.arrMisObjetos = arrMisObjetos;
@@ -22,7 +24,7 @@ public class Personatge extends DAO implements Drawable {
         return arrMisObjetos;
     }
 
-    public int defensa;
+
 
     public Personatge(String nombre, int n, int a, int d, int r,int tipo)//constructor
     {

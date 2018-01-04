@@ -31,11 +31,11 @@ public class Mapa {
         columns = new ArrayList<Column>();
 
         for (int i = 0; i < amplada; i++) {
-            Column columna = new Column();
-            for (int j = 0; j < alcada; j++) {
-                columna.rows.add(new EmptyCell());
-            }
-            columns.add(columna);
+                Column columna = new Column();
+                for (int j = 0; j < alcada; j++) {
+                    columna.rows.add(new EmptyCell());
+                }
+                columns.add(columna);
         }
     }
 
@@ -55,6 +55,7 @@ public class Mapa {
     public Drawable doGetElement(int x, int y) {
         return columns.get(x).rows.get(y);
     }
+
 
     public void moure(int amuntInc, int esquerraInc, Drawable element) {
 
@@ -88,10 +89,10 @@ public class Mapa {
     }
 
     /****************************Mapas*******************/
-    public static DAOMapa miMapa(int nivel, Personatge mipersonaje) {
-        DAOMapa mimapa = readMapFromile(nivel);
+    public static DAOMapa miMapa(Personatge mipersonaje) {
+        DAOMapa mimapa = readMapFromile(mipersonaje.getNivel());
         Monstruo mimonstruo = new Monstruo();
-        mimapa.putElement(0,0,mipersonaje);
+        mimapa.putElement(6,8,mipersonaje);
         return mimapa;
     }
 

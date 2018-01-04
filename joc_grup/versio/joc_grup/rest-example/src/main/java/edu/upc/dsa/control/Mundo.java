@@ -1,9 +1,10 @@
 package edu.upc.dsa.control;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.upc.dsa.DAOG.DAOMapa;
-import edu.upc.dsa.beans.Jugador;
-import edu.upc.dsa.beans.Objeto;
-import edu.upc.dsa.beans.Personatge;
+import edu.upc.dsa.DAOG.relacioPersonatgeObjecte;
+import edu.upc.dsa.beans.*;
 import edu.upc.dsa.beans.mapa.Mapa;
 
 import java.util.HashMap;
@@ -14,73 +15,124 @@ public class Mundo {
     Map<String, Personatge> mapaPersonajes;
     Map<Integer, Jugador> mapaJugadores;
     Map<String, Objeto> mapaObjetos;
-    DAOMapa mapa = new DAOMapa(10,10);
+    DAOMapa mapa = new DAOMapa(10, 10);
 
 
     static Mundo intanceMundo;
 
-    private Mundo()
-    {
+    private Mundo() {
         mapaJugadores = new HashMap<Integer, Jugador>();
         mapaPersonajes = new HashMap<String, Personatge>();
         mapaObjetos = new HashMap<String, Objeto>();
 
-
-        Jugador marta = new Jugador("Marta", "1234","martavivesluis@gmail.com");
-
-        try {
-            marta.select();
-
-            marta.seleccionarPersonajes(marta);
-            mapa = Mapa.miMapa(1,marta.personatges.get(0));
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
     }
 
-    static Mundo getIntanceMundo()
-    {
-        if(intanceMundo == null)
-        {
+    static Mundo getIntanceMundo() {
+        if (intanceMundo == null) {
             intanceMundo = new Mundo();
         }
         return intanceMundo;
     }
 
-    public Objeto buscarObjeto(List<Objeto> listaObjetos, String nombreObjeto){
-        for(Objeto o: listaObjetos){
-            if (o.getNombre().equals(nombreObjeto)) return o;
-        }
+    /***********Funció Login + personatges + objectes actuals**********************************/
+    public Jugador enter(String email, Login login){
+    Jugador j = new Jugador();
+
+        try{
+        j.select("email",email);
+        j.toString();
+    }
+        catch(Exception e)
+    {
+        e.printStackTrace();
         return null;
     }
+        if(j.getContrasenya().equals(login.getPassword()))
+    {
+        j.seleccionarPersonajes(j);
+        return j;
+    }
+        return null;
+}
 
-    public Map<String, Personatge> getMapaPersonajes() {
-        return mapaPersonajes;
+    /***********Funció crea nou jugador***********************/
+    public Jugador newGamer(String email,Login login){
+        Jugador j = new Jugador(login.getNom(),login.getPassword(),email);
+        try {
+            j.insert();
+        } catch (Exception e) {
+            return null;
+        }
+        return j;
     }
 
-    public void setMapaPersonajes(Map<String, Personatge> mapaPersonajes) {
-        this.mapaPersonajes = mapaPersonajes;
+    /***********Funció que actualitza el personatge***********/
+    public Personatge updatePersonatge(Personatge p) {
+        try {
+            boolean update = p.update();//true hi ha hagut modificacio, false no hi ha hagut modificació
+            if (update == true) {
+                return p;
+            }
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    public Map<Integer, Jugador> getMapaJugadores() {
-        return mapaJugadores;
+    /***********Funció que retorna partida començada**********/
+    public String saveMap(int idJugador) {
+        DAOMapa mimapa = new DAOMapa(10, 10);//empty Map
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+
+        if (mimapa.select(idJugador).mapEmpty()) {
+            System.out.println("el mapa esta buit:" + mimapa.select(idJugador).mapEmpty());
+            return null;
+        } else {
+            try {
+                return mapper.writeValueAsString(mimapa.select(idJugador));
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
     }
 
-    public void setMapaJugadores(Map<Integer, Jugador> mapaJugadores) {
-        this.mapaJugadores = mapaJugadores;
+    /***********Funció que crea partida a partir de nivell personatge**********/
+    public String newGame(Personatge personatge) {
+        Mapa mimapa = new Mapa(10, 10);
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+        try {
+            return mapper.writeValueAsString(mimapa.miMapa(personatge));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return null;
+        }
+
     }
 
-    public Map<String, Objeto> getMapaObjetos() {
-        return mapaObjetos;
-    }
+    /************Funció que afegeix objecte a un personatge*****************/
+    public String addObjectPersonatge(Objeto miob, int idp) {
+        relacioPersonatgeObjecte relacio = new relacioPersonatgeObjecte(miob.getId(), idp);
+        try {
+            relacio.insert();
+            return "OK";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "KO";
+        }
 
-    public void setMapaObjetos(Map<String, Objeto> mapaObjetos) {
-        this.mapaObjetos = mapaObjetos;
     }
 
 }
+
+
+
+
+
+
+
 
 

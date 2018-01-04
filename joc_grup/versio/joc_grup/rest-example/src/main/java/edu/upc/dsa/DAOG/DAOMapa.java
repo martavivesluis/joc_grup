@@ -23,9 +23,17 @@ public class DAOMapa extends Mapa {
         conn = DriverManager.getConnection("jdbc:mysql://localhost/juego?" + "user=myapp&password=1234&useJDBCCompliantTimezoneShift=true&serverTimezone=UTC");
         return conn;
     }
+    public  boolean mapEmpty(){
+        for (int i = 0; i < this.doGetWidth(); i++) {
+            for (int j = 0; j < this.doGetHeight(); j++) {
+                if(!(this.doGetElement(i,j) instanceof EmptyCell))
+                { return false;}else{ }}
+        }
+        return true;
 
+    }
     public DAOMapa select(int idJugador) {
-        DAOMapa mimapa = new DAOMapa(10,10);
+        DAOMapa mimapa = new DAOMapa(10,10);//MAPA DE EMPTYCELLS
         EmptyCell myEmptyCell = new EmptyCell();
         ParedCell myParedCell = new ParedCell();
         Connection conn = null;
@@ -77,8 +85,6 @@ public class DAOMapa extends Mapa {
 
         }return mimapa;
     }
-
-    
     public void insert(int idJugador){
         Connection conn = null;
         try {
