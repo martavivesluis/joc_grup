@@ -99,7 +99,6 @@ public class Mapa {
     public static DAOMapa readMapFromile(int level) {
         try {
             File file = new File("mapas/"+level+".txt");
-
             FileReader fileReader = new FileReader(file);
             StringBuffer stringBuffer = new StringBuffer();
             int numCharsRead;
@@ -110,8 +109,6 @@ public class Mapa {
             fileReader.close();
             ObjectMapper mapper = new ObjectMapper();
             mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
-
-
             DAOMapa mapa = mapper.readValue(stringBuffer.toString(), DAOMapa.class);
             return mapa;
         } catch (Exception e) {
