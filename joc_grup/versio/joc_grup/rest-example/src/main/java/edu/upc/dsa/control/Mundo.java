@@ -80,6 +80,16 @@ public class Mundo {
         }
     }
 
+    public String getMapaPartidaFormMinionGarcia(){
+        Personatge p = new Personatge();
+        try {
+            p.select("id","45");
+            return  this.newGame(p);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
     /***********Funció que retorna partida començada**********/
     public String saveMap(int idJugador) {
         DAOMapa mimapa = new DAOMapa(10, 10);//empty Map
@@ -101,11 +111,11 @@ public class Mundo {
 
     /***********Funció que crea partida a partir de nivell personatge**********/
     public String newGame(Personatge personatge) {
-        Mapa mimapa = new Mapa(10, 10);
+        Mapa mimapa = Mapa.miMapa(personatge);
         ObjectMapper mapper = new ObjectMapper();
         mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
         try {
-            return mapper.writeValueAsString(mimapa.miMapa(personatge));
+            return mapper.writeValueAsString(mimapa);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
             return null;

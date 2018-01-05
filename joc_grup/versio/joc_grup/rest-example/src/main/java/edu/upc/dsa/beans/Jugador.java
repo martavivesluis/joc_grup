@@ -12,6 +12,10 @@ public class Jugador extends DAO_InterfaceUserImp implements Drawable {
     public  ArrayList<Personatge> personatges; //etiqueta buida
 
 
+    public void setPersonatges(ArrayList<Personatge> personatges) {
+        this.personatges = personatges;
+    }
+
 
 
     //constructor d'un jugador
@@ -23,7 +27,9 @@ public class Jugador extends DAO_InterfaceUserImp implements Drawable {
         this.idAutogen = false;
         this.id = email.hashCode();
     }
-    public Jugador(){
+
+
+    public Jugador() {
         this.nom = null;
         this.contrasenya = null;
         this.email = null;
@@ -31,33 +37,43 @@ public class Jugador extends DAO_InterfaceUserImp implements Drawable {
         this.idAutogen = false;
         this.id = 0;
     }
+
+    public String getContrasenya() {
+        return contrasenya;
+    }
+
+
+    public ArrayList<Personatge> getPersonatges() {
+        return personatges;
+    }
+
     public void setNom(String nom) {
         this.nom = nom;
     }
+
+    public void setContrasenya(String contrasenya) {
+        this.contrasenya = contrasenya;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+        id = email.hashCode();
+    }
+
     public String getNom() {
 
         return nom;
     }
-    public String getContrasenya() {return contrasenya;
-    }
-    public void setContrasenya(String contrasenya) {this.contrasenya = contrasenya;
-    }
-    public void setEmail(String email){
-        this.email = email;
-        id = email.hashCode();
-    }
-    public String getEmail() {return email;
-    }
-    public ArrayList<Personatge> getPersonatges() {
-        return personatges;
-    }
-    public void setPersonatges(ArrayList<Personatge> personatges) {
-        this.personatges = personatges;
-    }
+
     @Override
     public int getId() {
         return id;
     }
+
     @Override
     public void setId(int id) {
         this.id = id;
@@ -70,6 +86,7 @@ public class Jugador extends DAO_InterfaceUserImp implements Drawable {
     public void setIdAutogen(boolean idAutogen) {
         this.idAutogen = idAutogen;
     }
+
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();
@@ -78,14 +95,5 @@ public class Jugador extends DAO_InterfaceUserImp implements Drawable {
         return sb.toString();
     }
 
-
-    @Override
-    public int dogetId() {
-        return getId();
-    }
-
-    @Override
-    public String dogetTipus() {
-        return "Jugador";
-    }
 }
+

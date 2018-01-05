@@ -240,7 +240,7 @@ public class DAO {
 
         catch(Exception e){}
         System.out.println("updatestatement:"+pstm.toString());
-        return pstm.executeUpdate();// 0 cap modificacio 1 ninguna
+        return pstm.executeUpdate();// 0 cap modificacio 0.txt ninguna
 
     }
     public static List<Field> doGetAllFields(List<Field> fields, Class<?> type) {
@@ -340,7 +340,7 @@ public class DAO {
         PreparedStatement pstm = conn.prepareStatement(theQuery);
         int update = pstm.executeUpdate();
         if(update==1){return true;}
-        System.out.println(update);//0 no fa res,1 ha esborrat
+        System.out.println(update);//0 no fa res,0.txt ha esborrat
         System.out.println("regitre esborrat");
         return false;// el registre enviat no existeix
 

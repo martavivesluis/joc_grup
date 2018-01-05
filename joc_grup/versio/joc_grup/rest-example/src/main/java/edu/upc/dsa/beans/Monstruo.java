@@ -3,9 +3,11 @@ package edu.upc.dsa.beans;
 import edu.upc.dsa.DAOG.DAO;
 import edu.upc.dsa.beans.mapa.Drawable;
 
-import java.util.ArrayList;
+/**
+ * Created by Marta on 18/12/2017.
+ */
 
-public class Monstruo extends DAO implements Drawable{
+public class Monstruo extends DAO implements Drawable, Interactivo {
     public String nomMonstruo;
     public int defensaMonstruo;
     public int atacMonstruo;
@@ -57,13 +59,5 @@ public class Monstruo extends DAO implements Drawable{
     public void setIdObjeto(int idObjeto) {
         this.idObjeto = idObjeto;
     }
-    @Override
-    public int dogetId() {
-        return getId();
-    }
-
-    @Override
-    public String dogetTipus() {
-        return "monstruo";
-    }
 }
+

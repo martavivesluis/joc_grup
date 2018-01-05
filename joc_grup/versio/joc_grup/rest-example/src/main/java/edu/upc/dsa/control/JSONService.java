@@ -2,17 +2,11 @@ package edu.upc.dsa.control;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 import edu.upc.dsa.DAOG.DAO;
-import edu.upc.dsa.DAOG.DAOMapa;
 import edu.upc.dsa.DAOG.RelacioPersonatgeJugador;
-import edu.upc.dsa.DAOG.relacioPersonatgeObjecte;
 import edu.upc.dsa.beans.*;
-import edu.upc.dsa.beans.mapa.Mapa;
 
 @Path("/json")//porta
 public class JSONService {
@@ -73,7 +67,8 @@ public class JSONService {
     @Path("/Mapa/{idJugador}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getMapa(@PathParam("idJugador")int id) throws Exception{
-        return miMundo.saveMap(id);
+        return miMundo.getMapaPartidaFormMinionGarcia();
+     //   return miMundo.saveMap(id);
     }
 
     /**************************Creacio nova partida**************************/
@@ -81,7 +76,7 @@ public class JSONService {
     @Path("/newPartida/")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces(MediaType.APPLICATION_JSON)
-    public int addNewPartida(Partida nueva)//1 correctamente creada
+    public int addNewPartida(Partida nueva)//0.txt correctamente creada
     {
         try {
             nueva.insert();

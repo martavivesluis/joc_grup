@@ -6,7 +6,7 @@ import edu.upc.dsa.beans.mapa.Drawable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Personatge extends DAO implements Drawable {
+public class Personatge extends DAO implements Drawable, Interactuador {
     public String nombre;
     public int nivel;
     public int ataque;
@@ -14,7 +14,6 @@ public class Personatge extends DAO implements Drawable {
     public int defensa;
     public int tipo;
     public ArrayList<Objeto> arrMisObjetos;
-
 
     public void setArrMisObjetos(ArrayList<Objeto> arrMisObjetos) {
         this.arrMisObjetos = arrMisObjetos;
@@ -99,14 +98,20 @@ public class Personatge extends DAO implements Drawable {
     public void setTipo(int tipo) {
         this.tipo = tipo;
     }
-    @Override
-    public int dogetId() {
-        return getId();
-    }
 
     @Override
-    public String dogetTipus() {
-        return "personatge";
+    public void interactua(Interactivo interactivo) {
+        if (interactivo instanceof  Objeto){
+            arrMisObjetos.add((Objeto) interactivo);
+            return;
+        }
+        if (interactivo instanceof  Monstruo){
+            Monstruo m = (Monstruo) interactivo;
+            if(Math.random()>0.5) {
+                this.setDefensa(0);
+            }
+            return;
+        }
+
     }
 }
-

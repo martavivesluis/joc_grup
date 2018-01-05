@@ -3,12 +3,16 @@ package edu.upc.dsa.beans;
 import edu.upc.dsa.DAOG.DAO;
 import edu.upc.dsa.beans.mapa.Drawable;
 
-public class Objeto extends DAO implements Drawable{
-    public String nombre;
-    public String tipo;
-    public String descripcion;
-    public int valor;
-    public Objeto() { }
+public class Objeto extends DAO implements Drawable, Interactivo{
+    private String nombre;
+    private String tipo;
+    private String descripcion;
+    private int valor;
+
+
+    public Objeto() {
+
+    }
 
     public Objeto(String nombre, String tipo, String descripcion, int valor) {
         this.nombre = nombre;
@@ -16,6 +20,7 @@ public class Objeto extends DAO implements Drawable{
         this.descripcion = descripcion;
         this.valor = valor;
     }
+
     public String getNombre() {
         return nombre;
     }
@@ -46,14 +51,5 @@ public class Objeto extends DAO implements Drawable{
 
     public void setValor(int valor) {
         this.valor = valor;
-    }
-    @Override
-    public int dogetId() {
-        return getId();
-    }
-
-    @Override
-    public String dogetTipus() {
-        return "objeto";
     }
 }

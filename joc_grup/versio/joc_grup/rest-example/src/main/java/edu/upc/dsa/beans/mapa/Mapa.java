@@ -91,8 +91,7 @@ public class Mapa {
     /****************************Mapas*******************/
     public static DAOMapa miMapa(Personatge mipersonaje) {
         DAOMapa mimapa = readMapFromile(mipersonaje.getNivel());
-        Monstruo mimonstruo = new Monstruo();
-        mimapa.putElement(6,8,mipersonaje);
+        mimapa.putElement(0,0,mipersonaje);
         return mimapa;
     }
 

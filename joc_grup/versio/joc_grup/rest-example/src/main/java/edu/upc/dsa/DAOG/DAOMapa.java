@@ -85,7 +85,7 @@ public class DAOMapa extends Mapa {
 
         }return mimapa;
     }
-    public void insert(int idJugador){
+    /*public void insert(int idJugador){
         Connection conn = null;
         try {
             conn = doGetConnection();
@@ -99,8 +99,8 @@ public class DAOMapa extends Mapa {
         {
             for(int j =0;j<this.doGetHeight();j++)
             {
-                Drawable obj= this.doGetElement(i,j);
-                int id = obj.dogetId();
+                Drawable cella= this.doGetElement(i,j);
+                int id = cella.dogetId();
                 String tipus = obj.dogetTipus();
                  String insrt = "INSERT INTO Mapa (idJugador, columna, fila,idElemento, tipo) VALUES("+idJugador+","+i+","+j+","+id+",\""+tipus+"\" ) ON DUPLICATE KEY UPDATE"+
                 " tipo=\""+tipus+"\",idElemento="+id+"";
@@ -116,5 +116,5 @@ public class DAOMapa extends Mapa {
             }
         }
 
-    }
+    }*/
 }
