@@ -3,10 +3,7 @@ package edu.upc.dsa.DAOG;
 import edu.upc.dsa.beans.Monstruo;
 import edu.upc.dsa.beans.Objeto;
 import edu.upc.dsa.beans.Personatge;
-import edu.upc.dsa.beans.mapa.Drawable;
-import edu.upc.dsa.beans.mapa.EmptyCell;
-import edu.upc.dsa.beans.mapa.Mapa;
-import edu.upc.dsa.beans.mapa.ParedCell;
+import edu.upc.dsa.beans.mapa.*;
 
 import java.sql.*;
 
@@ -36,6 +33,11 @@ public class DAOMapa extends Mapa {
         DAOMapa mimapa = new DAOMapa(10,10);//MAPA DE EMPTYCELLS
         EmptyCell myEmptyCell = new EmptyCell();
         ParedCell myParedCell = new ParedCell();
+        AiguaCell myAiguaCell = new AiguaCell();
+        PedraCell myPedraCell = new PedraCell();
+        FocCell myFocCell = new FocCell();
+        PortaCell myPortaCell= new PortaCell();
+
         Connection conn = null;
         try {
             conn = doGetConnection();
@@ -55,23 +57,38 @@ public class DAOMapa extends Mapa {
                         String idEl ="" + rs.getObject(4);
                         String type = "" + rs.getObject(5);//
 
+                        //Cel·les
                         if(type.equals("ParedCell"))
                         {   mimapa.putElement(i,j,myParedCell);}
+                        if(type.equals("AiguaCell"))
+                        {   mimapa.putElement(i,j,myAiguaCell);}
+                        if(type.equals("FocCell"))
+                        {   mimapa.putElement(i,j,myFocCell);}
+                        if(type.equals("PedraCell"))
+                        {   mimapa.putElement(i,j,myPedraCell);}
+                        if(type.equals("PortaCell"))
+                        {   mimapa.putElement(i,j,myPortaCell);}
+
+                        //Objectes
                         if(type.equals("objeto")){
                             Objeto miobjeto = new Objeto();
                             miobjeto.select("id",idEl);//si existe nos devuelve objeto lleno
                             mimapa.putElement(i,j,miobjeto);
                         }
+
+                        //monstruo
                         if(type.equals("monstruo")){
                             Monstruo mimontruo = new Monstruo();
                             mimontruo.select("id",idEl);
                             mimapa.putElement(i,j,mimontruo);
                         }
+                        //personatge
                         if(type.equals("personatge")){
                             Personatge mipersonatge = new Personatge();
                             mipersonatge.select("id",idEl);
                             mimapa.putElement(i,j,mipersonatge);
                         }
+
                         else if(type.equals("EmptyCell")){
                           mimapa.putElement(i,j,myEmptyCell);}
                         //per defecte emptycell
