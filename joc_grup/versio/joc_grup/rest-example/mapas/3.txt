@@ -15,7 +15,7 @@
                                     {}
                                 ],
                                 [
-                                    "edu.upc.dsa.beans.mapa.ParedCell",
+                                    "edu.upc.dsa.beans.mapa.EmptyCell",
                                     {}
                                 ],
                                 [
@@ -69,7 +69,7 @@
                                     {}
                                 ],
                                 [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
+                                    "edu.upc.dsa.beans.mapa.ParedCell",
                                     {}
                                 ],
                                 [
@@ -90,6 +90,56 @@
                                 ],
                                 [
                                     "edu.upc.dsa.beans.mapa.EmptyCell",
+                                    {}
+                                ],
+                                [
+                                    "edu.upc.dsa.beans.mapa.FocCell",
+                                    {}
+                                ],
+                                [
+                                    "edu.upc.dsa.beans.mapa.ParedCell",
+                                    {}
+                                ]
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    "edu.upc.dsa.beans.mapa.Column",
+                    {
+                        "rows": [
+                            "java.util.ArrayList",
+                            [
+                                [
+                                    "edu.upc.dsa.beans.mapa.ParedCell",
+                                    {}
+                                ],
+                                [
+                                    "edu.upc.dsa.beans.mapa.EmptyCell",
+                                    {}
+                                ],
+                                [
+                                    "edu.upc.dsa.beans.mapa.ParedCell",
+                                     {}
+                                ],
+                                [
+                                    "edu.upc.dsa.beans.mapa.EmptyCell",
+                                    {}
+                                ],
+                                [
+                                    "edu.upc.dsa.beans.mapa.ParedCell",
+                                    {}
+                                ],
+                                [
+                                    "edu.upc.dsa.beans.mapa.ParedCell",
+                                    {}
+                                ],
+                                [
+                                    "edu.upc.dsa.beans.mapa.EmptyCell",
+                                    {}
+                                ],
+                                [
+                                    "edu.upc.dsa.beans.mapa.ParedCell",
                                     {}
                                 ],
                                 [
@@ -119,115 +169,19 @@
                                     {}
                                 ],
                                 [
-                                    "edu.upc.dsa.beans.Objeto",
-                                    {
-                                        "id": 17,
-                                        "idAutogen": true,
-                                        "hasId": true,
-                                        "nombre": "excalibur",
-                                        "tipo": "espada",
-                                        "descripcion": "del rey arturo",
-                                        "valor": 10000
-                                    }
-                                ],
-                                [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
-                                    {}
-                                ],
-                                [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
-                                    {}
-                                ],
-                                [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
-                                    {}
-                                ],
-                                [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
-                                    {}
-                                ],
-                                [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
-                                    {}
-                                ],
-                                [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
-                                    {}
-                                ],
-                                [
-                                    "edu.upc.dsa.beans.mapa.ParedCell",
-                                    {}
-                                ]
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    "edu.upc.dsa.beans.mapa.Column",
-                    {
-                        "rows": [
-                            "java.util.ArrayList",
-                            [
-                                [
                                     "edu.upc.dsa.beans.mapa.ParedCell",
                                     {}
                                 ],
                                 [
                                     "edu.upc.dsa.beans.mapa.EmptyCell",
-                                    {}
-                                ],
-                                [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
-                                    {}
-                                ],
-                                [
-                                    "edu.upc.dsa.beans.Objeto",
-                                    {
-                                        "id": 18,
-                                        "idAutogen": true,
-                                        "hasId": true,
-                                        "nombre": "helmuth",
-                                        "tipo": "casco",
-                                        "descripcion": "del caballero verde",
-                                        "valor": 300
-                                    }
-                                ],
-                                [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
-                                    {}
-                                ],
-                                [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
-                                    {}
-                                ],
-                                [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
-                                    {}
-                                ],
-                                [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
-                                    {}
-                                ],
-                                [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
-                                    {}
+                                     {}
                                 ],
                                 [
                                     "edu.upc.dsa.beans.mapa.ParedCell",
                                     {}
-                                ]
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    "edu.upc.dsa.beans.mapa.Column",
-                    {
-                        "rows": [
-                            "java.util.ArrayList",
-                            [
+                                ],
                                 [
-                                    "edu.upc.dsa.beans.mapa.ParedCell",
+                                    "edu.upc.dsa.beans.mapa.FocCell",
                                     {}
                                 ],
                                 [
@@ -235,40 +189,12 @@
                                     {}
                                 ],
                                 [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
+                                    "edu.upc.dsa.beans.mapa.FocCell",
                                     {}
                                 ],
                                 [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
+                                    "edu.upc.dsa.beans.mapa.AiguaCell",
                                     {}
-                                ],
-                                [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
-                                    {}
-                                ],
-                                [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
-                                    {}
-                                ],
-                                [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
-                                    {}
-                                ],
-                                [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
-                                    {}
-                                ],
-                                [
-                                    "edu.upc.dsa.beans.Objeto",
-                                    {
-                                        "id": 15,
-                                        "idAutogen": true,
-                                        "hasId": true,
-                                        "nombre": "excalibur",
-                                        "tipo": "espada",
-                                        "descripcion": "del rey arturo",
-                                        "valor": 10000
-                                    }
                                 ],
                                 [
                                     "edu.upc.dsa.beans.mapa.ParedCell",
@@ -301,7 +227,11 @@
                                     {}
                                 ],
                                 [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
+                                    "edu.upc.dsa.beans.mapa.ParedCell",
+                                    {}
+                                ],
+                                [
+                                    "edu.upc.dsa.beans.mapa.AiguaCell",
                                     {}
                                 ],
                                 [
@@ -309,7 +239,53 @@
                                     {}
                                 ],
                                 [
+                                    "edu.upc.dsa.beans.mapa.ParedCell",
+                                    {}
+                                ],
+                                [
                                     "edu.upc.dsa.beans.mapa.EmptyCell",
+                                    {}
+                                ],
+                                [
+                                    "edu.upc.dsa.beans.mapa.ParedCell",
+                                    {}
+                                ]
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    "edu.upc.dsa.beans.mapa.Column",
+                    {
+                        "rows": [
+                            "java.util.ArrayList",
+                            [
+                                [
+                                    "edu.upc.dsa.beans.mapa.ParedCell",
+                                    {}
+                                ],
+                                [
+                                    "edu.upc.dsa.beans.mapa.EmptyCell",
+                                    {}
+                                ],
+                                [
+                                    "edu.upc.dsa.beans.mapa.ParedCell",
+                                    {}
+                                ],
+                                [
+                                    "edu.upc.dsa.beans.mapa.ParedCell",
+                                    {}
+                                ],
+                                [
+                                    "edu.upc.dsa.beans.mapa.FocCell",
+                                    {}
+                                ],
+                                [
+                                    "edu.upc.dsa.beans.mapa.FocCell",
+                                    {}
+                                ],
+                                [
+                                    "edu.upc.dsa.beans.mapa.ParedCell",
                                     {}
                                 ],
                                 [
@@ -351,23 +327,15 @@
                                     {}
                                 ],
                                 [
-                                   "edu.upc.dsa.beans.Monstruo",
-                                      {
-                                          "id": 1,
-                                          "idAutogen": true,
-                                          "hasId": true,
-                                          "nomMonstruo": "gnomo",
-                                          "defensaMonstruo": 2,
-                                          "atacMonstruo": 3,
-                                          "idObjeto": 1
-                                      }
+                                   "edu.upc.dsa.beans.mapa.EmptyCell",
+                                      {}
                                 ],
                                 [
                                     "edu.upc.dsa.beans.mapa.EmptyCell",
                                     {}
                                 ],
                                 [
-                                     "edu.upc.dsa.beans.mapa.EmptyCell",
+                                     "edu.upc.dsa.beans.mapa.ParedCell",
                                      {}
                                 ],
                                 [
@@ -397,7 +365,7 @@
                                     {}
                                 ],
                                 [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
+                                    "edu.upc.dsa.beans.mapa.FocCell",
                                     {}
                                 ],
                                 [
@@ -405,11 +373,11 @@
                                     {}
                                 ],
                                 [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
+                                    "edu.upc.dsa.beans.mapa.FocCell",
                                     {}
                                 ],
                                 [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
+                                    "edu.upc.dsa.beans.mapa.ParedCell",
                                     {}
                                 ],
                                 [
@@ -447,7 +415,7 @@
                                     {}
                                 ],
                                 [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
+                                    "edu.upc.dsa.beans.mapa.FocCell",
                                     {}
                                 ],
                                 [
@@ -459,34 +427,35 @@
                                     {}
                                 ],
                                 [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
+                                    "edu.upc.dsa.beans.mapa.ParedCell",
                                     {}
                                 ],
                                 [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
+                                    "edu.upc.dsa.beans.mapa.FocCell",
                                     {}
                                 ],
                                 [
-                                    "edu.upc.dsa.beans.Objeto",
+                                    "edu.upc.dsa.beans.mapa.FocCell",
+                                    {}
+                                ],
+                                [
+                                    "edu.upc.dsa.beans.mapa.ParedCell",
+                                    {}
+                                ],
+                                [
+                                    "edu.upc.dsa.beans.Monstruo",
                                     {
-                                        "id": 11,
+                                        "id": 1,
                                         "idAutogen": true,
                                         "hasId": true,
-                                        "nombre": "escudo",
-                                        "tipo": "defensa",
-                                        "descripcion": "protegerse contra los enemigos",
-                                        "valor": 4
+                                        "nomMonstruo": "trump",
+                                        "defensaMonstruo": 1,
+                                        "atacMonstruo": 1,
+                                        "idObjeto": 1
+
                                     }
                                 ],
                                 [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
-                                    {}
-                                ],
-                                [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
-                                    {}
-                                ],
-                                [
                                     "edu.upc.dsa.beans.mapa.ParedCell",
                                     {}
                                 ]
@@ -533,7 +502,7 @@
                                     {}
                                 ],
                                 [
-                                    "edu.upc.dsa.beans.mapa.ParedCell",
+                                    "edu.upc.dsa.beans.mapa.PortaCell",
                                     {}
                                 ],
                                 [

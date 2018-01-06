@@ -89,9 +89,10 @@ public class Mapa {
     }
 
     /****************************Mapas*******************/
+    //TODO: com podem fer que el personatge no sempre estigui al mateix lloc
     public static DAOMapa miMapa(Personatge mipersonaje) {
         DAOMapa mimapa = readMapFromile(mipersonaje.getNivel());
-        mimapa.putElement(0,0,mipersonaje);
+        mimapa.putElement(0,1,mipersonaje);
         return mimapa;
     }
 
