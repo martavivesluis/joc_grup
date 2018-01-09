@@ -119,7 +119,7 @@ public class Mundo {
     /***********Funció que retorna partida començada**********/
     public String loadMapFromDbAndStringifyIt(int idJugador) {
          DAOMapa mimapa = new DAOMapa(10, 10);//empty Map
-         mimapa.select(idJugador);
+         mimapa = mimapa.select(idJugador);
         if (mimapa.doIsMapEmpty()) {
             System.out.println("el mapa esta buit!");
             return null;
