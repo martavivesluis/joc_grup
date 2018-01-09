@@ -72,20 +72,20 @@ public class DAOMapa extends Mapa {
                         {   mimapa.putElement(i,j,myPortaCell);}
 
                         //Objectes
-                        if(type.equals("objeto")){
+                        if(type.equals("Objeto")){
                             Objeto miobjeto = new Objeto();
                             miobjeto.select("id",idEl);//si existe nos devuelve objeto lleno
                             mimapa.putElement(i,j,miobjeto);
                         }
 
                         //monstruo
-                        if(type.equals("monstruo")){
+                        if(type.equals("Monstruo")){
                             Monstruo mimontruo = new Monstruo();
                             mimontruo.select("id",idEl);
                             mimapa.putElement(i,j,mimontruo);
                         }
                         //personatge
-                        if(type.equals("personatge")){
+                        if(type.equals("Personatge")){
                             Personatge mipersonatge = new Personatge();
                             mipersonatge.select("id",idEl);
                             mimapa.putElement(i,j,mipersonatge);
