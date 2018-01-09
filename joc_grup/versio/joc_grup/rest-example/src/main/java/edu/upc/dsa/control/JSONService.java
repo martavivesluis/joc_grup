@@ -82,14 +82,14 @@ public class JSONService {
             p2j.idJugador = idJugador;
             p2j.insert();
         }
-        return miMundo.newGame(personatgeEnviatPelClient,idJugador);
+        return miMundo.newGame(personatgeEnviatPelClient,idJugador); //igorat per el client... el client haura de fer un getMapa despres de NewMapa
     }
 
     /************ funcio partida començada************/
     @GET
     @Path("/Mapa/{idJugador}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getMapa(@PathParam("idJugador")int id) throws Exception{
+    public String getMapa(@PathParam("idJugador")int id) {
        return miMundo.loadMapFromDbAndStringifyIt(id);
     }
 
