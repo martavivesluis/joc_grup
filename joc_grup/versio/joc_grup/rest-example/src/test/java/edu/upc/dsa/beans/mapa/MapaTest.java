@@ -27,7 +27,7 @@ public class MapaTest extends TestCase {
     public void testMapa(){
         DAOMapa mimapa = new DAOMapa(10,10);
         mimapa.select(-793856310);
-        System.out.println(""+mimapa.mapEmpty());
+        System.out.println(""+mimapa.doIsMapEmpty());
 
     }
 

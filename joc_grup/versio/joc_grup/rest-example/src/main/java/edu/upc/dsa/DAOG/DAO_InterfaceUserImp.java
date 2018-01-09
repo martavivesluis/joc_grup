@@ -30,7 +30,7 @@ public class DAO_InterfaceUserImp extends DAO implements DAO_InterfaceUser {
         return false;
 
     }
-    public Jugador seleccionarPersonajes(Jugador j){
+    public Jugador selectPersonatgesFromDb(Jugador j){
         Connection conn = null;
         try {
             conn = doGetConnection();
@@ -63,6 +63,25 @@ public class DAO_InterfaceUserImp extends DAO implements DAO_InterfaceUser {
 
 
         return j;
+    }
+    public int selectNumberOfPersonatges(int idJugador){
+        Connection conn = null;
+        try {
+            conn = doGetConnection();
+            String sb = "SELECT COUNT(*) FROM relaciopersonatgejugador WHERE idJugador ="+ idJugador;
+            PreparedStatement pstm = conn.prepareStatement(sb);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+
+               return Integer.parseInt(""+rs.getObject(1));
+            }
+            return -1;//no hi han personatges associats a aquests jugador
+        }
+        catch( Exception e){
+        return -1;
+        }
+
+
     }
 
 

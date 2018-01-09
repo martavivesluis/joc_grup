@@ -1,5 +1,6 @@
 package edu.upc.dsa.DAOG;
 
+import edu.upc.dsa.beans.Jugador;
 import edu.upc.dsa.beans.Monstruo;
 import edu.upc.dsa.beans.Objeto;
 import edu.upc.dsa.beans.Personatge;
@@ -20,7 +21,7 @@ public class DAOMapa extends Mapa {
         conn = DriverManager.getConnection("jdbc:mysql://localhost/juego?" + "user=myapp&password=1234&useJDBCCompliantTimezoneShift=true&serverTimezone=UTC");
         return conn;
     }
-    public  boolean mapEmpty(){
+    public  boolean doIsMapEmpty(){
         for (int i = 0; i < this.doGetWidth(); i++) {
             for (int j = 0; j < this.doGetHeight(); j++) {
                 if(!(this.doGetElement(i,j) instanceof EmptyCell))
@@ -29,6 +30,7 @@ public class DAOMapa extends Mapa {
         return true;
 
     }
+
     public DAOMapa select(int idJugador) {
         DAOMapa mimapa = new DAOMapa(10,10);//MAPA DE EMPTYCELLS
         EmptyCell myEmptyCell = new EmptyCell();
@@ -102,7 +104,7 @@ public class DAOMapa extends Mapa {
 
         }return mimapa;
     }
-    /*public void insert(int idJugador){
+    public void upsert(int idJugador){
         Connection conn = null;
         try {
             conn = doGetConnection();
@@ -117,8 +119,13 @@ public class DAOMapa extends Mapa {
             for(int j =0;j<this.doGetHeight();j++)
             {
                 Drawable cella= this.doGetElement(i,j);
-                int id = cella.dogetId();
-                String tipus = obj.dogetTipus();
+                int id = 0;
+                String tipus;
+                if(cella instanceof DAO){
+                    id = ((DAO)cella).getId();
+                }
+                tipus=(cella).getClass().getSimpleName();
+
                  String insrt = "INSERT INTO Mapa (idJugador, columna, fila,idElemento, tipo) VALUES("+idJugador+","+i+","+j+","+id+",\""+tipus+"\" ) ON DUPLICATE KEY UPDATE"+
                 " tipo=\""+tipus+"\",idElemento="+id+"";
                 PreparedStatement pstm = null;
@@ -133,5 +140,5 @@ public class DAOMapa extends Mapa {
             }
         }
 
-    }*/
+    }
 }

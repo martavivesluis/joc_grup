@@ -1,12 +1,14 @@
 package edu.upc.dsa.beans;
 
 import edu.upc.dsa.DAOG.DAO;
+import edu.upc.dsa.DAOG.DAO_Personaje;
+import edu.upc.dsa.DAOG.DAO_PersonajeImpl;
 import edu.upc.dsa.beans.mapa.Drawable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Personatge extends DAO implements Drawable, Interactuador {
+public class Personatge extends DAO_PersonajeImpl implements Drawable, Interactuador {
     public String nombre;
     public int nivel;
     public int ataque;
@@ -23,7 +25,69 @@ public class Personatge extends DAO implements Drawable, Interactuador {
         return arrMisObjetos;
     }
 
+    public Personatge(int tipus, String nombre){
 
+        switch(tipus){
+            case 0://personatge defensiu
+            {
+                this.nombre = nombre;
+                this.nivel = 0;
+                this.ataque = 0;
+                this.resistencia = 0;
+                this.defensa = 3;
+                this.tipo = 0;
+                arrMisObjetos = new ArrayList<Objeto>();
+            }
+            break;
+            case 1://personatge resistiu
+            {
+                this.nombre = nombre;
+                this.nivel = 0;
+                this.ataque = 0;
+                this.resistencia = 2;
+                this.defensa = 0;
+                this.tipo = 1;
+                arrMisObjetos = new ArrayList<Objeto>();
+            }
+            break;
+            case 2://personatge atacant
+            {
+                this.nombre = nombre;
+                this.nivel = 0;
+                this.ataque = 3;
+                this.resistencia = 0;
+                this.defensa = 0;
+                this.tipo = 2;
+                arrMisObjetos = new ArrayList<Objeto>();
+            }
+            break;
+            case 3:
+            {
+                this.nombre = nombre;
+                this.nivel = 0;
+                this.ataque = 1;
+                this.resistencia = 2;
+                this.defensa = 0;
+                this.tipo = 3;
+                arrMisObjetos = new ArrayList<Objeto>();
+            }
+            break;
+            case 4:
+            {
+                this.nombre = nombre;
+                this.nivel = 0;
+                this.ataque = 0;
+                this.resistencia = 1;
+                this.defensa = 2;
+                this.tipo = 4;
+                arrMisObjetos = new ArrayList<Objeto>();
+            }
+            break;
+
+        }
+
+
+    }//constructor bytype
 
     public Personatge(String nombre, int n, int a, int d, int r,int tipo)//constructor
     {
@@ -110,6 +174,7 @@ public class Personatge extends DAO implements Drawable, Interactuador {
             if(Math.random()>0.5) {
                 this.setDefensa(0);
             }
+            //MiMundo.guardaMapa();
             return;
         }
 

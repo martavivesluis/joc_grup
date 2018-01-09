@@ -93,9 +93,8 @@ j.update();
 
     public void testSelectByName() throws Exception {
         Jugador j = new Jugador();
-        j.select("nom", "Sonia");
-
-        assertEquals(j.getContrasenya(),"1234");
+        j.select("nom", "mariantonia");
+        assertEquals(j,null);
 
     }
 

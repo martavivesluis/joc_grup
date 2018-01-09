@@ -11,7 +11,7 @@ import java.util.List;
 
 public class DAO {
     //comandes aplicables totes les classes
-    public int id = 0;//totes les taules tindran un identificador del tipos enter
+    public int id = -1;//totes les taules tindran un identificador del tipos enter
     protected boolean idAutogen = true;
     protected boolean hasId = true;
 

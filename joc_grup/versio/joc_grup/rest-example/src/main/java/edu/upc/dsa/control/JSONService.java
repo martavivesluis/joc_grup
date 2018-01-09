@@ -2,6 +2,7 @@ package edu.upc.dsa.control;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 
 import edu.upc.dsa.DAOG.DAO;
@@ -38,6 +39,8 @@ public class JSONService {
         return miMundo.newGamer(email,login);
     }
 
+
+
    /***************funcio que afegeix objecte a personatge base de dades**********/
     @POST
     @Path("/addObject/{idobject}/{idpersonatge}")
@@ -56,10 +59,30 @@ public class JSONService {
 
    /******************funcio nova partida*******************/
     @POST
-    @Path("/Mapa/")
+    @Path("/NewMapa/{idJugador}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getMapa(Personatge personatge) throws Exception{
-        return miMundo.newGame(personatge);
+    public String getNewMapa(Personatge personatgeEnviatPelClient, @PathParam("idJugador")int idJugador) throws Exception{
+        boolean okselect = personatgeEnviatPelClient.select();
+        if(!okselect) {
+            personatgeEnviatPelClient.insert();
+        }
+        Jugador j = new Jugador();
+        j.setId(idJugador);
+        j.select();
+        j.selectPersonatgesFromDb(j);
+        boolean existeix = false;
+        for( Personatge p : j.getPersonatges()){
+            if(p.id == personatgeEnviatPelClient.id){
+                existeix = true;
+            }
+        }
+        if(!existeix){
+            RelacioPersonatgeJugador p2j = new RelacioPersonatgeJugador();
+            p2j.idPersonatge = personatgeEnviatPelClient.id;
+            p2j.idJugador = idJugador;
+            p2j.insert();
+        }
+        return miMundo.newGame(personatgeEnviatPelClient,idJugador);
     }
 
     /************ funcio partida començada************/
@@ -67,8 +90,7 @@ public class JSONService {
     @Path("/Mapa/{idJugador}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getMapa(@PathParam("idJugador")int id) throws Exception{
-        return miMundo.getMapaPartidaFormMinionGarcia();
-     //   return miMundo.saveMap(id);
+       return miMundo.loadMapFromDbAndStringifyIt(id);
     }
 
     /**************************Creacio nova partida**************************/
@@ -93,6 +115,16 @@ public class JSONService {
     public ArrayList<Partida> getRanking() {
         return midao.ranking();
     }
+
+
+    @POST
+    @Path("/Jugador/{nomPersonatge}/{tipus}/{idjugador}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Personatge newPersonaje(@PathParam("nomPersonatge") String nomPersonatge, @PathParam("tipus") String type, @PathParam("idjugador") String id){
+        System.out.println("nom:"+nomPersonatge+" tipus:"+type+" idjugador:"+id);
+        return miMundo.createNewPersonatge(nomPersonatge,type,id);}
+
+
 
 
 
@@ -145,23 +177,7 @@ public class JSONService {
     }
     //********************************************************
     //Assosiació nou personatge a jugador
-    @POST
-    @Path("/Jugador/{nomPersonatge}/{idjugador}")
-    @Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_JSON})
-    @Produces(MediaType.APPLICATION_JSON)
-    public void newPersonaje(@PathParam("nomPersonatge") String nomPersonatge,@PathParam("idjugador") String id){
-        System.out.println(nomPersonatge);
-        Personatge p = new Personatge();
-        p.setNombre(nomPersonatge);
-        try {
-            p.insert();
-            RelacioPersonatgeJugador r = new RelacioPersonatgeJugador(Integer.parseInt(id),p.getId());
-            r.insert();
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-    }
+
     //******************************************************************
     //LListat personatges disponibles -> Jugador
     @GET
@@ -178,7 +194,7 @@ public class JSONService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return j.seleccionarPersonajes(j);
+        return j.selectPersonatgesFromDb(j);
     }
 }
 
