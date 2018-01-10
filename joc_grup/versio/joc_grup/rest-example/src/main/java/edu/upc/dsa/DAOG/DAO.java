@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class DAO {
+public class DAO implements Comparable {
     //comandes aplicables totes les classes
     public int id = -1;//totes les taules tindran un identificador del tipos enter
     protected boolean idAutogen = true;
@@ -366,5 +366,13 @@ public class DAO {
 
     public void setHasId(boolean hasId) {
         this.hasId = hasId;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if(  this.hasId && o instanceof  DAO && ((DAO)o).hasId ){
+             return this.id - ((DAO)o).getId();
+        }
+        return o.hashCode() - this.hashCode();
     }
 }
