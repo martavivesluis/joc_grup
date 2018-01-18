@@ -193,8 +193,16 @@
                                     {}
                                 ],
                                 [
-                                    "edu.upc.dsa.beans.mapa.AiguaCell",
-                                    {}
+                                    "edu.upc.dsa.beans.Objeto",
+                                    {
+                                    "id": 22,
+                                    "idAutogen": true,
+                                    "hasId": true,
+                                    "nombre": "aigua",
+                                    "tipo": "aigua",
+                                    "descripcion": "apagar focs",
+                                    "valor": 1
+                                    }
                                 ],
                                 [
                                     "edu.upc.dsa.beans.mapa.ParedCell",
@@ -231,8 +239,16 @@
                                     {}
                                 ],
                                 [
-                                    "edu.upc.dsa.beans.mapa.AiguaCell",
-                                    {}
+                                    "edu.upc.dsa.beans.Objeto",
+                                    {
+                                     "id": 22,
+                                     "idAutogen": true,
+                                     "hasId": true,
+                                     "nombre": "aigua",
+                                     "tipo": "aigua",
+                                     "descripcion": "apagar focs",
+                                     "valor": 1
+                                     }
                                 ],
                                 [
                                     "edu.upc.dsa.beans.mapa.EmptyCell",
@@ -470,8 +486,16 @@
                             "java.util.ArrayList",
                             [
                                 [
-                                    "edu.upc.dsa.beans.mapa.ParedCell",
-                                    {}
+                                    "edu.upc.dsa.beans.Objeto",
+                                    {
+                                    "id": 17,
+                                    "idAutogen": true,
+                                    "hasId": true,
+                                    "nombre": "excalibur",
+                                    "tipo": "espada",
+                                    "descripcion": "del rey arturo",
+                                     "valor": 10000
+                                     }
                                 ],
                                 [
                                     "edu.upc.dsa.beans.mapa.ParedCell",
@@ -503,7 +527,13 @@
                                 ],
                                 [
                                     "edu.upc.dsa.beans.mapa.PortaCell",
-                                    {}
+                                    {
+                                    "nivelActual":0,
+                                    "siguienteNivel":1,
+                                    "estado":0
+
+
+                                    }
                                 ],
                                 [
                                     "edu.upc.dsa.beans.mapa.ParedCell",

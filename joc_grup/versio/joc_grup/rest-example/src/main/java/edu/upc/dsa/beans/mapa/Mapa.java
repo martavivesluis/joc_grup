@@ -14,6 +14,15 @@ public class Mapa {
 
     public ArrayList<Column> columns;
 
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
+    private int nivel;
 
     public Mapa() {
 
@@ -92,6 +101,7 @@ public class Mapa {
     //TODO: com podem fer que el personatge no sempre estigui al mateix lloc
     public static DAOMapa miMapa(Personatge mipersonaje) {
         DAOMapa mimapa = readMapFromile(mipersonaje.getNivel());
+        mimapa.setNivel(mipersonaje.getNivel());
         mimapa.putElement(0,1,mipersonaje);
         return mimapa;
     }

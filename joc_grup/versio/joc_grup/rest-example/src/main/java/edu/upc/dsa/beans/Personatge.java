@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Personatge extends DAO_PersonajeImpl implements Drawable, Interactuador {
+    private boolean response;
     public String nombre;
     public int nivel;
     public int ataque;

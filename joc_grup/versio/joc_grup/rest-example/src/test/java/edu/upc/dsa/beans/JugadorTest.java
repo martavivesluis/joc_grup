@@ -102,9 +102,9 @@ j.update();
     public void testActualitzarUsuari()
     {
         try {
-        Jugador jugador = new Jugador("Marta", "3465", "s@hola.com");
-       //jugador.update();
-            assertEquals(jugador.loguejarUsuari("3465","s@hola.com"),false);
+        Personatge p = new Personatge("pirata",4,4,4,4,4);
+        p.insert();
+
 
 
     }

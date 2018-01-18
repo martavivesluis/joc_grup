@@ -43,7 +43,7 @@ public class JSONService {
 
    /***************funcio que afegeix objecte a personatge base de dades**********/
     @POST
-    @Path("/addObject/{idobject}/{idpersonatge}")
+    @Path("/addObject/{idpersonatge}")
     @Produces(MediaType.APPLICATION_JSON)
     public String addNewObject(Objeto miob,@PathParam("idpersonatge") Integer idp) {
         return miMundo.addObjectPersonatge(miob,idp);}
