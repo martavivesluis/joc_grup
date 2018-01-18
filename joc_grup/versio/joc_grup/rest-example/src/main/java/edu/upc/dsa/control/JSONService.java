@@ -62,8 +62,11 @@ public class JSONService {
     @Path("/NewMapa/{idJugador}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getNewMapa(Personatge personatgeEnviatPelClient, @PathParam("idJugador")int idJugador) throws Exception{
+        int nivellPrevio = personatgeEnviatPelClient.getNivel();
         boolean okselect = personatgeEnviatPelClient.select();
-        if(!okselect) {
+
+        if(!okselect || personatgeEnviatPelClient.getNivel() != nivellPrevio) {
+            personatgeEnviatPelClient.setNivel(nivellPrevio);
             personatgeEnviatPelClient.insert();
         }
         Jugador j = new Jugador();

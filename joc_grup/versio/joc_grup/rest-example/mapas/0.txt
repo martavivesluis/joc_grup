@@ -528,11 +528,6 @@
                                 [
                                     "edu.upc.dsa.beans.mapa.PortaCell",
                                     {
-                                    "nivelActual":0,
-                                    "siguienteNivel":1,
-                                    "estado":0
-
-
                                     }
                                 ],
                                 [
