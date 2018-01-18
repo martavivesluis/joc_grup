@@ -39,6 +39,7 @@ public class DAOMapa extends Mapa {
         PedraCell myPedraCell = new PedraCell();
         FocCell myFocCell = new FocCell();
         PortaCell myPortaCell= new PortaCell();
+        PortaCellOberta myPortaCellOberta = new PortaCellOberta();
 
         Connection conn = null;
         try {
@@ -89,7 +90,10 @@ public class DAOMapa extends Mapa {
                             Personatge mipersonatge = new Personatge();
                             mipersonatge.select("id",idEl);
                             mimapa.putElement(i,j,mipersonatge);
+                            mimapa.setNivel(mipersonatge.getNivel());
                         }
+                        if(type.equals("PortaCellOberta"))
+                        {   mimapa.putElement(i,j,myPortaCellOberta);}
 
                         else if(type.equals("EmptyCell")){
                           mimapa.putElement(i,j,myEmptyCell);}

@@ -66,8 +66,7 @@ public class JSONService {
         boolean okselect = personatgeEnviatPelClient.select();
 
         if(!okselect || personatgeEnviatPelClient.getNivel() != nivellPrevio) {
-            personatgeEnviatPelClient.setNivel(nivellPrevio);
-            personatgeEnviatPelClient.insert();
+            personatgeEnviatPelClient.subirNivelBaseDeDatos(personatgeEnviatPelClient.getId(),nivellPrevio);
         }
         Jugador j = new Jugador();
         j.setId(idJugador);
@@ -76,6 +75,7 @@ public class JSONService {
         boolean existeix = false;
         for( Personatge p : j.getPersonatges()){
             if(p.id == personatgeEnviatPelClient.id){
+                personatgeEnviatPelClient = p;
                 existeix = true;
             }
         }

@@ -102,7 +102,7 @@ public class Mapa {
     public static DAOMapa miMapa(Personatge mipersonaje) {
         DAOMapa mimapa = readMapFromile(mipersonaje.getNivel());
         mimapa.setNivel(mipersonaje.getNivel());
-        mimapa.putElement(0,1,mipersonaje);
+        mimapa.putElement(1,1,mipersonaje);
         return mimapa;
     }
 

@@ -137,7 +137,7 @@ public class Mundo {
     public String newGame(Personatge personatge,int idJugador) {
         DAOMapa mimapa = Mapa.miMapa(personatge);
         ObjectMapper mapper = new ObjectMapper();
-        mimapa.upsert(idJugador);
+        mimapa.upsert(idJugador);//guardem nova partida
         mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
         try {
             return mapper.writeValueAsString(mimapa);

@@ -8,5 +8,5 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 @JsonTypeName("porta")
 public class PortaCell implements Drawable {
-
+    public PortaCell(){}
 }

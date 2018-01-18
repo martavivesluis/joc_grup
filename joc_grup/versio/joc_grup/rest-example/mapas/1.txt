@@ -11,7 +11,7 @@
                             "java.util.ArrayList",
                             [
                                 [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
+                                    "edu.upc.dsa.beans.mapa.PortaCellOberta",
                                     {}
                                 ],
                                 [
@@ -19,7 +19,7 @@
                                     {}
                                 ],
                                 [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
+                                    "edu.upc.dsa.beans.mapa.PortaCellOberta",
                                     {}
                                 ],
                                 [
