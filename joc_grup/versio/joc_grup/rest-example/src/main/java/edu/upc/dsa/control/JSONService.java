@@ -6,8 +6,10 @@ import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 
 import edu.upc.dsa.DAOG.DAO;
+import edu.upc.dsa.DAOG.DAOMapa;
 import edu.upc.dsa.DAOG.RelacioPersonatgeJugador;
 import edu.upc.dsa.beans.*;
+import edu.upc.dsa.beans.mapa.Mapa;
 
 @Path("/json")//porta
 public class JSONService {
@@ -95,7 +97,22 @@ public class JSONService {
     public String getMapa(@PathParam("idJugador")int id) {
        return miMundo.loadMapFromDbAndStringifyIt(id);
     }
-
+    @POST
+    @Path("/SaveMapa/{idJugador}")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces(MediaType.APPLICATION_JSON)
+    public int saveMapa(@PathParam("idJugador")int id, Mapa aguardar)//0.txt correctamente creada
+    {
+        System.out.println("-----------------------OLA-------------------------");
+        /*try {
+            aguardar.upsert(id);
+            return 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }*/
+        return 0;
+    }
     /**************************Creacio nova partida**************************/
     @POST
     @Path("/newPartida/")
