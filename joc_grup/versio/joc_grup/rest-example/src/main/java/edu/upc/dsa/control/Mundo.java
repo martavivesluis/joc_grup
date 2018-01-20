@@ -161,6 +161,9 @@ public class Mundo {
 
     }
 
+    public String actualizarPersonaje(Personatge p) {
+       return p.actualitzarPersonatge(p);
+    }
 }
 
 

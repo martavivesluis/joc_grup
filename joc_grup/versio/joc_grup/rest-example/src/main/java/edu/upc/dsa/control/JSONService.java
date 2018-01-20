@@ -97,6 +97,18 @@ public class JSONService {
     public String getMapa(@PathParam("idJugador")int id) {
        return miMundo.loadMapFromDbAndStringifyIt(id);
     }
+
+    /******************** funcio actualitzar personatge***********************/
+    @POST
+    @Path("/ActualizeTheCharacter")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces(MediaType.APPLICATION_JSON)
+    public String ActualizeTheCharacter(Personatge p){
+        return miMundo.actualizarPersonaje(p);
+
+    }
+
+
     @POST
     @Path("/SaveMapa/{idJugador}")
     @Consumes({MediaType.APPLICATION_JSON})

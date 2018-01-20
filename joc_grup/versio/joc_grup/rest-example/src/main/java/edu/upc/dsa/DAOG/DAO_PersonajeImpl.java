@@ -1,7 +1,7 @@
 package edu.upc.dsa.DAOG;
 
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 import edu.upc.dsa.beans.Personatge;
-import edu.upc.dsa.beans.mapa.Drawable;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -32,7 +32,8 @@ public class DAO_PersonajeImpl extends DAO implements DAO_Personaje {
 
     }
 
-    public void actualitzarPersonatge(Personatge p) {
+    public String actualitzarPersonatge(Personatge p){
+        String response ="OK";
         int i = 0;
         Connection conn = null;
         try {
@@ -47,13 +48,19 @@ public class DAO_PersonajeImpl extends DAO implements DAO_Personaje {
             relacioPersonatgeObjecte myRelation = new relacioPersonatgeObjecte(p.getArrMisObjetos().get(i).getId(), p.getId());
             try {
                 myRelation.insert();
+                i++;
+
+            }  catch (MySQLIntegrityConstraintViolationException e) {
+                i++;
+
             } catch (Exception e) {
-                e.printStackTrace();
+                response ="KO";
             }
+        }
 
-
+        return response;
         }
 
     }
 
-}
+
