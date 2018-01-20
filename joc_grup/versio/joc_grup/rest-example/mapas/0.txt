@@ -435,8 +435,16 @@
                                     {}
                                 ],
                                 [
-                                    "edu.upc.dsa.beans.mapa.EmptyCell",
-                                    {}
+                                  "edu.upc.dsa.beans.Objeto",
+                                   {
+                                   "id": 17,
+                                   "idAutogen": true,
+                                   "hasId": true,
+                                   "nombre": "excalibur",
+                                    "tipo": "espada",
+                                    "descripcion": "del rey arturo",
+                                    "valor": 10000
+                                     }
                                 ],
                                 [
                                     "edu.upc.dsa.beans.mapa.EmptyCell",
@@ -486,16 +494,8 @@
                             "java.util.ArrayList",
                             [
                                 [
-                                    "edu.upc.dsa.beans.Objeto",
-                                    {
-                                    "id": 17,
-                                    "idAutogen": true,
-                                    "hasId": true,
-                                    "nombre": "excalibur",
-                                    "tipo": "espada",
-                                    "descripcion": "del rey arturo",
-                                     "valor": 10000
-                                     }
+                                   "edu.upc.dsa.beans.mapa.ParedCell",
+                                 {}
                                 ],
                                 [
                                     "edu.upc.dsa.beans.mapa.ParedCell",
